@@ -1,0 +1,43 @@
+\documentclass[12pt,oneside]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage[english]{babel}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{unicode-math}
+\usepackage{fontspec}
+\usepackage{epigraph}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\setmathfont{Latin Modern Math}
+\setmathfont[range=\setminus]{XITS Math}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[perpage]{footmisc}
+
+
+\setlength{\epigraphwidth}{.8\textwidth}
+
+% USEFUL MATH TOOLS
+\input{defs}
+
+
+%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+% TITLEPAGE
+\title{Notes on Number Theory}
+\author{\small\textit{Pol Gómez Riquelme}}
+\date{June 2018 -- ?}
+\maketitle
+
+\tableofcontents
+\pagebreak
+
+\input{algebra}
+\input{afields}
+
+
+\end{document}
