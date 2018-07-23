@@ -1,3 +1,80 @@
 \section{Ideals}
 
 This section culminates in the definition and finiteness result of the `class group' of an algebraic number field.
+
+
+---
+
+\todo{Show that unique factorization fails in general in $\calO_K$}
+
+---
+
+\subsection{Basic results, Dedekind domains}
+
+\begin{theorem}
+	The ring $\calO_K$ is noetherian, integrally closed, and every prime ideal $\frakp\neq 0$ is a maximal ideal.
+\end{theorem}
+\begin{proof}
+	Let $\fraka$ be an ideal of $\calO_K$; in particular, it is an $\calO_K$-submodule. Since $\calO_K$ is a free $\bbZ$-module, $\fraka$ is necessarily a free $\bbZ$-module by $A$ being a PID and hence noetheiran. (redundant: so in particular $\fraka$ is a finitely generated $\calO_K$-submodule. By (??) again, $\fraka$ is a free $\bbZ$-module as well.) Thus $\calO_K$ is noetherian.
+	
+	That $\calO_K$ is integrally closed is given by definition (it is the integral closure of $\bbZ$ in $K$).
+
+	Finally, let $\frakp\neq 0$ be a prime ideal; we want to show that $\frakp$ is maximal, i.e. that $\calO_K/\frakp$ is a field. In fact, note that $\calO_k/\frakp$ is a finite integral domain, hence $\calO_k/\frakp$ is a field.
+\end{proof}
+
+
+These properties motivate the following definition:
+
+\begin{definition}
+	A noetherian, integrally closed integral domain in which every non-zero prime ideal is maximal is called a \emph{Dedekind domain}.
+\end{definition}
+
+Consider an arbitrary Dedekind domain $\calO$, and denote by $K$ its field of fractions. Given two ideals $\fraka$ and $\frakb$ of $\calO$, we say that $\fraka$ divides $\frakb$ and write $\fraka\mid\frakb$ if $\frakb\subseteq\fraka$. We define $\fraka+\frakb=\{a+b\mid a\in\fraka, b\in\frakb\}$ and $\fraka\frakb = \{\sum_i a_ib_i \mid a_i\in\fraka, b_i\in\frakb\}$.
+
+To prove unique factorization of ideals, we require two lemmas.
+
+\begin{lemma}
+	If $\fraka\neq 0$ is an ideal of $\calO$, then there exist non-zero prime ideals $\frakp_1,\dots,\frakp_r$ such that $\fraka\supseteq\frakp_1\cdots\frakp_r$.
+\end{lemma}
+\begin{proof}
+	Let $\frakM$ be the set of ideals of $\calO$ which do not satisfy this condition, and assume it is non-empty. We order $\frakM$ by inclusion, and by $\calO$ being noetherian we get a maximal element $\fraka$, which is necessarily not a prime ideal. Hence we have $b_1,b_2\in\calO$ such that $b_1b_2\in\fraka$ but $b_1,b_2\notin\fraka$. Let $\fraka_1 = (b_1) + \fraka$ and $\fraka_2 = (b_2) + \fraka$, so that $\fraka\subset\fraka_1$, $\fraka\subset\fraka_2$ and $\fraka_1\fraka_2\subset\fraka$. By $\fraka$ being maximal, $\fraka_1$ and $\fraka_2$ are not in $\frakM$ so they must contain a product of prime ideals, which implies that $\fraka$ contains one too, a contradicition.
+\end{proof}
+
+Fix a prime ideal $\frakp$ of $\calO$ and define
+\[
+	\frakp\inv = \{x\in K\mid x\frakp\subseteq\calO\}.
+\]
+Note that $\frakp\inv$ lies in $K$, not in $\calO$. It consists of elements in $K$ that are brought to lie in $\calO$ through multiplication by $\frakp$, i.e. fractions that have some element of $\frakp$ in the denominator\todo{Careful!}.
+
+\begin{lemma}
+	For every ideal $\fraka\neq 0$ of $\calO$ we have $\fraka\frakp\inv\neq\fraka$.
+\end{lemma}
+\begin{proof}
+	We will first show that $\frakp\inv\neq\calO$. Then, assuming that $\fraka\frakp\inv=\fraka$, we will derive the contradiction $\frakp\inv=\calO$.
+
+	Fix $a\in\frakp$ non-zero; we have a sequence of primes $\frakp_1\cdots\frakp_r\subseteq (a)\subseteq\frakp$ by the previous lemma. We claim that one of $\frakp_i$ is contained in $\frakp$: otherwise for every $i$ there would be some $a_i\in\frakp_i\setminus\frakp$ such that $a_1\cdots a_r\in\frakp$, but $\frakp$ is prime, which implies that one of the $a_i$ has to be in $\frakp$, a contradiction. Hence say $\frakp_1\subseteq\frakp$. Since prime ideals are maximal, we have $\frakp_1=\frakp$, so $\frakp\frakp_2\cdots\frakp_r\subseteq(a)\subseteq\frakp$. Then $\frakp_2\cdots\frakp_r\not\subseteq(a)$ (?? why? by prime ideals being maximal? ??), so there exists some $b\in\frakp_2\cdots\frakp_r$ with $b\notin a\calO$, i.e. $a\inv b\notin\calO$. But also $b\frakp\subseteq(a)$ (?? why ??) so $a\inv b\frakp\subseteq\calO$, and thus $a\inv b\in\frakp\inv$. Hence $\frakp\inv\neq\calO$, since $a\inv b\notin\calO$.
+
+	Now let $\fraka\neq 0$ be an ideal of $\calO$ and $\alpha_1,\dots,\alpha_n$ a system of generators for $\fraka$. We assume that $\fraka\frakp\inv=\fraka$ for the sake of contradiction. Then for every $x\in\frakp\inv$ we have $x\alpha_i\in\fraka$, so
+	\[
+		x\alpha_i = \sum_j a_{ij}\alpha_j.
+	\]
+	Writing $A=(x\delta_{ij} - a_{ij})$ we get $A(\alpha_1,\dots,\alpha_n)^t=0$, so with $d=\det(A)$ we have $d\alpha_1=\cdots=d\alpha_n=0$, which implies that $d=0$. Hence $x$ solves the monic polyonomial $f(X)=\det(X\delta_{ij}-a_{ij})$ with coefficients in $\calO$, i.e. $x$ is integral so $x\in\calO$. The choice of $x$ was arbitrary, so $\frakp\inv=\calO$, a contradiction.
+	
+\end{proof}
+
+\subsection{Unique factorization}
+
+We are now ready to tackle unique factorization in Dedekind domains: we will do so in three steps.
+
+\emph{Existence.} Let $\frakM$ be the set of ideals in $\calO$ which do not admit a unique factorization in prime ideals, excluding $(0)$ and $(1)$, and assume it is non-empty. As before, order $\frakM$ by inclusion and choose a maximal element $\fraka$. It is a basic result that $\fraka$ is contained in a maximal (i.e. prime) ideal $\frakp$, and the trivial inclusion $\calO\subseteq\frakp\inv$ gives $\fraka\subseteq\fraka\frakp\inv$, which together with $\fraka\subseteq\frakp$ give
+\[
+	\fraka\subseteq\fraka\frakp\inv\subseteq\frakp\frakp\inv\subseteq\calO.
+\]
+
+We also have $\frakp\subseteq\frakp\frakp\inv$, and our last lemma gives \emph{proper} inclusions $\frakp\subset\frakp\frakp\inv$ and $\fraka\subset\fraka\frakp\inv$, but $\frakp$ is maximal, so necessarily $\frakp\frakp\inv=\calO$.
+
+Looking back, we have that $\fraka$ is maximal in $\frakM$, and proper inclusions $\fraka\subset\fraka\frakp\inv\subset\calO$. Since $\fraka\frakp\inv$ admits a factorization in prime ideals $\fraka\frakp\inv=\frakp_1\cdots\frakp_r$, so does $\fraka$ by $\fraka=\frakp_1\cdots\frakp_r\frakp$, which is a contradiction. Hence $\frakM$ is empty, and every ideal of $\calO$ can be factorized as a product of prime ideals.
+
+\emph{Step 2:}
+
+\emph{Step 3:}

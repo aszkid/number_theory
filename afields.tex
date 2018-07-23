@@ -376,3 +376,18 @@ For most of our upcoming work, we require $A$ to be a principal ideal domain. Th
 	that is $\rank(M)=[L:K]$.
 \end{proof}
 
+The following proposition states that one can construct integral bases for field meets 
+
+\begin{proposition}
+	Let $L\mid K$ and $L'\mid K$ be two Galois extensions of degree $n$ and $n'$ resp., such that $L\cap L'=K$. Let $\omega_1,\dots,\omega_n$ and $\omega_1',\dots,\omega_{n'}'$ be an integral basis of $L\mid K$ and $L'\mid K$ resp., with discriminant $d$ and $d'$ respectively. If $d$ and $d'$ are relatively prime in the sense that $xd+x'd'=1$, for suitable $x,x'\in A$. Then $\omega_i\omega_j'$ is an integral basis of $LL'$ of discriminant $d^{n'}d'^{n}$.
+\end{proposition}
+(proof omitted\todo{Reflect on this.})
+
+Looking back to the usual integral closure $\calO_K\subset K$ of $\bbZ\subset\bbQ$ in some algebraic number field $K$, the immediate application of these results on integral bases gives every finitely generated $\calO_K$-submodule $\fraka$ of $K$ a $\bbZ$-basis $\alpha_1,\dots,\alpha_n$, i.e. $\fraka = \alpha_1\bbZ+\cdots+\alpha_n\bbZ$. Since the discriminant $d(\alpha_1,\dots,\alpha_n)$ is independent of our choice of $\bbZ$-basis, we can simply write $d(\fraka)=d(\alpha_1,\dots,\alpha_n)$.
+
+In particular, given an integral basis $\omega_1,\dots,\omega_n$ of $\calO_K$, we define the \emph{discriminant of the algebraic number field $K$} as
+\[
+	d_K = d(\calO_K) = d(\omega_1,\dots,\omega_n).
+\]
+
+(write $d(\fraka)=(\fraka':\fraka)^2d(\fraka')$)
