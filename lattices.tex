@@ -1,0 +1,201 @@
+\section{Minkowski theory}
+
+A good amount of fundamental questions in number theory (including the finiteness result of the class group) can be answered through the study of certain geometric aspects of number fields. To be more specific, one considers points of an $n$-dimensional algebraic number field $K\mid\bbQ$ as points in $n$-dimensional complex space.
+
+\subsection{Lattices}
+
+\begin{definition}
+	Let $V$ be an $n$-dimensional $\bbR$-vector space. A \emph{lattice} in $V$ is a subgroup of the form
+	\[
+		\Gamma = \bbZ v_1 + \cdots + \bbZ v_m
+	\]
+	with linearly independent vectors $v_1,\dots,v_m\in V$. The $m$-tuple $(v_1,\dots,v_m)$ is called a \emph{basis} for the lattice and the set
+	\[
+		\Phi = \{x_1v_1 + \cdots + x_mv_m \mid x_i\in\bbR, 0\leq x_i< 1\}
+	\]
+	a \emph{fundamental mesh} of the lattice. It is called \emph{complete} or a \emph{$\bbZ$-structure} of $V$ if $m=n$.
+\end{definition}
+
+Note that a complete lattice is `complete' in the sense that translates of $\Phi$ cover all of $V$.
+
+For our applications to number fields, we prefer to characterize lattices without referring to `linearly independent' vectors. To begin with, lattices are finitely generated subgroups of $V$, but not necessarily the other way around (e.g. $\bbZ+\bbZ\sqrt{2}$ is a subgroup of $V=\bbR$ but not a lattice, since 1 and $\sqrt{2}$ are not linearly independent). The full characterization considers lattices $\Gamma=\bbZ v_1 + \cdots + \bbZ v_m$ as \emph{discrete subgroups} of $V$: every point $\gamma\in\Gamma$ must have a neighborhood in which no other point of the lattice is contained, i.e. it must be isolated.
+
+\begin{proposition}
+	A subgroup $\Gamma\subseteq V$ is a lattice if and only if it is discrete.
+\end{proposition}
+\begin{proof}
+	($\Longrightarrow$) Fix $\gamma\in\Gamma$, so that $\gamma=a_1v_1+\cdots+a_mv_m$ with $a_i\in\bbZ$. Extend the basis of $\Gamma$ to a basis of $V$; then the set
+	\[
+		\{x_1v_1 + \cdots + x_nv_n \mid x_i\in\bbR, |x_i-a_i|<1\}
+	\]
+	is a neighborhood in which $\gamma$ is isolated. Hence $\Gamma$ is discrete.
+
+	($\Longleftarrow$) We first show that $\Gamma$ being a discrete subgroup of $V$ implies that it is closed: for choose any neighborhood $U$ of 0, then there is a smaller neighborhood $U'\subseteq U$ of 0 such that any difference of vectors in $U'$ is in $U$ (just make $U'$ small enough). If there were some $x\notin\Gamma$ in the closure of $\Gamma$, then $x+U'$ would contain a difference $\gamma_1-\gamma_2\in x+U'$ of distinct lattice points $\gamma_1,\gamma_2\in\Gamma$, but then $0\neq \gamma_1-\gamma_2\in U$, so the arbitary neighborhood $U$ around 0 contains the lattice point $\gamma_1-\gamma_2$, i.e. 0 is not isolated, so $\Gamma$ is not a discrete subgroup of $V$, a contradiction. Hence $\Gamma$ is closed.
+
+	We now show that $\Gamma$ can be given a basis in the lattice sense, with linearly independent vectors. Let $V_0$ the be the linear subspace of $V$ spanned by $\Gamma$, and let $m$ be its dimension. Choose a basis $u_1,\dots,u_m\in\Gamma$ for $V_0$, and consider the complete lattice $\Gamma_0 = \bbZ u_1 + \cdots + \bbZ u_m \subseteq\Gamma$ of $V_0$. We claim that $q=(\Gamma:\Gamma_0)$ is finite, \todo{Do.}\dots. Let $\gamma_i\in\Gamma$ vary over a system of representatives of the cosets in $\Gamma/\Gamma_0$. Since $\Gamma_0$ is complete, translates of its fundamental mesh $\Phi_0$ cover $V_0$. Hence we can write \todo{Complete}.
+
+	Let $q=(\Gamma:\Gamma_0)$. For any coset $\gamma+\Gamma_0$ in the quotient we have $q(\gamma+\Gamma_0)=\Gamma_0$, but $q(\gamma+\Gamma_0)=q\gamma+\Gamma_0$, so $q\gamma\in\Gamma_0$. The choice of $\gamma\in\Gamma$ was arbitrary, so $q\Gamma\subseteq\Gamma_0$. Hence
+	\[
+		\Gamma\subseteq\frac{1}{q}\Gamma_0 = \bbZ\left(\frac{1}{q}u_1\right) + \cdots + \bbZ\left(\frac{1}{q}u_m\right).
+	\]
+
+	By classification of finitely generated abelian groups, $\Gamma$ admits a $\bbZ$-basis $\{v_i\}$ of dimension $r\leq m$. But recall that $\Gamma$ spans $V_0$, which is $m$-dimensional, so $r=m$ and the $v_i$ are linearly independent.
+\end{proof}
+
+The following lemma is a criterion for identifying complete lattices.
+
+\begin{lemma}
+	A lattice $\Gamma$ in $V$ is complete if and only if there exists a bounded subset $M\subseteq V$ such that the collection of all translates $M+\gamma$, with $\gamma\in\Gamma$, covers all of $V$.
+\end{lemma}
+\begin{proof}
+	\todo{Do!}
+\end{proof}
+
+
+Restricting our attention to the case where $V$ is an euclidean real vector space, i.e. equipped with a symmetric, positive definite bilinear form $\langle,\rangle:V\times V\to\bbR$
+
+(... notation, Haar measure ...)
+
+A subset $X$ of $V$ is \emph{centrally symmetric} if, given any $x\in X$, the point $-x$ is also in $X$. The subset is \emph{convex} if the line segment joining two points $x,y\in X$ is contained in $X$.
+
+\begin{theorem}[Minkowski's Lattice Point Theorem]
+	Let $\Gamma$ be a complete lattice in the euclidean vector space $V$ and $X$ a centrally symmetric, convex subset of $V$. Suppose that $\vol(X) > 2^n\vol(\Gamma)$. Then $X$ contains at least one non-zero lattice point of $\Gamma$.
+\end{theorem}
+\begin{proof}
+	If we find two distinct lattice points $\gamma_1,\gamma_2\in\Gamma$ such that
+	\[
+		\left(\frac{1}{2}X + \gamma_1\right)\cap\left(\frac{1}{2}X + \gamma_2\right) \neq \emptyset,
+	\]
+	we get a pair of points $x_1,x_2\in X$ such that
+	\[
+		\left(\frac{1}{2}x_1 + \gamma_1\right) = \left(\frac{1}{2}x_2 + \gamma_2\right),
+	\]
+	so $\gamma=\gamma_1-\gamma_2=\frac{1}{2}x_1-\frac{1}{2}x_2$ is a lattice point, and the midpoint between $x_1$ and $-x_2$ (which is in $X$ by central symmetry), so $\gamma\in X$ by $X$ being convex. Hence $\gamma\in\Gamma\cap X$.
+
+
+	Assume that the two sets above were disjoint for any pair of lattice points; then $\Phi\cap\left(\frac{1}{2}X+\gamma\right)$ are also pairwise disjoint for any fundamental mesh $\Phi$, so 
+	\[
+		\vol(\Phi) \geq \sum_{\gamma\in\Gamma} \vol\left(\Phi\cap\left(\frac{1}{2}X+\gamma\right)\right).
+	\]
+
+	But translating $\Phi\cap\left(\frac{1}{2}X+\gamma\right)$ by $-\gamma$ gives $(\Phi-\gamma)\cap\frac{1}{2}X$, which has equal volume, and $\Phi-\gamma$ ranging over $\Gamma$ cover all of $V$, hence also $\frac{1}{2}X$. Therefore
+	\begin{align*}
+		\vol(\Phi) \geq \sum_{\gamma\in\Gamma} \vol\left(\Phi\cap\left(\frac{1}{2}X+\gamma\right)\right) &= \sum_{\gamma\in\Gamma}\vol\left((\Phi-\gamma)\cap\frac{1}{2}X\right)\\
+			&= \vol\left(\frac{1}{2}X\right)\\
+			&= \frac{1}{2^n}\vol(X),
+	\end{align*}
+	a contradiction.
+\end{proof}
+
+In other words; a `nice' (centrally symmetric, convex), `large enough' (volume condition) subset of $V$ always contains a lattice point.
+
+
+\subsection{Setup in number fields}
+
+In a nutshell, we will construct a vector space $K_\bbR$ from an arbitrary number field $K\mid\bbQ$ that will turn out to be isomorphic to a real euclidean vector space. Minkowski theory will apply, and in particular we will show that the volume of a lattice in $K_\bbR$ has volume bounded by a value depending on the discriminant $d_K$ and ...
+
+We start by defining the $\bbC$-vector space $K_\bbC := \prod_\tau \bbC$ as the product of the complex plane indexed by all $n$ complex embeddings $\tau:K\to\bbC$, and the canonical map $j:K\to K_\bbC$ sending each $a\in K$ to the vector $(\tau a)$.
+
+Remember that the Galois group $G(\bbC\mid\bbR)$ is generated by complex conugation $F:z\mapsto\overline{z}$. This conjugation map acts on factors of $\prod_\tau\bbC$ and on the indexes themselves, by taking $\tau\mapsto\overline{\tau}$. In particular, we get the involution $F:K_\bbC\to K_\bbC$ that takes points $z=(z_\tau)\in K_\bbC$ to $(Fz)_\tau = \overline{z}_{\overline{\tau}}$. A nice fact on which we will rely heavily is the property that the usual scalar product is equivariant under $F$, i.e.
+\[
+	\langle Fx,Fy \rangle = F\langle x,y \rangle.
+\]
+
+Finally, we define a trace $\Tr:K_\bbC\to\bbC$ by $\Tr(z) = \sum_\tau z_\tau$, which is again equivariant under $F$. Note that the composition of maps
+\begin{center}
+	\begin{tikzcd}
+		K \arrow[r,"j"] & K_\bbC \arrow[r,"\Tr"] & \bbC
+	\end{tikzcd}
+\end{center}
+
+gives $\Tr\circ j(a) = \Tr((\tau a)_\tau) = \sum_\tau \tau a$ the usual trace $\Tr_{\bbC\mid\bbR}$.
+
+We now restrict our attention to the real vector space $K_\bbR = K_\bbC^+ = \left[\prod_\tau\bbC\right]^+$, consisting of the $G(\bbC\mid\bbR)$-invariant, i.e. conjugation-invariant points of $K_\bbC$; that is, $(z_\tau)\in K_\bbC$ for which $z_{\overline{\tau}}=\overline{z}_\tau$. Indeed, for such a point we have $(\overline{z})_{\overline{\tau}}= \overline{\overline{z}}_\tau = z_\tau$. (...\todo{More properties, scalar product})
+
+On $K_\bbR$, we have $\Tr\circ F = F\circ\Tr$, so 
+
+We call the euclidean space $K_\bbR$ the \emph{Minkowski space} of $K$, its scalar product the \emph{canonical metric}, and the associated Haar measure the \emph{canonical measure}. We also have that (..\todo{elaborate}) the trace restricted to $K_\bbR$ precomposed with $j:K\to K_\bbR$
+
+
+
+
+\begin{proposition}
+	There is an isomorphism
+	\[
+		f : K_\bbR \to \prod_\tau \bbR = \bbR^{r+2s}
+	\]
+	given by $(z_\tau)\mapsto(x_\tau)$, where
+	\begin{align*}
+		x_\rho = z_\rho, x_\sigma = \Re(z_\sigma), x_{\overline{\sigma}} = \Im(z_\sigma).
+	\end{align*}
+\end{proposition}
+\begin{proof}
+	We have...
+\end{proof}
+
+
+The map $j:K\to K_\bbR$, which `embeds' the number field $K$ into the euclidean vector space $K_\bbR$, is the beginning of our study of `geometric' number theory.
+
+\begin{proposition}
+	If $\fraka\neq 0$ is an ideal of $\calO_K$, then $\Gamma=j\fraka$ is a complete lattice in $K_\bbR$. Its fundamental mesh has volume
+	\[
+		\vol(\Gamma) = \sqrt{|d_K|}(\calO_K:\fraka).
+	\]
+\end{proposition}
+\begin{proof}
+	Let $\alpha_1,\dots,\alpha_n$ be a $\bbZ$-basis for $\fraka$, i.e.
+	\begin{align*}
+		\Gamma = j\fraka &= j\left(\bbZ\alpha_1+\cdots+\bbZ\alpha_n\right)\\
+			&= \bbZ j\alpha_1 + \cdots + \bbZ j\alpha_n,
+	\end{align*}
+	so $j\fraka$ is a lattice in $K_\bbR$. To see that it is complete, notice that
+
+	Enumerate all the embeddings $\tau_i:K\to\bbC$, and we have a matrix $A=(\tau_i\alpha_j)$, which relates to the discriminant of $\fraka$ by
+	\begin{align*}
+		d(\fraka) = d(\alpha_1,\dots,\alpha_n) &= (\det A)^2\\
+			&= (\calO_K:\fraka)^2 d_K,
+	\end{align*}
+	and
+	\begin{align*}
+		(\langle j\alpha_i, j\alpha_k\rangle) &= (\sum_{l=1}^n \tau_l\alpha_i \overline{\tau}_l\alpha_k)\\
+			&= A\overline{A}^t,
+	\end{align*}
+	so 
+	\begin{align*}
+		\vol(\Gamma) &= \left|\det(\langle j\alpha_i,j\alpha_k\rangle)\right|^{1/2}\\
+			&= \sqrt{|d_K|}(\calO_K:\fraka).
+	\end{align*}
+\end{proof}
+
+The following result, chiefly using Minkowski's lattice theorem, is the fundamental tool in our next results on $Cl_K$.
+
+\begin{theorem}
+	Let $\fraka\neq 0$ be an integral ideal of $K$, and let $c_\tau>0$, for $\tau\in\Hom(K,\bbC)$, be real numbers such that $c_\tau=c_{\overline{\tau}}$ and
+	\[
+		\prod_\tau c_\tau > A(\calO_k:\fraka),
+	\]
+	where $A=\left(\frac{2}{\pi}\right)^s\sqrt{|d_K|}$. Then there exists $a\in\fraka$, $a\neq 0$, such that
+	\[
+		|\tau a| < c_\tau
+	\]
+	for all $\tau\in\Hom(K,\bbC)$.
+\end{theorem}
+\begin{proof}
+	Let $X=\{(z_\tau)\in K_\bbR \mid |z_\tau| < c_\tau\}$. We claim that this set is centrally symmetric and convex. We bring $X$ over to euclidean space to compute its volume more easily, through the isomorphism we have defined in (??). Hence its volume is $2^s$ times the Lebesgue volume of the image
+	\[
+		f(X) = \{(x_\tau)\in\prod_\tau\bbR \mid |x_\rho| < c_\rho, x_{\sigma}^2+x_{\overline{\sigma}}^2 < c_{\sigma}^2\},
+	\]
+	i.e.
+	\begin{align*}
+		\vol(X) = 2^s \vol_{\text{Lebesgue}}(f(X)) &= 2^s\prod_\rho(2c_\rho)\prod_\sigma(\pi c_\sigma^2)\\
+		&= 2^{r+s}\pi^s \prod_\tau c_\tau\\
+		&> 2^{r+s}\pi^s \left(\frac{2}{\pi}\right)^s\sqrt{|d_K|}(\calO_K:\fraka)\\
+		&= 2^{r+2s}\sqrt{|d_K|}(\calO_K:\fraka) = 2^n\vol(\Gamma),
+	\end{align*}
+
+	the last equality given by our previous proposition. Since $\Gamma$ is complete in $K_\bbR$ and $X$ centrally symmetric, convex and with large enough volume, our setup satisfies the conditions of the Minkowski lattice point theorem. This immediately gives a lattice point $\gamma$ in $X$, i.e. some $a\in\fraka$ for which $|\tau a|<c_\tau$ for all $\tau\in\Hom(K,\bbC)$.
+\end{proof}
+
+
+
+\subsection{Applications -- Class Number}

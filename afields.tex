@@ -390,4 +390,23 @@ In particular, given an integral basis $\omega_1,\dots,\omega_n$ of $\calO_K$, w
 	d_K = d(\calO_K) = d(\omega_1,\dots,\omega_n).
 \]
 
-(write $d(\fraka)=(\fraka':\fraka)^2d(\fraka')$)
+
+The following proposition that relates two $\calO_K$-submodules will be useful later.
+
+\begin{proposition}
+	If $\fraka\subseteq\fraka'$ are two non-zero finitely generated $\calO_K$-submodules of $K$, then the index $(\fraka:\fraka')$ is finite and satisfies
+	\[
+		d(\fraka) = (\fraka:\fraka')^2 d(\fraka').
+	\]
+\end{proposition}
+\begin{proof}
+	As $\bbZ$-modules, $\fraka$ and $\fraka'$ have the same rank (by classification theorem). Let $A$ denote the change of basis matrix from a $\bbZ$-basis $\calB$ of $\fraka'$ to a $\bbZ$-basis $\calC$ of $\fraka$. By the Smith normal form, we get invertible matrices $P$ and $Q$ such that $PAQ$ is diagonal. Write $\calB'=Q\inv\calB$ and $\calC'=P\calC$, bases of $\fraka'$ and $\fraka$ respectively. It follows (???) that $\calB'$ and $\calC'$ are stacked, so
+	\[
+		\fraka'/\fraka \cong \bbZ_{d_1} \oplus \cdots \oplus \bbZ_{d_n},
+	\]
+	with $d_i$ the diagonal entries of $PAQ$, hence $|\det(A)|=d_1\cdots d_n=(\fraka:\fraka')$. Therefore
+	\begin{align*}
+		d(\fraka) &= \det(A)^2 d(\fraka')\\
+			&= (\fraka:\fraka')^2 d(\fraka').
+	\end{align*}
+\end{proof}
