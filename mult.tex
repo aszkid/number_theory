@@ -1,0 +1,151 @@
+\section{Units of a number field}
+
+Q) In what sense is our usual setup for Minkowsky theory `additive'?
+
+Q) What do we need to reason about units of $\calO$?
+
+\subsection{Taking logarithms}
+
+Recall the canonical mapping $j:K\to K_\bbC$ taking $a\in K$ to the $(r+2s)$-dimensional vector $(\tau a)$. Note that if we restrict the domain to $K^*$ (the unit field of $K$), it is clear that embeddings into $\bbC$ map units to units, so we get a homomorphism
+\[
+	j : K^* \to K^*_\bbC.
+\]
+
+Following a similar construction to that of the trace, we define the `norm' homomorphism
+\[
+	\N : K^*_\bbC \to \bbC^*
+\]
+given by multiplying the coordinates. Again, taking the composite
+\begin{center}
+	\begin{tikzcd}
+		K^* \arrow[r,"j"] & K^*_\bbC \arrow[r,"\N"] & \bbC^*
+	\end{tikzcd}
+\end{center}
+gives the usual norm of $K\mid\bbQ$, i.e. $\N_{K\mid\bbQ}(a)=\N(ja)$. Our objective is to (?? understand why we do this, look at sec. 7 ??). The following diagram represents the bulk of our work:
+\begin{center}
+	\begin{tikzcd}
+		K^* \arrow[d,"\N_{K\mid\bbQ}"'] \arrow[r,"j"] & K^*_\bbC \arrow[d,"\N"] \arrow[r,"l"] & \prod_\tau \bbR \arrow[d,"\Tr"]\\
+		\bbQ^* \arrow[r,"\subset"] & \bbC^* \arrow[r,"l"] & \bbR.
+	\end{tikzcd}
+\end{center}
+
+The most logical choice of a homomorphism from $K^*_\bbC$ (a multiplicative group) to $\prod_\tau\bbR$ (an additive group) is to apply the logarithm. We define $l:\bbC^*\to\bbR$ by $l(z)=\log|z|$, and this of course extends to a (**surjective) $l:K^*_\bbC\to\prod_\tau\bbR$ by applying the logarithm on each coordinate. It is routine and requires no tricks to check that the diagram commutes.
+
+Now, recall that the involution $F$, an element of the Galois group $G(\bbC\mid\bbR)$, acts trivially on $K^*$ (?? why), on $K^*_\bbC$ as we defined in the previous section, and on any $(x_\tau)\in\prod_\tau\bbR$ by $(Fx)_\tau = x_{\overline{\tau}}$. As before, we restrict our attention to $G(\bbC\mid\bbR)$-invariant subgroups of the diagram above, and we get the following diagram:
+
+(...)
+
+\subsection{Dirichlet's unit theorem}
+
+First of all, we can be sure that $\calO^*_K$ contains the group of roots of unity in $K$, which is of course finite; we denote it by $\mu(K)$. Indeed, if $a\in K$ is a root of unity, its norm $\N_{K\mid\bbQ}(a)$ is the product of all the roots of unity, which by Vieta equals $\pm 1$ times the constant term of $x^n-1=0$. Hence $\N_{K\mid\bbQ}(a)=\pm 1$, so $a$ is a unit. It is clear that roots of unity, by the polynomial they solve, are integral over $K$ and thus $\mu(K)$ lies in $\calO^*_K$. This is all we can say about the units of a number field thus far.
+
+Consider the following subgroups of the upper part of the previous diagram:
+\begin{itemize}
+	\item $\calO^*_K = \{\epsilon\in\calO_K \mid \N_{K\mid\bbQ}(\epsilon) = \pm 1\}$, the group of units of $\calO_K$,
+	\item $S=\{y\in K^*_\bbR \mid \N(y)=\pm 1\}$, the ``norm-one surface'', and
+	\item $H=\{x\in\left[\prod_\tau\bbR\right]^+ \mid \Tr(x)=0\}$, the ``trace-zero hyperplane''.
+\end{itemize}
+
+These restrictions give homomorphisms
+\begin{center}
+	\begin{tikzcd}
+		\calO^*_K \arrow[r,"j"] & S \arrow[r,"l"] & H,
+	\end{tikzcd}
+\end{center}
+the composite of which, $\lambda := l\circ j$, gives an image that we denote by
+\[
+	\Gamma = \lambda(\calO_K) \subseteq H.
+\]
+
+\begin{proposition}
+The sequence
+\begin{center}
+	\begin{tikzcd}
+		1 \arrow[r] & \mu(K) \arrow[r,"\subset"] & \calO^*_K \arrow[r,"\lambda"] & \Gamma \arrow[r] & 0
+	\end{tikzcd}
+\end{center}
+is exact.
+\end{proposition}
+\begin{proof}
+	Fix $\xi\in\mu(K)$. We have
+	\begin{align*}
+		\lambda(\xi) = l\circ j(\xi) &= \left(\log|\tau\xi|\right)_\tau\\
+			&= (\log 1) = 0,
+	\end{align*}
+	so $\mu(K)\subseteq\ker\lambda$.
+
+	Now fix $\epsilon\in\calO^*_K$. We have $\lambda(\epsilon)=0$, so $\log|\tau\epsilon|=0$ for each embedding $\tau$, i.e. $|\tau\epsilon|=1$. This implies that $j\epsilon$ is bounded in $K_\bbR$, but bounded regions of the lattice $j\calO_K$ contain finitely many lattice points, so $\ker\lambda$ is finite. Since it also contains $\mu(K)$ and is a group under multiplication, it is clear that $\epsilon$ is necessarily a root of unity.
+
+	Hence $\ker\lambda\subseteq\mu(K)$, and thus $\ker\lambda=\mu(K)$.
+\end{proof}
+
+The following finiteness result will allow us to show that $\Gamma$ is a (complete) lattice in $H$.
+
+\begin{lemma}
+	Up to multiplication by units, there are only finitely many elements $\alpha\in\calO_K$ of given norm $\N_{K\mid\bbQ}(\alpha)=a$.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	The group $\Gamma$ is a complete lattice in the $(r+s-1)$-dimensional vector space $H$, and is therefore isomorphic to $\bbZ^{r+s-1}$.
+\end{theorem}
+
+Having established that $\Gamma$ has a nice $\bbZ$-module structure, understanding $\calO^*_K$ requires very little effort.
+
+\begin{theorem}[Dirichlet's unit theorem]
+	The group of units $\calO^*_K$ of $\calO_K$ is the direct product of the finite cyclic group $\mu(K)$ and a free abelian group of rank $r+s-1$ (over what??).
+\end{theorem}
+\begin{proof}
+	Recall the exact sequence
+	\begin{center}
+		\begin{tikzcd}
+			1 \arrow[r] & \mu(K) \arrow[r,"\subset"] & \calO^*_K \arrow[r,"\lambda"] & \Gamma \arrow[r] & 0.
+		\end{tikzcd}
+	\end{center}
+	Let $v_1,\dots,v_t$ be a $\bbZ$-basis of $\Gamma$, and $\epsilon_1,\dots,\epsilon_t\in\calO^*_K$ be preimages of the $v_i$. Denote by $A$ the subgroup of $\calO^*_K$ generated by the $\epsilon_i$, and note that $\mu(K)\cap A=\{1\}$, for $\lambda(\epsilon_i)\neq 0$ except for the trivial case (?? clarify ??). Hence $A$ maps isomorphically onto $\Gamma$ through $\lambda$, so $\calO^*_K=\mu(K)\times A$.
+
+	It is clear that $A$ is of rank $r+s-1$ over $\calO_K$.
+
+\end{proof}
+
+All this work shows that any unit $\epsilon\in\calO^*_K$ can be written uniquely as
+\[
+	\epsilon = \xi \epsilon_1^{v_1}\cdots\epsilon_t^{v_t},
+\]
+where $\xi$ is a root of unity and $\epsilon_i$ the ``fundamental'' units of $A$.
+
+
+\subsection{Example -- Pell's equation}
+
+\begin{proposition}
+	Let $D>1$ be a square-free integer and $d$ the discriminant of the real quadratic number field $K=\bbQ(\sqrt{D}))$. Let $x_1,y_1$ be the uniquely determined rational integer solution of one of the equations
+	\[
+		x^2-dy^2=\pm 4,
+	\]
+	with $x_1,y_1$ positive and as small as possible. Then
+	\[
+		\epsilon_1 = \frac{x_1+y_1\sqrt{d}}{2}
+	\]
+	is a fundamental unit of $K$.
+\end{proposition}
+\begin{proof}
+	First note that $x^2-dy^2=(x+y\sqrt{d})(x-y\sqrt{d})=\N_{K\mid\bbQ}(x+y\sqrt{d})$. Hence
+	\begin{align*}
+		\N_{K\mid\bbQ}(\epsilon_1)&=\N_{K\mid\bbQ}\left(\frac{x_1+y_1\sqrt{d}}{2}\right)\\
+			&= \N_{K\mid\bbQ}\left(\frac{1}{2}\right)\N_{K\mid\bbQ}\left(x_1+y_1\sqrt{d}\right)\\
+			&= \frac{\pm 4}{4} = \pm 1,
+	\end{align*}
+	i.e. $\epsilon_1$ is indeed \emph{a} unit of $K$.
+
+	\emph{Idea 1:} To prove that $\epsilon_1$ is a \emph{fundamental} unit of $K$, we show by contradiction that all units of $K$ can be written as a power of $\epsilon_1$. If it were not so, there would be a unit $u+v\sqrt{d}$ for which $\epsilon_1^n < u+v\sqrt{d} < \epsilon_1^{n+1}$ for all, and in particular, some $n>0$. Multiplying by the conjugate of $\epsilon_1$ a total of $n$ times, we get $1 < \overline{\epsilon_1}^n(u+v\sqrt{d}) < \epsilon_1$. Let $\beta = \overline{\epsilon_1}^n(u+v\sqrt{d}) = A+B\sqrt{d}$ and note that
+	\begin{align*}
+		A^2-dB^2 = \N_{K\mid\bbQ}\left(\beta\right) &= \N_{K\mid\bbQ}(\overline{\epsilon_1})^n \N_{K\mid\bbQ}(u+v\sqrt{d})\\
+			&= \pm 4,
+	\end{align*}
+	i.e. $\beta=A+B\sqrt{d} < \epsilon_1$ gives a solution to Pell's equation.
+
+	Show $A>0$, $B>0$? This contradicts the minimality of the solution $(x_1,y_1)$, so $\epsilon_1$ is a fundamental unit.
+
+	\emph{Idea 2:} To prove that $\epsilon_1$ is a \emph{fundamental} unit of $K$, note that $K$ is a real quadratic field, and hence has 2 purely real embeddings and 0 purely complex embeddings, thus $r+s-1=1$. By Dirichlet's unit theorem, we have $\calO^*_K \cong \bbZ_2\times\bbZ$, i.e. the group of units of $K$ has free rank 1. It suffices to show that $\epsilon_1$ has infinite order. If this were not the case, we would have $\epsilon_1^n=1$ for some $n>0$, but then $\epsilon_1$ would be a root of unity, either 1 or $-1$ since $K\subset\bbQ$. This is impossible by just inspecting $\epsilon_1$, for it is clearly irrational.
+\end{proof}

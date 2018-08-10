@@ -198,4 +198,104 @@ The following result, chiefly using Minkowski's lattice theorem, is the fundamen
 
 
 
-\subsection{Applications -- Class Number}
+\subsection{Class number}
+
+We want to show that $Cl_K=J_K/P_K$ is finite, i.e. that the number of classes of fractional ideals that differ by a multiple of a principel ideal is finite. Rough outline: show that under some sensible notion of the `norm' of an ideal, only finitely many ideals of $\calO_K$ are bounded above by some number. Then show that each class of $Cl_K$ has an integral ideal satisfying the same bound. Hence there are only finitely many classes, i.e. $Cl_K$ is finite.
+
+Given an integral ideal $\fraka$, denote its \emph{absolute norm} by
+\[
+	\frakN(\fraka) = (\calO_K:\fraka).
+\]
+
+This index is again finite by our previous considerations. In particular, this quantity is deserves its name by considering the case $\fraka=(\alpha)$, for which
+\[
+	\frakN\left((\alpha)\right) = |N_{K\mid\bbQ}(\alpha)|,
+\]
+sine a $\bbZ$-basis $\omega_1,\dots,\omega_n$ of $\calO_K$ gives a $\bbZ$-basis $\alpha\omega_1,\dots,\alpha\omega_n$ of $(\alpha)=\alpha\calO_K$, and the change of basis matrix $A$ gives $|\det(A)|=(\calO_K:(\alpha))$, but $\det(A)=N_{K\mid\bbQ}(\alpha)$ too by definition.
+
+We now show that the absolute norm is multiplicative over prime ideals.
+
+\begin{proposition}
+	If $\fraka=\frakp_1^{v_1}\cdots\frakp_r^{v_r}$ is the prime factorization of an ideal $\fraka\neq 0$, then we have
+	\[
+		\frakN(\fraka) = \frakN(\frakp_1)^{v_1}\cdots\frakN(\frakp_r)^{v_r}.
+	\]
+\end{proposition}
+\begin{proof}
+	By the Chinese remainder theorem, we have
+	\[
+		\calO_k/\fraka = (\calO_k/\frakp_1)^{v_1}\oplus\cdots\oplus(\calO_k/\frakp_r)^{v_r}.
+	\]
+	
+	Hence the absolute norm of any $\fraka$ is the product of powers of the norms of its prime factors. We thus consider only the case where $\fraka=\frakp^v$.
+
+	Note that the chain
+	\[
+		\frakp \supseteq \frakp^2 \supseteq \cdots \supseteq \frakp^v
+	\]
+	is proper, in the sense that $\frakp^i\neq\frakp^{i+1}$, by unique factorization. Furthermore, each quotient $\frakp^i/\frakp^{i+1}$ is a 1-dimensional $\calO_K/\frakp$-vector space: fix $a\in\frakp^i\setminus \frakp^{i+1}$ and let $\frakb=(a)+\frakp^{i+1}$. Then $\frakp^i\supseteq\frakb\supset\frakp^{i+1}$, and since $\frakb\frakp^{-i}$ cannot be a proper divisor of $\frakp=\frakp^{i+1}\frakp^{-i}$, for $\frakp$ is prime, we get that $\frakb=\frakp^i$, i.e. $a\pmod{\frakp^{i+1}}$ is a basis of $\frakp^i/\frakp^{i+1}$ as a 1-dimensional $\calO_K/\frakp$-vector space. Hence $\calO_K/\frakp\cong\frakp^i/\frakp^{i+1}$, and thus
+	\begin{align*}
+		\frakN(\frakp^v) = (\calO_K : \frakp^v) &= (\calO_K:\frakp)(\frakp:\frakp^2)\cdots(\frakp^{v-1}:\frakp^v)\\
+			&= (\calO_K:\frakp)^v\\
+			&= \frakN(\frakp)^v.
+	\end{align*}
+
+	The first equality concering indices is given by the following inductive argument. Let $M=M_0\supseteq M_1\supseteq \cdots\supseteq M_v$ be a sequence of modules for which each quotient $M_i/M_{i+1}$ is simple (it contains no non-zero proper submodules), and assume that $M$ is Noetherian and Artinian. Such a sequence takes the name of a \emph{composition sequence}, and by $M$ being Artinian we must have a finite $v$ for which $M_v=0$. In fact, we have (Eisenbud, 2.13) that any composition sequence of $M$ must have the same $v$, which we call its \emph{length}. We claim that, in general,
+	\[
+		|M| = \prod_{i=1}^{v-1} |M_i/M_{i+1}|.
+	\]
+
+	In fact, by the usual quotient homomorphism $M_0\to M_0/M_1$ we have $|M_0|=|M_0/M_1|\cdot|M_1|$. Again $M_1\to M_1/M_2$ gives $|M_1|=|M_1/M_2|\cdot|M_2|$, so $|M_0|=|M_0/M_1|\cdot|M_1/M_2|\cdot|M_2|$. It is clear that our equality follows.
+
+	Our inductive proof is as follows. For the base case, let $v=1$, and consider the quotient homomorphism $M_0\twoheadrightarrow M_0/M_1=M_0$: this trivially gives $|M|=|M_0|$. Now assume that the product equality holds for modules of length up to $v-1$, and let $M$ be a module of length $v$. Any chain $M=M_0\supseteq M_1\supseteq\cdots\supseteq M_v$ quotiented out by $M_v$ gives a module of length $v-1$, for which the theorem holds. Lifting to our original composition sequence, (...)
+	
+	For this particular setup, we have $M_i/M_{i+1}\cong\frakp^i/\frakp^{i+1}\cong\calO_K/\frakp$.
+\end{proof}
+
+This automatically gives that the absolute norm is multiplicative over all ideals, and thus can be extended to a homomorphism
+\[
+	\frakN : J_K \to \bbR^*_+.
+\]
+
+\begin{lemma}
+	In every ideal $\fraka\neq 0$ of $\calO_K$ there exists a non-zero $a\in\fraka$ such that
+	\[
+		|N_{K\mid\bbQ}(a)| \leq \left(\frac{2}{\pi}\right)^s\sqrt{|d_K|}\frakN(\fraka).
+	\]
+\end{lemma}
+\begin{proof}
+	Fix $\epsilon>0$, and choose positive real numbers $c_\tau$ for each $\tau\in\Hom(K,\bbC)$ such that $c_\tau = c_{\overline{\tau}}$ and
+	\[
+		\prod_\tau c_\tau = \left(\frac{2}{\pi}\right)^s\sqrt{|d_K|}\frakN(\fraka)+ \epsilon.
+	\]
+
+	Applying (??), we get some $a\in\fraka$, non-zero, for which $|\tau a|<c_\tau$. Hence
+	\begin{align*}
+		|N_{K\mid\bbQ}(a)| = \prod_\tau |\tau a| &< \prod_\tau c_\tau\\
+			&= \left(\frac{2}{\pi}\right)^s\sqrt{|d_K|}\frakN(\fraka)+ \epsilon
+	\end{align*}
+	Our choice of $\epsilon$ was arbitrary, so letting $\epsilon\to 0$ we get the desired inequality.
+\end{proof}
+
+\begin{theorem}
+	The ideal class group $Cl_K$ is finite. Its order $h_K=(J_K:P_K)$ is called the \emph{class number} of $K$.
+\end{theorem}
+\begin{proof}
+	Let $\frakp\neq 0$ be a prime ideal of $\calO_K$, and $\frakp\cap\bbZ=p\bbZ$. Then, as mentioned before, $\calO_K/\frakp$ is a finite field extension of $\bbZ/p\bbZ$ of degree, say, $f$. Hence $\frakN(\frakp)=p^f$. In the other direction, a fixed $p$ gives only finitely many ideals $\frakp$ such that $\frakp\cap\bbZ=p\bbZ$, for then $\frakp\mid(p)$ and $(p)$ has finitely many prime factors. Hence for any given bound $M$, since there are only finitely many primes $p_i\leq M$, we conclude that there are only finitely many prime ideals of absolute norm $\leq M$. This same result applies to arbitrary integral ideals, by unique factorization and $\frakN$ being multiplicative.
+
+	We only need to show that each class $[\fraka]\in Cl_K$ contains an integral ideal $\fraka_1$ with
+	\[
+		\frakN(\fraka_1) \leq M = \left(\frac{2}{\pi}\right)^s\sqrt{|d_K|}.
+	\]
+
+	In fact, choose any representative $\fraka$ of the class $[\fraka]$, and fix $\gamma\in\calO_K$ non-zero such that $\frakb=\gamma\fraka\inv\subseteq\calO_K$. By our previous lemma, we have some non-zero $\alpha\in\frakb$ for which
+	\begin{align*}
+		|N_{K\mid\bbQ}(\alpha)| \frakN(\frakb)\inv \leq \left(\frac{2}{\pi}\right)^s\sqrt{|d_K|},
+	\end{align*}
+	but in particular
+	\begin{align*}
+		|N_{K\mid\bbQ}(\alpha)| \frakN(\frakb)\inv &= \frakN((\alpha))\frakN(\frakb\inv)\\
+			&= \frakN((\alpha)\frakb\inv),
+	\end{align*}
+	so $\frakN(\alpha\frakb\inv)\leq M$. Letting $\fraka_1=\alpha\frakb\inv=\alpha\alpha\inv\fraka$, we have found an ideal in $[\fraka]$ for which the desired inequality holds. By our previous reasoning there are only finitely many such ideals, and so $Cl_K$ is finite.
+\end{proof}

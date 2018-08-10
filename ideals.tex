@@ -93,6 +93,15 @@ with $v_i>0$.
 
 Abuse of notation is common: if $\fraka=(a)$, we usually write $a$ in place of $(a)$ or $\fraka$.
 
+The following is a proposition that confirms our intuition of divisibility:
+
+\begin{proposition}
+	If $\fraka\subseteq\frakp$ where $\fraka$ is any ideal and $\frakp$ is prime, then $\frakp$ appears in the factorization of $\fraka$ into prime ideals.
+\end{proposition}
+\begin{proof}
+	Write $\fraka=\frakp_1\cdots\frakp_r$ by unique factorization. Then $\frakp_1\cdots\frakp_r\subseteq\frakp$, so $\frakp\mid\frakp_1\cdots\frakp_r$. By $\frakp$ being prime, necessarily $\frakp\mid\frakp_i$ for some $i$, but prime ideals are maximal and thus $\frakp=\frakp_i$.
+\end{proof}
+
 \subsection{Chinese remainder theorem}
 
 An analogue of the classical Chinese remainder theorem holds for any commutative ring with identity $\calO$. Consider any ideal $\fraka$ that can be written as a product of pair-wise coprime ideals $\fraka=\fraka_1\cdots\fraka_n$. First of all, we claim that
@@ -168,3 +177,9 @@ A good summary of the work we have done so far can be expressed in terms of the 
 	1 \to \calO^* \to K^* \to J_K \to Cl_K \to 1,
 \]
 where the map $\calO^*\to K^*$ is inclusion, $K^*\to J_K$ sends units $a$ to the principal ideal $(a)$ they generate, and $J_K\to Cl_K$ is the canonical quotient homomorphism. Intuitively, if $Cl_K$ turned out to be infinite, it would be as a consequence of having added `too many' ideals to $\calO$ to make unique factorization work. It is remarkable that the \emph{class number} (i.e. the cardinality of $Cl_K$) can be shown to be always finite (but not quite predictable).
+
+\begin{proposition}
+	The sequence above is exact.
+\end{proposition}
+\begin{proof}
+\end{proof}

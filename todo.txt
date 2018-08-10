@@ -1,0 +1,4 @@
+- add section on Artinian rings for 2.11 (2.12 in Neukirch)
+- write exposition on each section
+- write abstract and introduction
+- 
