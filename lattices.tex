@@ -4,7 +4,7 @@ A good amount of fundamental questions in number theory (including the finitenes
 
 \subsection{Lattices}
 
-\begin{definition}
+\begin{defn}
 	Let $V$ be an $n$-dimensional $\bbR$-vector space. A \emph{lattice} in $V$ is a subgroup of the form
 	\[
 		\Gamma = \bbZ v_1 + \cdots + \bbZ v_m
@@ -14,15 +14,15 @@ A good amount of fundamental questions in number theory (including the finitenes
 		\Phi = \{x_1v_1 + \cdots + x_mv_m \mid x_i\in\bbR, 0\leq x_i< 1\}
 	\]
 	a \emph{fundamental mesh} of the lattice. It is called \emph{complete} or a \emph{$\bbZ$-structure} of $V$ if $m=n$.
-\end{definition}
+\end{defn}
 
 Note that a complete lattice is `complete' in the sense that translates of $\Phi$ cover all of $V$.
 
 For our applications to number fields, we prefer to characterize lattices without referring to `linearly independent' vectors. To begin with, lattices are finitely generated subgroups of $V$, but not necessarily the other way around (e.g. $\bbZ+\bbZ\sqrt{2}$ is a subgroup of $V=\bbR$ but not a lattice, since 1 and $\sqrt{2}$ are not linearly independent). The full characterization considers lattices $\Gamma=\bbZ v_1 + \cdots + \bbZ v_m$ as \emph{discrete subgroups} of $V$: every point $\gamma\in\Gamma$ must have a neighborhood in which no other point of the lattice is contained, i.e. it must be isolated.
 
-\begin{proposition}
+\begin{prop}
 	A subgroup $\Gamma\subseteq V$ is a lattice if and only if it is discrete.
-\end{proposition}
+\end{prop}
 \begin{proof}
 	($\Longrightarrow$) Fix $\gamma\in\Gamma$, so that $\gamma=a_1v_1+\cdots+a_mv_m$ with $a_i\in\bbZ$. Extend the basis of $\Gamma$ to a basis of $V$; then the set
 	\[
@@ -44,9 +44,9 @@ For our applications to number fields, we prefer to characterize lattices withou
 
 The following lemma is a criterion for identifying complete lattices.
 
-\begin{lemma}
+\begin{lem}
 	A lattice $\Gamma$ in $V$ is complete if and only if there exists a bounded subset $M\subseteq V$ such that the collection of all translates $M+\gamma$, with $\gamma\in\Gamma$, covers all of $V$.
-\end{lemma}
+\end{lem}
 \begin{proof}
 	\todo{Do!}
 \end{proof}
@@ -58,9 +58,9 @@ Restricting our attention to the case where $V$ is an euclidean real vector spac
 
 A subset $X$ of $V$ is \emph{centrally symmetric} if, given any $x\in X$, the point $-x$ is also in $X$. The subset is \emph{convex} if the line segment joining two points $x,y\in X$ is contained in $X$.
 
-\begin{theorem}[Minkowski's Lattice Point Theorem]
+\begin{thm}[Minkowski's Lattice Point Theorem]
 	Let $\Gamma$ be a complete lattice in the euclidean vector space $V$ and $X$ a centrally symmetric, convex subset of $V$. Suppose that $\vol(X) > 2^n\vol(\Gamma)$. Then $X$ contains at least one non-zero lattice point of $\Gamma$.
-\end{theorem}
+\end{thm}
 \begin{proof}
 	If we find two distinct lattice points $\gamma_1,\gamma_2\in\Gamma$ such that
 	\[
@@ -119,7 +119,7 @@ We call the euclidean space $K_\bbR$ the \emph{Minkowski space} of $K$, its scal
 
 
 
-\begin{proposition}
+\begin{prop}
 	There is an isomorphism
 	\[
 		f : K_\bbR \to \prod_\tau \bbR = \bbR^{r+2s}
@@ -128,7 +128,7 @@ We call the euclidean space $K_\bbR$ the \emph{Minkowski space} of $K$, its scal
 	\begin{align*}
 		x_\rho = z_\rho, x_\sigma = \Re(z_\sigma), x_{\overline{\sigma}} = \Im(z_\sigma).
 	\end{align*}
-\end{proposition}
+\end{prop}
 \begin{proof}
 	We have...
 \end{proof}
@@ -136,12 +136,12 @@ We call the euclidean space $K_\bbR$ the \emph{Minkowski space} of $K$, its scal
 
 The map $j:K\to K_\bbR$, which `embeds' the number field $K$ into the euclidean vector space $K_\bbR$, is the beginning of our study of `geometric' number theory.
 
-\begin{proposition}
+\begin{prop}
 	If $\fraka\neq 0$ is an ideal of $\calO_K$, then $\Gamma=j\fraka$ is a complete lattice in $K_\bbR$. Its fundamental mesh has volume
 	\[
 		\vol(\Gamma) = \sqrt{|d_K|}(\calO_K:\fraka).
 	\]
-\end{proposition}
+\end{prop}
 \begin{proof}
 	Let $\alpha_1,\dots,\alpha_n$ be a $\bbZ$-basis for $\fraka$, i.e.
 	\begin{align*}
@@ -169,7 +169,7 @@ The map $j:K\to K_\bbR$, which `embeds' the number field $K$ into the euclidean 
 
 The following result, chiefly using Minkowski's lattice theorem, is the fundamental tool in our next results on $Cl_K$.
 
-\begin{theorem}
+\begin{thm}
 	Let $\fraka\neq 0$ be an integral ideal of $K$, and let $c_\tau>0$, for $\tau\in\Hom(K,\bbC)$, be real numbers such that $c_\tau=c_{\overline{\tau}}$ and
 	\[
 		\prod_\tau c_\tau > A(\calO_k:\fraka),
@@ -179,7 +179,7 @@ The following result, chiefly using Minkowski's lattice theorem, is the fundamen
 		|\tau a| < c_\tau
 	\]
 	for all $\tau\in\Hom(K,\bbC)$.
-\end{theorem}
+\end{thm}
 \begin{proof}
 	Let $X=\{(z_\tau)\in K_\bbR \mid |z_\tau| < c_\tau\}$. We claim that this set is centrally symmetric and convex. We bring $X$ over to euclidean space to compute its volume more easily, through the isomorphism we have defined in (??). Hence its volume is $2^s$ times the Lebesgue volume of the image
 	\[
@@ -215,12 +215,12 @@ sine a $\bbZ$-basis $\omega_1,\dots,\omega_n$ of $\calO_K$ gives a $\bbZ$-basis 
 
 We now show that the absolute norm is multiplicative over prime ideals.
 
-\begin{proposition}
+\begin{prop}
 	If $\fraka=\frakp_1^{v_1}\cdots\frakp_r^{v_r}$ is the prime factorization of an ideal $\fraka\neq 0$, then we have
 	\[
 		\frakN(\fraka) = \frakN(\frakp_1)^{v_1}\cdots\frakN(\frakp_r)^{v_r}.
 	\]
-\end{proposition}
+\end{prop}
 \begin{proof}
 	By the Chinese remainder theorem, we have
 	\[
@@ -257,12 +257,12 @@ This automatically gives that the absolute norm is multiplicative over all ideal
 	\frakN : J_K \to \bbR^*_+.
 \]
 
-\begin{lemma}
+\begin{lem}
 	In every ideal $\fraka\neq 0$ of $\calO_K$ there exists a non-zero $a\in\fraka$ such that
 	\[
 		|N_{K\mid\bbQ}(a)| \leq \left(\frac{2}{\pi}\right)^s\sqrt{|d_K|}\frakN(\fraka).
 	\]
-\end{lemma}
+\end{lem}
 \begin{proof}
 	Fix $\epsilon>0$, and choose positive real numbers $c_\tau$ for each $\tau\in\Hom(K,\bbC)$ such that $c_\tau = c_{\overline{\tau}}$ and
 	\[
@@ -277,9 +277,9 @@ This automatically gives that the absolute norm is multiplicative over all ideal
 	Our choice of $\epsilon$ was arbitrary, so letting $\epsilon\to 0$ we get the desired inequality.
 \end{proof}
 
-\begin{theorem}
+\begin{thm}
 	The ideal class group $Cl_K$ is finite. Its order $h_K=(J_K:P_K)$ is called the \emph{class number} of $K$.
-\end{theorem}
+\end{thm}
 \begin{proof}
 	Let $\frakp\neq 0$ be a prime ideal of $\calO_K$, and $\frakp\cap\bbZ=p\bbZ$. Then, as mentioned before, $\calO_K/\frakp$ is a finite field extension of $\bbZ/p\bbZ$ of degree, say, $f$. Hence $\frakN(\frakp)=p^f$. In the other direction, a fixed $p$ gives only finitely many ideals $\frakp$ such that $\frakp\cap\bbZ=p\bbZ$, for then $\frakp\mid(p)$ and $(p)$ has finitely many prime factors. Hence for any given bound $M$, since there are only finitely many primes $p_i\leq M$, we conclude that there are only finitely many prime ideals of absolute norm $\leq M$. This same result applies to arbitrary integral ideals, by unique factorization and $\frakN$ being multiplicative.
 

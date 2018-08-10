@@ -2,120 +2,26 @@
 
 This first section develops the basic theory of rings of integers and the elementary algebraic tools needed to build them. We follow Dummit \& Foote for the most part. The next section will motivate the structures developed here.
 
-\begin{definition}[D\&F pp. 224]
+\begin{defn}[D\&F pp. 224]
 	A ring $R$ with identity $1\neq 0$ is called a \emph{division ring} if every nonzero $a\in R$ has a multiplicative inverse.
 
 	If $R$ is a commutative division ring, we call it a \emph{field}.
-\end{definition}
+\end{defn}
 
-\begin{definition}
+\begin{defn}
 	\begin{enumerate}
 		\item A nonzero element $a\in R$ is called a \emph{zero divisor} if there is a nonzero $b\in R$ such that $ab=0$.
 		\item Assume $R$ has an identity $1\neq 0$. An element $u\in R$ is called a \emph{unit} if there is some $v\in R$ such that $uv=vu=1$. The set of units is denoted by $R^\times$, and forms a subgroup under multiplication (the \emph{group of units}).
 	\end{enumerate}
-\end{definition}
+\end{defn}
 
 Fields are rings for which every nonzero element is a unit. Units cannot be zero divisors, for if $a\in R$ is such an element, we have $c,d\in R$ with $c\neq 0$ such that $ac=0$ and $ad=da=1$, but $c=1c=(da)c=d(ac)=d0=0$, a contradiction.
 
 
 
-\subsection{Quadratic fields and rings}
-
-\begin{definition}
-	Let $D\in\bbQ$ not a perfect square, and define
-	\[
-		\bbQ(\sqrt{D}) = \{a+b\sqrt{D} \mid a,b\in\bbQ\}
-	\]
-	considered as a subset of $\bbC$ (since we might have $D<1$). We call this a \emph{quadratic field}.
-\end{definition}
-
-Proof that this is really a field; closure under addition and additive inverses are clear, and for multiplication we have
-\begin{align*}
-	(a+b\sqrt{D})(c+d\sqrt{D}) &= ac + ad\sqrt{D} + bc\sqrt{D} + bdD\\
-		&= (ac+bdD) + (ad+bc)\sqrt{D},
-\end{align*}
-so $\bbQ(\sqrt{D})$ is at least a subring of $\bbC$. For multiplicative inverses, note that $(a+b\sqrt{D})(a-b\sqrt{D}) = a^2-Db^2$, and the right term is not a perfect square since $D$ is not, and thus this product is never zero as long as one of $a$ or $b$ is nonzero. Hence $\frac{a-b\sqrt{D}}{a^2-Db^2}$ is the multiplicative inverse of $a+b\sqrt{D}$ in the nonzero case; i.e. all nonzero elements in $\bbQ(\sqrt{D})$ are units, hence $\bbQ(\sqrt{D})$ truly is a field.
-
-As far as our choice of `squarefree $D$' is concerned, we note that this demand is not unreasonable. In fact, we can even restrict to squarefree integers without loss.
-
-\begin{proposition}
-	Any rational $D$ can be written as $D=f^2D'$ where $f$ is a rational number and $D'$ a unique positive integer not divisible by a square, i.e. $\pm$ times the product of distinct primes.
-\end{proposition}
-\begin{proof}
-	Factorize $D$ in reduced terms, i.e. $D=\frac{p_1^{\alpha_1} \cdots p_k^{\alpha_k}}{q_1^{\beta_1} \cdots q_l^{\beta_l}}$. Take all primes in the numerator with odd exponents $\alpha_i = 2k_i + 1$; each of these can be split by $p_i^{\alpha_i} = (p_i^{k_i})^2 p_i$. Let $D'$ be the product of the right term of all such expressions, which is therefore a product of distinct primes. The left term of the numerator is therefore a square, say $r^2$.
-
-	Repeat the same kind of separation with the denominator, but instead of separating, add nonsquare primes to the $D'$ factor in the numerator and increase their denominator exponent to get an even number. Then the denominator is a square, say $s^2$. Hence $D=\left(\frac{r}{s}\right)^2 D'= f^2 D'$ for a rational $f$ and a unique $D'$ product of distinct primes.
-\end{proof}
-
-For example,
-\begin{align*}
-	\frac{18}{35} = \frac{2^1 \cdot 3^2}{5 \cdot 7} &= \frac{3^2}{(5\cdot 7)^2} (2\cdot 5\cdot 7) = \left(\frac{3}{5\cdot 7}\right)^2 (2\cdot 5\cdot 7)
-\end{align*}
-with $f^2=3/(5\cdot 7)$ and $D'=2\cdot 5\cdot 7$.
-
-Knowing this, for any rational $D$ we have $\sqrt{D}=\sqrt{f^2D'}=f\sqrt{D'}$, and so $\bbQ(\sqrt{D})=\bbQ(\sqrt{D'})$. Therefore we lose nothing by considering squarefree integers $D$ instead of all of $\bbQ$.
-
-\begin{definition}
-	A commutative ring with identity $1\neq 0$ is called an \emph{integral domain} if it has no zero divisors.
-\end{definition}
-
-From integral domains we obtain a desirable arithmetic property.
-
-\begin{proposition}
-	Given $a,b,c\in R$ with $a$ not a zero divisor, if $ab=ac$ then either $a=0$ or $b=c$.
-\end{proposition}
-\begin{proof}
-	We have $ab=ac$, so $a(b-c)=0$. Since $a$ is not a zero divisor, either $a=0$ or $b-c=0$, i.e. $b=c$.
-\end{proof}
-
-Hence this `cancellation law' holds for any element of an integral domain.
-
-Having defined the quadratic field $\bbQ(\sqrt{D})$, we attempt to restrict coefficients to the integers. Naturally, we might be tempted to write $\bbZ[\sqrt{D}] = \{a+b\sqrt{D} \mid a,b\in\bbZ\}$ and expect this to be a subring of the field $\bbQ(\sqrt{D})$. In doing so, we must be careful: we would like to maintain the integral domain property (automatic for fields) roughly because integers behave this way, and thus any `extended' notion of the integers should too. It will turn out that $\bbZ[\sqrt{D}]$ is \emph{not} an integral domain if $D\equiv 1 \Mod{4}$. To fix this, we use a slightly different definition.
-
-\begin{definition}
-	We call $\calO=\calO_{\bbQ(\sqrt{D})} = \bbZ[\omega] = \{a+b\omega \mid a,b\in\bbZ\}$ the \emph{ring of integers} in the quadratic field $\bbQ(\sqrt{D})$, where
-	\begin{align*}
-		\omega = \begin{cases}
-			\sqrt{D} & D\equiv 2,3,4 \Mod{4}\\
-			\frac{1+\sqrt{D}}{2} & D\equiv 1 \Mod{4}.
-		\end{cases}
-	\end{align*}
-\end{definition}
-
-The case where $D\equiv 0 \Mod{4}$ is excluded, because in such a case $2^2\mid D$ and so $D$ would not be squarefree, as we have assumed.
-
-We verify that the weird case $D\equiv 1 \Mod{4}$ does indeed form a subring of $\bbQ(\sqrt{D})$ under our choice of $\omega$. Addition is clear; for multiplication we have
-\begin{align*}
-	\left(a+b\frac{1+\sqrt{D}}{2}\right)\left(c+d\frac{1+\sqrt{D}}{2}\right) &= ac+ad\frac{1+\sqrt{D}}{2} + bc\frac{1+\sqrt{D}}{2} + \frac{bd}{4}(1 + 2\sqrt{D} + D)\\
-	&= ac + (ad+bc)\frac{1+\sqrt{D}}{2} + \frac{bd}{4}(2 + 2\sqrt{D} + D - 1)\\
-	&= ac + (ad+bc)\frac{1+\sqrt{D}}{2} + \frac{bd}{2}(1+\sqrt{D}) + k\\
-	&= (ac + bd\frac{D-1}{4}) + (ad + bc + bd)\frac{1+\sqrt{D}}{2},
-\end{align*}
-
-so $\calO$ is closed under multiplication, hence it is indeed a ring.
-
-We call the special case $\bbZ[i]$ the \emph{Gaussian integers}.
-
-\begin{definition}
-	The \emph{field norm} $N:\bbQ(\sqrt{D})\to\bbQ$ is defined by
-	\begin{align*}
-		N(a+b\sqrt{D}) &= (a+b\sqrt{D})(a-b\sqrt{D})\\
-			&= a^2-Db^2.
-	\end{align*}
-\end{definition}
-
-As noted before, this is nonzero for nonzero elements. For Gaussian integers, this `norm' does indeed correspond to the (square of the) usual norm in $\bbC$ given by $a^2+b^2$.
-
-It also has nice properties: (1) multiplicative on $\bbQ(\sqrt{D})$, (2) integer on $\calO$, (3) $N(\alpha)=\pm 1$ iff $\alpha$ is a unit in $\calO$. \todo{prove}
-
-Some examples: \todo{do examples}.
-
-
-
-
 \subsection{Valuation rings}
 
-\begin{definition}
+\begin{defn}
 	Given a field $K$, a \emph{discrete valuation} on $K$ is a function $v:K^\times\to\bbZ$ satisfying
 	\begin{enumerate}[(i)]
 		\item $v(ab) = v(a)+v(b)$, i.e. it is a group homomorphism;
@@ -124,7 +30,7 @@ Some examples: \todo{do examples}.
 	\end{enumerate}
 
 	The set $R = \{x\in K^\times \mid v(x)\geq 0\}\cup\{0\}$ is called the \emph{valuation ring} of $v$.
-\end{definition}
+\end{defn}
 
 First, note that $v(1)=0$, since for all $x\in K^\times$, $v(x)=v(1x)=v(1)+v(x)$. We show that $x\in R$ is a unit in $R$ iff $v(x)=0$: if $x$ is a unit in $R$, we have some $y\in R$ such that $xy=yx=1$. Hence $0=v(1)=v(xy)=v(x)+v(y)$: both quantities are positive by $x,y\in R$, so necessarily $v(x)=v(y)=0$. Now fix $x\in R$: note that $v(x)$ is not well-defined if $x=0$, so we may assume $x\neq 0$, and thus necessarely $x\in K^\times$, with $v(x)=0$. In particular, we have some $y\in K^\times$ such that $xy=yx=1$. But notice that $0=v(1)=v(xy)=v(x)+v(y)=v(y)$, so $y\in R$ and therefore $x$ is a unit in $R$.
 
@@ -155,7 +61,7 @@ $R$ can be naturally embedded into $R[x]$ as the constant polynomials; this give
 
 Ideals naturally arise as kernels of ring homomorphisms, just like normal subgroups spring from group homomorphisms.
 
-\begin{definition}
+\begin{defn}
 	A \emph{ring homomorphism} is a map $\phi:R\to S$ of rings satisfying
 	\begin{enumerate}[(i)]
 		\item $\phi(a+b)=\phi(a)+\phi(b)$ and
@@ -164,19 +70,19 @@ Ideals naturally arise as kernels of ring homomorphisms, just like normal subgro
 	for all $a,b\in R$.
 
 	The \emph{kernel} of $\phi$ is defined by $\ker\phi=\phi\inv(0)$.
-\end{definition}
+\end{defn}
 
-\begin{proposition}
+\begin{prop}
 	For any ring homomorphsim $\phi:R\to S$, its image and kernel are subrings of $S$ and $R$ respectively.
-\end{proposition}
+\end{prop}
 
 In fact, the kernel has a somewhat stronger property: for any $r\in R$ and $k\in\ker\phi$, we have that $\phi(rk)=\phi(r)\phi(k)=\phi(r)0=0$, so $rk,kr\in\ker\phi$. This is a normality property; in ring theoretic language, we say that $\ker\phi$ is an \emph{ideal} of $R$.
 
-\begin{definition}
+\begin{defn}
 	Let $I\subset R$ be a subring. Define $rI=\{ra \mid a\in I\}$ and $Ir=\{ar \mid a\in I\}$ for any $r\in R$.
 
 	We say that $I$ is an \emph{ideal} if we always have the inclusions $rI\subset I$ and $Ir\subset I$.
-\end{definition}
+\end{defn}
 
 (There is a general distinction between \emph{left-} and \emph{right-}ideals, but they agree for commutative rings. In particular, number fields and integral rings are commutative, so we are content with sticking to the commutative case.)
 
@@ -190,40 +96,40 @@ Hence $\overline{(1+3x)}+\overline{(-4+5x)}=\overline{-3+8x}$ and $\overline{(1+
 
 Within the richer ring structure, we can define operations between ideals:
 
-\begin{definition}
+\begin{defn}
 	Let $I$ and $J$ be ideals of $R$.
 	\begin{enumerate}[(1)]
 		\item Their sum is given by $I+J=\{a+b \mid a\in I, b\in J\}$.
 		\item Their product is denoted by $IJ$ and defined as the set of all finite sums of pairs $ab$ with $a\in I$, $b\in J$.
 	\end{enumerate}
-\end{definition}
+\end{defn}
 
 We restrict our attention to rings with identity $1\neq 0$.
 
-\begin{definition}
+\begin{defn}
 	Given any subset $A$ of a ring $R$, we denote by $(A)$ the smallest ideal of $R$ containing $A$, and call it the \emph{ideal generated by $A$}.
 
 	An ideal generated by a single element is called a \emph{principal ideal}.
 
 	An ideal generated by a finite set is called a \emph{finitely generated ideal}.
-\end{definition}
+\end{defn}
 
 We can precisely obtain $(A)$ by taking all ideals $I$ such that $A\subset I$; since at least $R\subset I$, their intersection is not empty, so $(A)=\bigcap_{A\subset I} I$.
 
 We also note that ideals truly capture in some sense the arithmetic notion of divisibility, familiar from $\bbZ$: an element $b\in R$ is in the ideal $(a)$ generated by some other $a\in R$ iff $b=ar$ for some $r\in R$, i.e. if $b$ is a \emph{multiple} of $a$, or equivalently if $a$ divides $b$. Furthermore, $b\in(a)$ iff $(b)\subset(a)$.
 
-\begin{definition}
+\begin{defn}
 	An ideal $M\subset S$ of a ring $S$ is \emph{maximal} if $M\neq S$ and the only ideals that contain $M$ are $M$ itself and the entire ring $S$.
-\end{definition}
+\end{defn}
 
-\begin{proposition}
+\begin{prop}
 	For any commutative ring $R$, an ideal $M$ is maximal iff $R/M$ is a field.
-\end{proposition}
+\end{prop}
 
 
 
 
-
+\subsection{Fields and embeddings}
 
 
 

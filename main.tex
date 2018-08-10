@@ -1,59 +1,113 @@
-\documentclass[12pt,oneside]{article}
+\documentclass[psamsfonts]{amsart}
 
-\usepackage[margin=1in]{geometry}
+%-------Packages---------
+\usepackage[colorinlistoftodos]{todonotes}
 \usepackage{mathtools}
+\usepackage{amssymb,amsfonts,amsmath,amsthm}
 \usepackage{enumerate}
+\usepackage{mathrsfs}
 \usepackage[english]{babel}
-\usepackage{amssymb,amsmath,amsthm}
-\usepackage{unicode-math}
-\usepackage{fontspec}
-\usepackage{epigraph}
 \usepackage{tikz}
 \usepackage{tikz-cd}
-\setmathfont{Latin Modern Math}
-\setmathfont[range=\setminus]{XITS Math}
-\usepackage[colorinlistoftodos]{todonotes}
-\usepackage[perpage]{footmisc}
 
+%--------Theorem Environments--------
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{quest}[thm]{Question}
 
-\setlength{\epigraphwidth}{.8\textwidth}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{defns}[thm]{Definitions}
+\newtheorem{con}[thm]{Construction}
+\newtheorem{exmp}[thm]{Example}
+\newtheorem{exmps}[thm]{Examples}
+\newtheorem{notn}[thm]{Notation}
+\newtheorem{notns}[thm]{Notations}
+\newtheorem{addm}[thm]{Addendum}
+\newtheorem{exer}[thm]{Exercise}
 
-% USEFUL MATH TOOLS
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{rems}[thm]{Remarks}
+\newtheorem{warn}[thm]{Warning}
+\newtheorem{sch}[thm]{Scholium}
+
+\makeatletter
+\let\c@equation\c@thm
+\makeatother
+\numberwithin{equation}{section}
+
+\bibliographystyle{plain}
+
+%------- Math definitions -----------
 \input{defs}
 
+%--------Meta Data: Fill in your info------
+\title{Number Fields: An Introduction to Algebraic Number Theory}
 
-%%%%%%%%%%%%%%
+\author{Pol Gómez Riquelme}
 
+\date{DEADLINES: Draft AUGUST 14 and Final version AUGUST 26, 2018}
 
 \begin{document}
 
-% TITLEPAGE
-\title{Notes on Number Theory}
-\author{\small\textit{Pol Gómez Riquelme}}
-\date{June 2018 -- ?}
+\begin{abstract}
+
+This paper is a first introduction to number theory from a modern perspective, through algebraic methods. We review the necessary algebra to understand later material, present the usual setup of number fields, and develop the basic theory of unique factorization of Dedekind domains, prove the finiteness of the class number, and study the structure of the group of units of a given number field.
+
+\end{abstract}
+
 \maketitle
 
 \tableofcontents
-\pagebreak
-
-\section*{Preface and Bibliography}
-
-These notes rely on the following sources:
-\begin{itemize}
-	\item Serge Lang, \emph{Algebra} (3rd ed., 2003).
-	\item Jürgen Neukirch, \emph{Algebraic Number Theory} (1st ed., --).
-	\item Keith Conrad, \emph{Trace and Norm} (--).
-	\item James Milne, \emph{Algebraic Number Theory} (v3.07).
-	\item David Eisenbud, \emph{Commutative Algebra with a View Toward Algebraic Geometry} (--).
-\end{itemize}
-
-\pagebreak
 
 \input{algebra}
+
 \input{afields}
+
 \input{ideals}
+
 \input{lattices}
+
 \input{mult}
 
+\section*{Acknowledgments}  You should thank anyone who deserves thanks, and for sure you should
+thank your mentor.   ``It is a pleasure to thank my mentor, 
+his/her name, for ....  ".   Or add anyone else, for example ``I thank [another participant] for helping 
+me understand [something or other]"
+
+\section{Bibliography}
+
+\begin{thebibliography}{9}
+
+\bibitem{ams} http://www.ams.org/publications/authors/tex/amslatex
+
+\bibitem{amsshort}
+Michael Downes.
+Short Math Guide for \LaTeX.
+http://tex.loria.fr/general/downes-short-math-guide.pdf
+
+\bibitem{May}
+J. P. May.
+A Concise Course in Algebraic Topology.
+University of Chicago Press. 1999. 
+
+\bibitem{notsoshort}
+Tobias Oekiter, Hubert Partl, Irene Hyna and Elisabeth Schlegl.
+The Not So Short Introduction to \LaTeX 2e.
+https://tobi.oetiker.ch/lshort/lshort.pdf
+
+\bibitem{rouseball}
+W. W. Rouse Ball.
+A Short Account of the History of Mathematics.
+Dover Publications. 1960.
+
+\end{thebibliography}
 
 \end{document}
+
+

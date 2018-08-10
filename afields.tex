@@ -1,35 +1,44 @@
-\section{A primer of algebraic number fields}
+\section{Algebraic number fields}
 
+It is not a stretch to say that number theory, at least in the classical sense, is about numbers. The study of solutions to equations like $x^2+y^2=z^2$ with ``integer'' coefficients (denoted by $\bbZ$) have concerned number theorists since the Babylonians~\cite{rouseball}. Passing over to the ``rational'' numbers (denoted by $\bbQ$), as ratios of integer parts, is only natural in working with integer equations. Starting with Pythagoras, the Greeks decidedly only worked with rational numbers, and treated ``irrational'' magnitudes as non-existent, as non-numbers (\emph{``He is unworthy of the name of man who is ignorant of the fact that the diagonal of a square is incommesurable with its side''} -- Plato, as quoted by Sophie Germain). While number theory nowadays is still primarily concerned with ``integral'' quantities, mathematics has thankfully moved forward, and the tools of complex analysis and the entire repertoire of numbers (whether real or ``imaginary'') is available to those studying number theoretic questions.
 
-Having acquired some algebraic language, we can consider quadratic rings in context. Given a finite field extension $K$ of $\bbQ$ (also called an \emph{algebraic number field}), we consider its subring $\calO_K\subset K$ of elements integral over $\bbZ$. We call this the \emph{ring of integers} of $K$.
+The basic operations of arithmetic in $\bbZ$ (i.e. one can add, subtract, and multiply) are captured in the more general notion of a \emph{ring}. As early as in the 16th century, mathematicians found ``imaginary'' as useful as metaphysically perplexing. One can consider numbers of the form $a+bi$ where $i=\sqrt{-1}$ is the ``imaginary unit'', and show that they not only form a ring; they form an Euclidean domain, admitting unique factorization in prime elements. Gauss used them extensively \todo{citation!}. In other words, we can ``extended'' the usual integers and still preserve essential properties.
 
-An element $k\in K$ is \emph{integral over $\bbZ$} if it satisfies a monic polynomial equation
+Algebra turns this into a rigurous process. We start with the rational numbers, and consider a finite field extension $F$ over $\bbQ$:
+\begin{center}
+\begin{tikzcd}
+		& F \arrow[d]\\
+	\bbZ \arrow[r] & \bbQ
+\end{tikzcd}
+\end{center}
+(arrows denote inclusion for now). Previously, we formed $\bbQ$ from $\bbZ$: now we would like to restrict our attention to \emph{integral} elements of $F$. If we can define such a notion that works for $\bbQ$, that will suffice. For example, consider polynomials of degree one with coefficients in $\bbZ$, i.e. $x+a=0$ with $a\in\bbZ$. The solutions to these equations in $\bbQ$ are exactly the elements of $\bbZ$: in fact, even if we consider higher-degree polynomials, we will only get $\bbZ$. We say that the \emph{integral closure} of $\bbZ$ in $\bbQ$ is, again, $\bbZ$.
+
+In the general case, we go back to our finite extension $F$ and consider monic polynomials
 \[
-	k^n + a_{n-1}k^{n-1} + \cdots + a_1k + a_0 = 0
+	x^n + a_1x^{n-1} + \cdots + a_{n-1}x + a_n = 0
 \]
-with coefficients $a_i\in\bbZ$.
-
-We note that quadratic fields $\bbQ(\sqrt{D})$ are a special case of general algebraic number fields. Furthermore, any element $x=a+b\sqrt{D}\in\bbZ[\sqrt{D}]$ as defined in §1 satisfies the monic polynomial equation $x^2-2ax-(b^2D-a^2)=0$, and any number in $\bbQ(\sqrt{D})$ satisfying such an equation is necessarily of the form $a+b\sqrt{D}$ with $a,b\in\bbZ$.
-
-The classical procedure in number theory is to consider finite extensions $K$ of the field $\bbQ$ by adjoining roots:
+with coefficients $a_i\in\bbZ$. We say that an element $y\in F$ is \emph{integral} if it solves such a polynomial, and call the set of integral elements of $F$ the \emph{integral closure} of $\bbZ$ in $F$, denoted by $\calO_F$. The diagram above becomes
 
 \begin{center}
-	\begin{tikzcd}
-		\calO_L \arrow[r,hook] & L\\
-		\calO_K \arrow[u]\arrow[r,hook] & K \arrow[u]\\
-		\calO_{\bbQ} = \bbZ \arrow[r,hook]\arrow[u,hook] & \bbQ \arrow[u,hook]
-	\end{tikzcd}
+\begin{tikzcd}
+	\calO_F \arrow[r] & F\\
+	\bbZ \arrow[u] \arrow[r] & \bbQ \arrow[u].
+\end{tikzcd}
 \end{center}
 
+To what extend $\calO_F$ is a good generalization of the usual integers $\bbZ$ is the guiding thread of this paper. In particular, we will ask
 
-Number theorists particularly care about the structure of $\calO_L$ and $\calO_K$, the integral extensions 
-\begin{itemize}
-	\item What are the units of $\calO_K$ and $\calO_L$?
-	\item How do primes $(\mathfrak{p})$ of $\calO_K$ split in $\calO_l$?
-\end{itemize}
+\begin{quest}
+	Does unique factorization hold in $\calO_F$?
+\end{quest}
 
-The first question culminates in \emph{Dirichlet's unit theorem}, which fully describes (???). The second one corresponds to \emph{ramification theory}.
+and, from a more algebraic point of view,
 
+\begin{quest}
+	What are the units of $\calO_F$?
+\end{quest}
+
+It requires some work to show that if $F=\bbQ(i)$, then its integral closure is $\calO_F=\bbZ[i]$ (the usual Gaussian integers), so that our definition does make sense.
 
 \subsection{Modules and integrality}
 
@@ -39,9 +48,9 @@ For a given ring extension $A\subseteq B$, we say that $B$ is \emph{integral ove
 
 Integral elements of ring extensions have a very nice finiteness property when considering the $A$-module they generate.
 
-\begin{proposition}
+\begin{prop}
 	Finitely many elements $b_1,\dots,b_n\in B$ are integral over $A$ iff the $A$-module $A[b_1,\dots,b_n]$ is finitely generated.\footnote{Neukirch 2.2}
-\end{proposition}
+\end{prop}
 \begin{proof}
 	($\Longrightarrow$) Start by assuming that $b\in B$ is integral over $A$. Then $f(b)=0$ for some polynomial $f(x)$ over $A$. Now let $g(x)\in A[x]$: by the division algorithm, we have $g(x)=q(x)f(x)+r(x)$ with polynomials over $A$ and $\deg r(x) < \deg g(x)$.
 
@@ -64,9 +73,9 @@ Note that the result is even stronger: any $b\in A[b_1,\dots,b_n]$ is integral o
 
 Closure of ring operations makes $A[b_1,\dots,b_n]$ into a ring that is integral over $A$, if $b_1,\dots,b_n\in B$ are.
 
-\begin{proposition}
+\begin{prop}
 	Let $A\subseteq B\subseteq C$ be ring extensions. If $B$ is integral over $A$ and $C$ is integral over $B$, then $C$ is integral over $A$.
-\end{proposition}
+\end{prop}
 \begin{proof}
 	Fix $c\in C$: since $C$ is integral over $B$, we have an equation $c^n+b_1c^{n-1}+\cdots+b_n=0$ with coefficients in $B$. In particular $R=A[b_1,\dots,b_n]$ is finitely generated because $B$ is integral over $A$, and $R[c]$ as well because $c$ is integral over $B$. But these two facts combined make $R[c]$ finitely generated over $A$\todo{Why?}, which implies that $c$ is integral over $A$.
 \end{proof}
@@ -78,12 +87,12 @@ We call the set $\overline{A}=\{b\in B \mid b \text{ integral over } A\}$ the \e
 
 Consider a finite field extension $L\mid K$. The following concepts will prove useful in studying the integral elements of $L$.
 
-\begin{definition}
+\begin{defn}
 	The \emph{trace} and \emph{norm} of some $x\in L$ are defined as the trace and norm of the matrix $[T_x]$ representing the endomorphism $T_x:L\to L$ given by $T_x(\alpha)=x\alpha$, i.e.
 	\begin{align*}
 		\Tr_{L\mid K}(x) = \Tr([T_x]) & & \N_{L\mid K}(x) = \det([T_x]).
 	\end{align*}
-\end{definition}
+\end{defn}
 
 We only need to compute the action of trace and norm on some basis to get the field trace and norm: for example, with $K=\bbR$ and $L=\bbC$, in we have a basis $\{1,i\}$ and so $T_z(1)=a+bi$ and $T_z(i)=-b+ai$. This gives the matrix
 \[
@@ -95,9 +104,9 @@ We only need to compute the action of trace and norm on some basis to get the fi
 the trace and norm of which are $2a$ and $a^2+b^2$, which is the familiar `Euclidean' norm on $\bbC$.\todo{Is this really related to the vector norm?}
 
 
-\begin{proposition}
+\begin{prop}
 	The trace $\Tr_{L\mid K}$ is a $K$-linear additive homomorphism $L\to K$, and the norm $\N_{L\mid K}$ is a multiplicative homomorphism $L^\times\to K^\times$.
-\end{proposition}
+\end{prop}
 \begin{proof}
 	This amounts to passing to matrix representations as needed.
 
@@ -142,9 +151,9 @@ On the other hand, the minimal polynomial $p_x(t)$ of any $x\in L$ over $K$ has 
 
 We now study the close interplay between the characteristic and the minimal polynomial.
 
-\begin{proposition}
+\begin{prop}
 	Every $x \in L$ is a root of the characteristic polynomial of $T_x$.
-\end{proposition}
+\end{prop}
 \begin{proof}
 	This follows from Cayley-Hamilton: considering $f_x$ as a linear operator, evaluating at the matrix $[T_x]$ is zero by definition, but we can expand it with addition being usual matrix addition, and powers being repeated matrix multiplication. Then
 	\begin{align*}
@@ -157,13 +166,13 @@ We now study the close interplay between the characteristic and the minimal poly
 	which implies that $T_{f_x(x)}=0$, i.e. $f_x(x)=0$.
 \end{proof}
 
-\begin{proposition}
+\begin{prop}
 	Fix $x\in L$, let $p_x(t)$ be the minimal polynomial of $x$ and $f_x(t)$ the characteristic polynomial of $T_x$. Then
 	\[
 		f_x(t) = (p_x(t))^{n/d},
 	\]
 	where $n=[L:K]$ and $d=[K(x):K]$.
-\end{proposition}
+\end{prop}
 \begin{proof}
 	Fix $x\in L$. The set $\{x,x^2,\dots,x^{d-1}\}$ is a basis of $K(x)\mid K$. Pick a basis $\{\alpha_1,\dots,\alpha_m\}$ of $L\mid K(x)$. The set 
 	\[
@@ -211,14 +220,14 @@ Note that if $L=K(x)$, we have that $f_x(t)=p_x(t)$.
 
 A special form for field trace and norm can be given if $L\mid K$ is a separable extension. Let $d=[L:K(x)]$ and $m=[K(x):K]$, so $[L:K]=dm$.
 
-\begin{proposition}
+\begin{prop}
 	Given a separable field extension $L\mid K$ and $\sigma : L\to\overline{K}$ is a $K$-embedding of $L$, we have
 	\begin{enumerate}[(i)]
 		\item $f_x(t)= \prod_\sigma(t-\sigma x)$,
 		\item $\Tr_{L\mid K}(x) = \sum_\sigma \sigma x$, and
 		\item $\N_{L\mid K}(x) = \prod_\sigma \sigma x$.
 	\end{enumerate}
-\end{proposition}
+\end{prop}
 \begin{proof}
 	Since $L\mid K$ is separable, $x\in L$ is separable, so there are exactly $m$ $K$-embedding $\tilde{\sigma}:K(x)\to \overline{K}$. Each of these extends to a $K$-embedding $\sigma: L\to \overline{K}$ in $d$ different ways. Since $[L:K]_s=md$, this accounts for all $K$-embeddings $L\to\overline{K}$. Hence we can split $\Hom_K(L,\overline{K})$ into $m$ equivalence classes by identifying $\sigma \sim \tau$ if $\sigma(x)=\tau(x)$ (corresponding to choice of $x^\sigma$); each of the equivalence classes has $d$ distinct embeddings.
 
@@ -251,12 +260,12 @@ A special form for field trace and norm can be given if $L\mid K$ is a separable
 
 The trace and norm behave well as we take field extensions:
 
-\begin{corollary}
+\begin{cor}
 	Given a tower of finite field extensions $K\subset L\subset M$, we have
 	\begin{align*}
 		\Tr_{L\mid K} \circ \Tr_{M\mid L} = \Tr_{M\mid K}, & & \N_{L\mid K} \circ \N_{M\mid L} = \N_{M\mid K}.
 	\end{align*}
-\end{corollary}
+\end{cor}
 \begin{proof}
 	Using a similar technique as in the proposition above, we partition $\Hom_K(M,\overline{K})$ into $m=[L:K]$ equivalence classes by identifying $\sigma\sim\tau$ if $\sigma|_L = \tau|_L$. Take a system of representatives $\sigma_1,\dots,\sigma_m$: then $\Hom_K(L,\overline{K}) = \{\sigma_i|_L , 1\leq i \leq m\}$.
 
@@ -280,9 +289,9 @@ Given a basis $\alpha_1,\dots,\alpha_n$ of a separable field extension $L\mid K$
 where $\sigma_i$ varies over $K$-embeddings $L\to\overline{K}$.\todo{Write discriminant in terms of trace and in the special case of a simple extension.}
 
 
-\begin{proposition}
+\begin{prop}
 	If $L\mid K$ is separable and $\alpha_1,\dots,\alpha_n$ is a basis for $L$, we have that $d(\alpha_1,\dots,\alpha_n)\neq 0$ and $(x,y) \to \Tr_{L\mid K}(xy)$ is a nondegenerate bilinear form on $L$ as a $K$-vector space.
-\end{proposition}
+\end{prop}
 \begin{proof}
 	A routine computation shows that $(x,y)$ is indeed linear on each coordinate.
 
@@ -314,12 +323,12 @@ Note that $x\in B$ implies that all its conjugates $\sigma x$ are integral in $L
 
 (define integral basis)
 
-\begin{lemma}
+\begin{lem}
 	If $\alpha_1,\dots,\alpha_n$ is a basis of $L\mid K$ contained in $B$, of discriminant $d=d(\alpha_1,\dots,\alpha_n)$, we have
 	\[
 		dB\subseteq A\alpha_1 + \cdots + A\alpha_n.
 	\]
-\end{lemma}
+\end{lem}
 \begin{proof}
 	Fix $\alpha\in B$. We have $\alpha=a_1\alpha_1+\cdots+a_n\alpha_n$ with $a_j\in K$. Taking the trace of both sides of the equality multiplied by $\alpha_i$, we get
 	\begin{align*}
@@ -341,9 +350,9 @@ This setup, a system $\omega_1,\dots,\omega_n\in B$ that serves as a basis for $
 
 For most of our upcoming work, we require $A$ to be a principal ideal domain. This nicely classifies $B$-submodules of $L$.
 
-\begin{proposition}
+\begin{prop}
 	If $L\mid K$ is separable and $A$ is a PID, then every finitely generated $B$-submodule $M\neq 0$ is a free $A$-module of rank $[L:K]$.
-\end{proposition}
+\end{prop}
 \begin{proof}
 	Let $M\neq 0$ be a finitely generated $B$-submodule of $L$ and $\alpha_1,\dots,\alpha_n$ a basis of $L\mid K$. We want to apply the previous theorem, but first need to somehow shift the basis to lie in $B$. Fix $\alpha_i$; we have some monic polynomial $p(x)$ with coefficients $a_j$ in $K$ for which $\alpha_i$ is a root. Let $l$ be the product of all the denominators of the $a_j$, so that
 	\begin{align*}
@@ -378,9 +387,9 @@ For most of our upcoming work, we require $A$ to be a principal ideal domain. Th
 
 The following proposition states that one can construct integral bases for field meets 
 
-\begin{proposition}
+\begin{prop}
 	Let $L\mid K$ and $L'\mid K$ be two Galois extensions of degree $n$ and $n'$ resp., such that $L\cap L'=K$. Let $\omega_1,\dots,\omega_n$ and $\omega_1',\dots,\omega_{n'}'$ be an integral basis of $L\mid K$ and $L'\mid K$ resp., with discriminant $d$ and $d'$ respectively. If $d$ and $d'$ are relatively prime in the sense that $xd+x'd'=1$, for suitable $x,x'\in A$. Then $\omega_i\omega_j'$ is an integral basis of $LL'$ of discriminant $d^{n'}d'^{n}$.
-\end{proposition}
+\end{prop}
 (proof omitted\todo{Reflect on this.})
 
 Looking back to the usual integral closure $\calO_K\subset K$ of $\bbZ\subset\bbQ$ in some algebraic number field $K$, the immediate application of these results on integral bases gives every finitely generated $\calO_K$-submodule $\fraka$ of $K$ a $\bbZ$-basis $\alpha_1,\dots,\alpha_n$, i.e. $\fraka = \alpha_1\bbZ+\cdots+\alpha_n\bbZ$. Since the discriminant $d(\alpha_1,\dots,\alpha_n)$ is independent of our choice of $\bbZ$-basis, we can simply write $d(\fraka)=d(\alpha_1,\dots,\alpha_n)$.
@@ -393,12 +402,12 @@ In particular, given an integral basis $\omega_1,\dots,\omega_n$ of $\calO_K$, w
 
 The following proposition that relates two $\calO_K$-submodules will be useful later.
 
-\begin{proposition}
+\begin{prop}
 	If $\fraka\subseteq\fraka'$ are two non-zero finitely generated $\calO_K$-submodules of $K$, then the index $(\fraka:\fraka')$ is finite and satisfies
 	\[
 		d(\fraka) = (\fraka:\fraka')^2 d(\fraka').
 	\]
-\end{proposition}
+\end{prop}
 \begin{proof}
 	As $\bbZ$-modules, $\fraka$ and $\fraka'$ have the same rank (by classification theorem). Let $A$ denote the change of basis matrix from a $\bbZ$-basis $\calB$ of $\fraka'$ to a $\bbZ$-basis $\calC$ of $\fraka$. By the Smith normal form, we get invertible matrices $P$ and $Q$ such that $PAQ$ is diagonal. Write $\calB'=Q\inv\calB$ and $\calC'=P\calC$, bases of $\fraka'$ and $\fraka$ respectively. It follows (???) that $\calB'$ and $\calC'$ are stacked, so
 	\[

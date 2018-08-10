@@ -11,9 +11,9 @@ This section culminates in the definition and finiteness result of the `class gr
 
 \subsection{Basic results, Dedekind domains}
 
-\begin{theorem}
+\begin{thm}
 	The ring $\calO_K$ is noetherian, integrally closed, and every prime ideal $\frakp\neq 0$ is a maximal ideal.
-\end{theorem}
+\end{thm}
 \begin{proof}
 	Let $\fraka$ be an ideal of $\calO_K$; in particular, it is an $\calO_K$-submodule. Since $\calO_K$ is a free $\bbZ$-module, $\fraka$ is necessarily a free $\bbZ$-module by $A$ being a PID and hence noetheiran. (redundant: so in particular $\fraka$ is a finitely generated $\calO_K$-submodule. By (??) again, $\fraka$ is a free $\bbZ$-module as well.) Thus $\calO_K$ is noetherian.
 	
@@ -25,17 +25,17 @@ This section culminates in the definition and finiteness result of the `class gr
 
 These properties motivate the following definition:
 
-\begin{definition}
+\begin{defn}
 	A noetherian, integrally closed integral domain in which every non-zero prime ideal is maximal is called a \emph{Dedekind domain}.
-\end{definition}
+\end{defn}
 
 Consider an arbitrary Dedekind domain $\calO$, and denote by $K$ its field of fractions. Given two ideals $\fraka$ and $\frakb$ of $\calO$, we say that $\fraka$ divides $\frakb$ and write $\fraka\mid\frakb$ if $\frakb\subseteq\fraka$. We define $\fraka+\frakb=\{a+b\mid a\in\fraka, b\in\frakb\}$ and $\fraka\frakb = \{\sum_i a_ib_i \mid a_i\in\fraka, b_i\in\frakb\}$.
 
 To prove unique factorization of ideals, we require two lemmas.
 
-\begin{lemma}
+\begin{lem}
 	If $\fraka\neq 0$ is an ideal of $\calO$, then there exist non-zero prime ideals $\frakp_1,\dots,\frakp_r$ such that $\fraka\supseteq\frakp_1\cdots\frakp_r$.
-\end{lemma}
+\end{lem}
 \begin{proof}
 	Let $\frakM$ be the set of ideals of $\calO$ which do not satisfy this condition, and assume it is non-empty. We order $\frakM$ by inclusion, and by $\calO$ being noetherian we get a maximal element $\fraka$, which is necessarily not a prime ideal. Hence we have $b_1,b_2\in\calO$ such that $b_1b_2\in\fraka$ but $b_1,b_2\notin\fraka$. Let $\fraka_1 = (b_1) + \fraka$ and $\fraka_2 = (b_2) + \fraka$, so that $\fraka\subset\fraka_1$, $\fraka\subset\fraka_2$ and $\fraka_1\fraka_2\subset\fraka$. By $\fraka$ being maximal, $\fraka_1$ and $\fraka_2$ are not in $\frakM$ so they must contain a product of prime ideals, which implies that $\fraka$ contains one too, a contradicition.
 \end{proof}
@@ -46,9 +46,9 @@ Fix a prime ideal $\frakp$ of $\calO$ and define
 \]
 Note that $\frakp\inv$ lies in $K$, not in $\calO$. It consists of elements in $K$ that are brought to lie in $\calO$ through multiplication by $\frakp$, i.e. fractions that have some element of $\frakp$ in the denominator\todo{Careful!}.
 
-\begin{lemma}
+\begin{lem}
 	For every ideal $\fraka\neq 0$ of $\calO$ we have $\fraka\frakp\inv\neq\fraka$.
-\end{lemma}
+\end{lem}
 \begin{proof}
 	We will first show that $\frakp\inv\neq\calO$. Then, assuming that $\fraka\frakp\inv=\fraka$, we will derive the contradiction $\frakp\inv=\calO$.
 
@@ -95,9 +95,9 @@ Abuse of notation is common: if $\fraka=(a)$, we usually write $a$ in place of $
 
 The following is a proposition that confirms our intuition of divisibility:
 
-\begin{proposition}
+\begin{prop}
 	If $\fraka\subseteq\frakp$ where $\fraka$ is any ideal and $\frakp$ is prime, then $\frakp$ appears in the factorization of $\fraka$ into prime ideals.
-\end{proposition}
+\end{prop}
 \begin{proof}
 	Write $\fraka=\frakp_1\cdots\frakp_r$ by unique factorization. Then $\frakp_1\cdots\frakp_r\subseteq\frakp$, so $\frakp\mid\frakp_1\cdots\frakp_r$. By $\frakp$ being prime, necessarily $\frakp\mid\frakp_i$ for some $i$, but prime ideals are maximal and thus $\frakp=\frakp_i$.
 \end{proof}
@@ -111,12 +111,12 @@ An analogue of the classical Chinese remainder theorem holds for any commutative
 
 It is clear that if $\fraka_i\mid\fraka$ for $i=1,\dots,n$ then $\fraka\subseteq\bigcap_{i=1}^n \fraka_i$ by definition of divisibility of ideals. The other direction is not hard: fix $a\in\bigcap_i\fraka_i$, which implies that $a\in\fraka_i$ for all $i$, i.e. $\fraka_i\mid a$. By the $\fraka_i$ being pair-wise coprime, we get that $\fraka_1\cdots\fraka_n\mid a$, i.e. $a\in\fraka$. We are now ready to state the theorem.
 
-\begin{theorem}[Chinese remainder theorem]
+\begin{thm}[Chinese remainder theorem]
 	Let $\fraka_1,\dots,\fraka_n$ be pair-wise coprime ideals of $\calO$, i.e. $\fraka_i+\fraka_j=\calO$ for $i\neq j$. Then, with $\fraka=\bigcap_{i=1}^n\fraka_i$, we have
 	\[
 		\calO/\fraka \cong \bigoplus_{i=1}^n\calO/\fraka_i.
 	\]
-\end{theorem}
+\end{thm}
 \begin{proof}
 	We have the canonical ring homomorphism $\calO\to\bigoplus_i\calO/\fraka_i$ given by
 	\begin{align*}
@@ -135,16 +135,16 @@ It is clear that if $\fraka_i\mid\fraka$ for $i=1,\dots,n$ then $\fraka\subseteq
 
 We return to a Dedekind domain $\calO$. Just like non-zero elements in $\calO$ have fractional inverses in $K$, we define fractional ideals living in $K$ for non-zero ideals in $\calO$.
 
-\begin{definition}
+\begin{defn}
 	A \emph{fractional ideal} of $K$ is a finitely generated $\calO$-submodule $\fraka\neq 0$ of $K$.
-\end{definition}
+\end{defn}
 
 To illustrate why this definition captures the notion of a fractional ideal $\fraka\neq 0$ of $K$ being a `fraction', consider the following argument. By the classification theorem of finitely generated $\calO$-submodules in $K$ of our last section, we have that $\fraka$ is a free $\bbZ$-module, i.e. $\fraka=a_1\bbZ\oplus\cdots\oplus a_n\bbZ$, where $a_i\in K$. Let $c$ be the product of each denominator of $a_i$, so $c\in\calO$ and $c\neq 0$. Then $c\fraka = ca_1\bbZ\oplus\cdots\oplus ca_n\bbZ$ is a free $\bbZ$-module with basis in $\calO$, hence an ideal in $\calO$. On the other hand, if $\fraka\neq 0$ is an $\calO$-submodule of $K$ for which there is some $c\in\calO$ with $c\fraka$ an ideal of $\calO$, we again write $c\fraka$ as a free $\bbZ$-module and divide over $c$ to conclude that $\fraka$ is itself a finitely generated $\calO$-submodule in $K$, i.e. a fractional ideal. This is the technical explanation to the notion that $c$ `clears the denominator of $\fraka$'. We call ideals in $\calO$ \emph{integral ideals}, to distinguish them from fractional ideals. Multiplication of fractional ideals is the same as multiplication of their integral counterparts.
 
 
-\begin{proposition}
+\begin{prop}
 	The fractional ideals of a Dedekind domain $\calO$ in its field of fractions $K$ form an abelian group, called the \emph{ideal group} $J_K$ of $K$. The identity is $(1)=\calO$ and the inverse of an integral ideal $\fraka$ is $\fraka\inv$.
-\end{proposition}
+\end{prop}
 \begin{proof}
 	A product of modules is again a module, and in particular the product of two finitely generated $\calO$-submodule is again a finitely generated $\calO$-submodule. Associativity and commutativity are clear. Note that $\fraka\calO\subset\fraka$ by definition of $\calO$-submodule, and for any $x\in\fraka$ we clearly have $x=x\cdot 1$ (identity of $\calO$), so $\fraka\subset\fraka\calO$. Hence $\fraka=\fraka\calO$, i.e. $\calO$ is the identity of the ideal group $J_K$.
 
@@ -155,13 +155,13 @@ To illustrate why this definition captures the notion of a fractional ideal $\fr
 	Finally let $\fraka$ be a fractional ideal. We have some non-zero $c\in\calO$ for which $c\fraka\subseteq\calO$ is an integral ideal, which has $(c\fraka)\inv = \{x\in K\mid x(c\fraka)\subseteq\calO\} = \{x\in K\mid (xc\inv)\fraka\subseteq\calO\} = c\inv\fraka\inv$ as its inverse. Then $(c\fraka) (c\inv\fraka\inv)=\calO$ so $\fraka\fraka\inv=\calO$, i.e. $\fraka\inv$ is the inverse of $\fraka$.
 \end{proof}
 
-\begin{corollary}
+\begin{cor}
 	Every fractional ideal $\fraka$ admits a unique representation as a product
 	\[
 		\fraka = \prod_{\frakp} \frakp^{v_\frakp}
 	\]
 	with $v_{\frakp}\in\bbZ$ and $v_{\frakp}=0$ for allmost all $\frakp$.
-\end{corollary}
+\end{cor}
 \begin{proof}
 	We first claim that any fractional ideal $\fraka$ can be written as a quotient of two integral ideals. Recall that we have some $c\in\calO$ for which $c\fraka$ is an integral ideal, say $\frakb$. Note that this still holds if we replace $c$ by the principal ideal it generates, i.e. $(c)\fraka=\frakb$. Letting $\frakc=(c)$, we conclude that $\fraka=\frakb\frakc\inv$, so every fractional ideal is indeed of this form.
 
@@ -178,8 +178,8 @@ A good summary of the work we have done so far can be expressed in terms of the 
 \]
 where the map $\calO^*\to K^*$ is inclusion, $K^*\to J_K$ sends units $a$ to the principal ideal $(a)$ they generate, and $J_K\to Cl_K$ is the canonical quotient homomorphism. Intuitively, if $Cl_K$ turned out to be infinite, it would be as a consequence of having added `too many' ideals to $\calO$ to make unique factorization work. It is remarkable that the \emph{class number} (i.e. the cardinality of $Cl_K$) can be shown to be always finite (but not quite predictable).
 
-\begin{proposition}
+\begin{prop}
 	The sequence above is exact.
-\end{proposition}
+\end{prop}
 \begin{proof}
 \end{proof}
