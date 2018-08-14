@@ -32,9 +32,9 @@ For our applications to number fields, we prefer to characterize lattices withou
 
 	($\Longleftarrow$) We first show that $\Gamma$ being a discrete subgroup of $V$ implies that it is closed: for choose any neighborhood $U$ of 0, then there is a smaller neighborhood $U'\subseteq U$ of 0 such that any difference of vectors in $U'$ is in $U$ (just make $U'$ small enough). If there were some $x\notin\Gamma$ in the closure of $\Gamma$, then $x+U'$ would contain a difference $\gamma_1-\gamma_2\in x+U'$ of distinct lattice points $\gamma_1,\gamma_2\in\Gamma$, but then $0\neq \gamma_1-\gamma_2\in U$, so the arbitary neighborhood $U$ around 0 contains the lattice point $\gamma_1-\gamma_2$, i.e. 0 is not isolated, so $\Gamma$ is not a discrete subgroup of $V$, a contradiction. Hence $\Gamma$ is closed.
 
-	We now show that $\Gamma$ can be given a basis in the lattice sense, with linearly independent vectors. Let $V_0$ the be the linear subspace of $V$ spanned by $\Gamma$, and let $m$ be its dimension. Choose a basis $u_1,\dots,u_m\in\Gamma$ for $V_0$, and consider the complete lattice $\Gamma_0 = \bbZ u_1 + \cdots + \bbZ u_m \subseteq\Gamma$ of $V_0$. We claim that $q=(\Gamma:\Gamma_0)$ is finite, \todo{Do.}\dots. Let $\gamma_i\in\Gamma$ vary over a system of representatives of the cosets in $\Gamma/\Gamma_0$. Since $\Gamma_0$ is complete, translates of its fundamental mesh $\Phi_0$ cover $V_0$. Hence we can write \todo{Complete}.
+	We now show that $\Gamma$ can be given a basis in the lattice sense, with linearly independent vectors. Let $V_0$ the be the linear subspace of $V$ spanned by $\Gamma$, and let $m$ be its dimension. Choose a basis $u_1,\dots,u_m\in\Gamma$ for $V_0$, and consider the complete lattice $\Gamma_0 = \bbZ u_1 + \cdots + \bbZ u_m \subseteq\Gamma$ of $V_0$. We claim that $q=(\Gamma:\Gamma_0)$ is finite: let $\gamma_i\in\Gamma$ vary over a system of representatives of the cosets in $\Gamma/\Gamma_0$. Since $\Gamma_0$ is complete, translates of its fundamental mesh $\Phi_0$ cover $V_0$. Since $\Gamma\cap\overline{\Phi_0}$ is compact and discrete, it is finite, which implies that the number of representatives $\gamma_i$ is finite.
 
-	Let $q=(\Gamma:\Gamma_0)$. For any coset $\gamma+\Gamma_0$ in the quotient we have $q(\gamma+\Gamma_0)=\Gamma_0$, but $q(\gamma+\Gamma_0)=q\gamma+\Gamma_0$, so $q\gamma\in\Gamma_0$. The choice of $\gamma\in\Gamma$ was arbitrary, so $q\Gamma\subseteq\Gamma_0$. Hence
+	For any coset $\gamma+\Gamma_0$ in the quotient we have $q(\gamma+\Gamma_0)=\Gamma_0$, but $q(\gamma+\Gamma_0)=q\gamma+\Gamma_0$, so $q\gamma\in\Gamma_0$. The choice of $\gamma\in\Gamma$ was arbitrary, so $q\Gamma\subseteq\Gamma_0$. Hence
 	\[
 		\Gamma\subseteq\frac{1}{q}\Gamma_0 = \bbZ\left(\frac{1}{q}u_1\right) + \cdots + \bbZ\left(\frac{1}{q}u_m\right).
 	\]
@@ -48,13 +48,23 @@ The following lemma is a criterion for identifying complete lattices.
 	A lattice $\Gamma$ in $V$ is complete if and only if there exists a bounded subset $M\subseteq V$ such that the collection of all translates $M+\gamma$, with $\gamma\in\Gamma$, covers all of $V$.
 \end{lem}
 \begin{proof}
-	\todo{Do!}
+	($\Longrightarrow$) Given that $\Gamma=\bbZ v_1 + \cdots + \bbZ v_n$ is complete, we let $M$ be the fundamental mesh of the lattice. Translates of this, by definition, covers $V$.
+
+	($\Longleftarrow$) Given such a bounded $M\subset V$, whose translates cover $V$, let $V_0$ be the subspace spanned by $\Gamma$. Let $v\in V$, so that for any $n\in\bbN$ we have
+	\[
+		nv = a_n + \gamma_n
+	\]
+	with $a_n\in M$ and $\gamma_n\in\Gamma\subset V_0$.
+
+	By $M$ being bounded, $\frac{1}{n}a_n \to 0$ as $n\to\infty$, and by $V_0$ being closed we get
+	\begin{align*}
+		v &= \lim_{n\to\infty}\frac{1}{n}a_n + \lim_{n\to\infty}\frac{1}{n}\gamma_n\\
+			&= \lim_{n\to\infty} \frac{1}{n}\gamma_n,
+	\end{align*}
+	which lies in $V_0$.
 \end{proof}
 
-
-Restricting our attention to the case where $V$ is an euclidean real vector space, i.e. equipped with a symmetric, positive definite bilinear form $\langle,\rangle:V\times V\to\bbR$
-
-(... notation, Haar measure ...)
+If we restrict our attention to $V$ an euclidean vector space, we have a sensible notion of volume, which we denote by $\vol$.
 
 A subset $X$ of $V$ is \emph{centrally symmetric} if, given any $x\in X$, the point $-x$ is also in $X$. The subset is \emph{convex} if the line segment joining two points $x,y\in X$ is contained in $X$.
 
@@ -92,14 +102,11 @@ In other words; a `nice' (centrally symmetric, convex), `large enough' (volume c
 
 \subsection{Setup in number fields}
 
-In a nutshell, we will construct a vector space $K_\bbR$ from an arbitrary number field $K\mid\bbQ$ that will turn out to be isomorphic to a real euclidean vector space. Minkowski theory will apply, and in particular we will show that the volume of a lattice in $K_\bbR$ has volume bounded by a value depending on the discriminant $d_K$ and ...
+In a nutshell, we will construct a vector space $K_\bbR$ from an arbitrary number field $K\mid\bbQ$ that will turn out to be isomorphic to a real euclidean vector space. Minkowski's lattice point theorem will apply, which will prove useful as a tool in our final result.
 
 We start by defining the $\bbC$-vector space $K_\bbC := \prod_\tau \bbC$ as the product of the complex plane indexed by all $n$ complex embeddings $\tau:K\to\bbC$, and the canonical map $j:K\to K_\bbC$ sending each $a\in K$ to the vector $(\tau a)$.
 
-Remember that the Galois group $G(\bbC\mid\bbR)$ is generated by complex conugation $F:z\mapsto\overline{z}$. This conjugation map acts on factors of $\prod_\tau\bbC$ and on the indexes themselves, by taking $\tau\mapsto\overline{\tau}$. In particular, we get the involution $F:K_\bbC\to K_\bbC$ that takes points $z=(z_\tau)\in K_\bbC$ to $(Fz)_\tau = \overline{z}_{\overline{\tau}}$. A nice fact on which we will rely heavily is the property that the usual scalar product is equivariant under $F$, i.e.
-\[
-	\langle Fx,Fy \rangle = F\langle x,y \rangle.
-\]
+Remember that the Galois group $G(\bbC\mid\bbR)$ is generated by complex conugation $F:z\mapsto\overline{z}$. This conjugation map acts on factors of $\prod_\tau\bbC$ and on the indexes themselves, by taking $\tau\mapsto\overline{\tau}$. In particular, we get the involution $F:K_\bbC\to K_\bbC$ that takes points $z=(z_\tau)\in K_\bbC$ to $(Fz)_\tau = \overline{z}_{\overline{\tau}}$.
 
 Finally, we define a trace $\Tr:K_\bbC\to\bbC$ by $\Tr(z) = \sum_\tau z_\tau$, which is again equivariant under $F$. Note that the composition of maps
 \begin{center}
@@ -108,15 +115,28 @@ Finally, we define a trace $\Tr:K_\bbC\to\bbC$ by $\Tr(z) = \sum_\tau z_\tau$, w
 	\end{tikzcd}
 \end{center}
 
-gives $\Tr\circ j(a) = \Tr((\tau a)_\tau) = \sum_\tau \tau a$ the usual trace $\Tr_{\bbC\mid\bbR}$.
+gives $\Tr\circ j(a) = \Tr((\tau a)_\tau) = \sum_\tau \tau a$, the usual trace $\Tr_{\bbC\mid\bbQ}$.
 
-We now restrict our attention to the real vector space $K_\bbR = K_\bbC^+ = \left[\prod_\tau\bbC\right]^+$, consisting of the $G(\bbC\mid\bbR)$-invariant, i.e. conjugation-invariant points of $K_\bbC$; that is, $(z_\tau)\in K_\bbC$ for which $z_{\overline{\tau}}=\overline{z}_\tau$. Indeed, for such a point we have $(\overline{z})_{\overline{\tau}}= \overline{\overline{z}}_\tau = z_\tau$. (...\todo{More properties, scalar product})
+We now restrict our attention to the real vector space $K_\bbR = K_\bbC^+ = \left[\prod_\tau\bbC\right]^+$, consisting of the $G(\bbC\mid\bbR)$-invariant, i.e. conjugation-invariant points of $K_\bbC$; that is, $(z_\tau)\in K_\bbC$ for which $z_{\overline{\tau}}=\overline{z}_\tau$. Indeed, for such a point we have $(\overline{z})_{\overline{\tau}}= \overline{\overline{z}}_\tau = z_\tau$. Hence for $a\in K$, we have $F(ja)=ja$, so $j$ restricts to
+\[
+	j : K\to K_\bbR.
+\]
 
-On $K_\bbR$, we have $\Tr\circ F = F\circ\Tr$, so 
+We call the euclidean space $K_\bbR$ the \emph{Minkowski space} of $K$, its scalar product the \emph{canonical metric}, and the associated Haar measure (volume function) the \emph{canonical measure}. The trace restricts as well to the usual trace of $K\mid\bbQ$.
 
-We call the euclidean space $K_\bbR$ the \emph{Minkowski space} of $K$, its scalar product the \emph{canonical metric}, and the associated Haar measure the \emph{canonical measure}. We also have that (..\todo{elaborate}) the trace restricted to $K_\bbR$ precomposed with $j:K\to K_\bbR$
+Of all the embeddings $\tau:K\to\bbC$, some have a purely real image, which we denote by
+\[
+	\rho_1,\dots,\rho_r:K\to\bbR,
+\]
+and the complex ones are given in pairs (by conjugation),
+\[
+	\sigma_1,\overline{\sigma_1},\dots,\sigma_s,\overline{\sigma_s}:K\to\bbC.
+\]
 
-
+Hence, we get 
+\[
+	K_\bbR = \{(z_\tau)\in\prod_\tau\bbC \mid z_\rho\in\bbR, z_{\overline{\sigma}} = \overline{z}_\sigma\}.
+\]
 
 
 \begin{prop}
@@ -130,8 +150,13 @@ We call the euclidean space $K_\bbR$ the \emph{Minkowski space} of $K$, its scal
 	\end{align*}
 \end{prop}
 \begin{proof}
-	We have...
+	By our previous discussion, this map is an isomorphism.
 \end{proof}
+
+The two different measures (on $K_\bbR$ and $\bbR^{r+2s}$) differ by
+\[
+	\vol_{\text{canonical}}(X) = 2^s\vol_{\text{Lebesgue}}(f(X)).
+\]
 
 
 The map $j:K\to K_\bbR$, which `embeds' the number field $K$ into the euclidean vector space $K_\bbR$, is the beginning of our study of `geometric' number theory.
