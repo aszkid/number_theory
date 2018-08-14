@@ -2,7 +2,7 @@
 
 It is not a stretch to say that number theory, at least in the classical sense, is about numbers. The study of solutions to equations like $x^2+y^2=z^2$ with ``integer'' coefficients (denoted by $\bbZ$) have concerned number theorists since the Babylonians~\cite{rouseball}. Passing over to the ``rational'' numbers (denoted by $\bbQ$), as ratios of integer parts, is only natural in working with integer equations. Starting with Pythagoras, the Greeks decidedly only worked with rational numbers, and treated ``irrational'' magnitudes as non-existent, as non-numbers (\emph{``He is unworthy of the name of man who is ignorant of the fact that the diagonal of a square is incommesurable with its side''} -- Plato, as quoted by Sophie Germain). While number theory nowadays is still primarily concerned with ``integral'' quantities, mathematics has thankfully moved forward, and the tools of complex analysis and the entire repertoire of numbers (whether real or ``imaginary'') is available to those studying number theoretic questions.
 
-The basic operations of arithmetic in $\bbZ$ (i.e. one can add, subtract, and multiply) are captured in the more general notion of a \emph{ring}. As early as in the 16th century, mathematicians found ``imaginary'' as useful as metaphysically perplexing. One can consider numbers of the form $a+bi$ where $i=\sqrt{-1}$ is the ``imaginary unit'', and show that they not only form a ring; they form an Euclidean domain, admitting unique factorization in prime elements. Gauss used them extensively \todo{citation!}. In other words, we can ``extended'' the usual integers and still preserve essential properties.
+The basic operations of arithmetic in $\bbZ$ (i.e. one can add, subtract, and multiply) are captured in the more general notion of a \emph{ring}. As early as in the 16th century, mathematicians found ``imaginary'' numbers as useful as metaphysically perplexing. One can consider numbers of the form $a+bi$ where $i=\sqrt{-1}$ is the ``imaginary unit'', and show that they not only form a ring; they form an Euclidean domain, admitting unique factorization in prime elements. Gauss used them extensively. In other words, we can ``extended'' the usual integers and still preserve essential properties.
 
 Algebra turns this into a rigurous process. We start with the rational numbers, and consider a finite field extension $F$ over $\bbQ$:
 \begin{center}
@@ -82,7 +82,7 @@ We call the set $\overline{A}=\{b\in B \mid b \text{ integral over } A\}$ the \e
 
 \subsection{Trace and norm}
 
-Consider a finite field extension $L\mid K$. The following concepts will prove useful in studying the integral elements of $L$.\todo{Is it so?}
+Consider a finite field extension $L\mid K$. The following concepts will prove useful in studying the integral elements of $L$.
 
 \begin{defn}
 	The \emph{trace} and \emph{norm} of some $x\in L$ are defined as the trace and norm of the matrix $[T_x]$ representing the endomorphism $T_x:L\to L$ given by $T_x(\alpha)=x\alpha$, i.e.
@@ -101,7 +101,7 @@ We only need to compute the action of trace and norm on some basis to get the fi
 the trace and norm of which are $2a$ and $a^2+b^2$.
 
 \begin{prop}
-	The trace $\Tr_{L\mid K}$ is a $K$-linear additive homomorphism $L\to K$, and the norm $\N_{L\mid K}$ is a \todo{Also K-linear?}multiplicative homomorphism $L^\times\to K^\times$.
+	The trace $\Tr_{L\mid K}$ is a $K$-linear additive homomorphism $L\to K$, and the norm $\N_{L\mid K}$ is a multiplicative homomorphism $L^\times\to K^\times$.
 \end{prop}
 \begin{proof}
 	This amounts to passing to matrix representations as needed.
@@ -139,7 +139,7 @@ Given $n=[L : K]$, the characteristic polynomial of $T_x$ is
 \[
 	f_x(t) = \det(tI - [T_x]) = t^n - a_1t^{n-1} + \cdots + (-1)^na_n.
 \]
-Note that $a_1=\Tr_{L\mid K}(x)$ and $a_n=\N_{L\mid K}(x)$\todo{Not obvious!}, and the degree of $f_x(t)$ is always fixed relative to $L\mid K$.
+Note that the degree of $f_x(t)$ is always fixed relative to $L\mid K$.
 
 On the other hand, the minimal polynomial $p_x(t)$ of any $x\in L$ over $K$ has degree $[K(x) : K]$, which depends of course on the choice of $x$.
 
@@ -202,7 +202,7 @@ We now study the close interplay between the characteristic and the minimal poly
 		-c_d & -c_{d-1} & -c_{d-2} & \cdots & -c_1
 	\end{pmatrix},
 	\]
-	so to compute the characteristic polynomial of $[T_x]$ it suffices to compute it for the block above. This can be done by using the permutation formula of the determinant\todo{Show work}, which gives
+	so to compute the characteristic polynomial of $[T_x]$ it suffices to compute it for the block above. This can be done by using the permutation formula of the determinant, which gives
 	\[
 		t^d + c_1 t^{d-1} + \cdots + c_{d-1} t + c_d = p_x(t).
 	\]
@@ -273,7 +273,6 @@ The trace and norm behave well as we take field extensions:
 			&= \sum_{i=1}^m \sigma_i \Tr_{M\mid L}(x)\\
 			&= \Tr_{L\mid K}(\Tr_{M\mid L}(x)).
 	\end{align*}
-	\todo{Develop third equality.}
 
 \end{proof}
 
@@ -282,7 +281,7 @@ Given a basis $\alpha_1,\dots,\alpha_n$ of a separable field extension $L\mid K$
 \[
 	d(\alpha_1,\dots,\alpha_n) = \det((\sigma_i\alpha_j))^2,
 \]
-where $\sigma_i$ varies over $K$-embeddings $L\to\overline{K}$.\todo{Write discriminant in terms of trace and in the special case of a simple extension.}
+where $\sigma_i$ varies over $K$-embeddings $L\to\overline{K}$.
 
 
 \begin{prop}
@@ -311,7 +310,7 @@ The main use of integrality we care about in this presentation concerns the ring
 
 We remind ourselves of the usual setup: we have an integrally closed integral domain $A$, its field of fractions $K$, a finite separable extension $L\mid K$, and the integral closure $B$ of $A$ in $L$. The classical equivalent is given by $A=\bbZ$, $K=\bbQ$, $L$ a quadratic or cyclotomic extension, etc., and $B=\calO_K$ the ring of integers.
 
-Note that $x\in B$ implies that all its conjugates $\sigma x$ are integral in $L$ too. Hence $\Tr_{L\mid K}(x)$ and $\N_{L\mid K}(x)$ are in $A$\todo{Elaborate. Use $A=B\cap K$.}.
+Note that $x\in B$ implies that all its conjugates $\sigma x$ are integral in $L$ too. Hence $\Tr_{L\mid K}(x)$ and $\N_{L\mid K}(x)$ are in $A$.
 
 \begin{lem}
 	If $\alpha_1,\dots,\alpha_n$ is a basis of $L\mid K$ contained in $B$, of discriminant $d=d(\alpha_1,\dots,\alpha_n)$, we have
@@ -336,7 +335,7 @@ Note that $x\in B$ implies that all its conjugates $\sigma x$ are integral in $L
 	Hence we can write $a_j$ as a quotient of some element in $A$ by $d$, i.e. $da_j\in A$. Therefore $d\alpha\in A\alpha_1+\cdots+A\alpha_n$.
 \end{proof}
 
-This setup, a system $\omega_1,\dots,\omega_n\in B$ that serves as a basis for $B$ over $A$ proves useful: we say that $\{\omega_j\}$ forms an \emph{integral basis} of $B$ over $A$. Note that such a basis immediately gives a basis of $L\mid K$ (for $L$ is the field of fractions of $B$\todo{Elaborate. Easy argument.}), which forces our integral basis to be of length $[L:K]$. In particular, if $B$ admits an integral basis, we can consider $B$ as a free $A$-module or rank $[L:K]$.
+This setup, a system $\omega_1,\dots,\omega_n\in B$ that serves as a basis for $B$ over $A$ proves useful: we say that $\{\omega_j\}$ forms an \emph{integral basis} of $B$ over $A$. Note that such a basis immediately gives a basis of $L\mid K$ (for $L$ is the field of fractions of $B$), which forces our integral basis to be of length $[L:K]$. In particular, if $B$ admits an integral basis, we can consider $B$ as a free $A$-module or rank $[L:K]$.
 
 For most of our upcoming work, we require $A$ to be a principal ideal domain. This nicely classifies $B$-submodules of $L$.
 
