@@ -1,6 +1,21 @@
 \section{Some basic algebra}
 
 
+\subsection{Modules over a ring}
+
+In this entire presentation, we restrict our attention to commutative rings with identity $1\neq 0$. For this introductory section, $R$ and $S$ denote such rings.
+
+\begin{defn}[Lang III, \S 1]
+	A \emph{left-module} $M$ over $R$, or a \emph{left $R$-module} $M$, is an abelian group, usually written additively, together with an operation of $R$ on $M$ such that, for all $a,b\in R$ and $x,y\in M$ we have
+	\begin{align*}
+		(a+b)x = ax+bx \quad \text{and} \quad a(x+y)=ax+ay.
+	\end{align*}
+\end{defn}
+
+One can similarly define \emph{right $R$-modules}, but we will generally work with left $R$-modules, and simply call them \emph{modules}.
+
+Given an $R$-module $M$, we say that $N$ is a \emph{submodule} of $M$, or an \emph{$M$-submodule}, if it is an additive subgroup of $M$. Note that $R$ is a module over itself.
+
 
 \subsection{Polynomial rings}
 
@@ -8,42 +23,55 @@ For any commutative ring $R$ with identity, we define the ring of polynomials in
 \[
 	a_nx^n+a_{n-1}x^{n-1}+\cdots + a_1x + a_0,
 \]
-where $x$ is an `indeterminate', $a_nx^n$ the leading term, $a_n$ the leading coefficient, and $n$ the degree of the polynomial. A polynomial is monic if $a_n=1$.
+where $x$ is an `indeterminate', $a_nx^n$ the leading term, $a_n$ the leading coefficient, and $n$ the degree of the polynomial. A polynomial is \emph{monic} if $a_n=1$.
 
-We define addition of polynomials component-wise, and multiplication by distributivity defining $(ax^i)(bx^j)=abx^{i+j}$; this makes $R[x]$ into a ring
+We define addition of polynomials component-wise, and multiplication by distributing over addition, defining $(ax^i)(bx^j)=abx^{i+j}$. These two operations make $R[x]$ into a ring.
 
-$R$ can be naturally embedded into $R[x]$ as the constant polynomials; this gives $R[x]$ an identity, and $R$ being commutative makes $R[x]$ commutative.
+$R$ can be naturally embedded into $R[x]$ by the constant polynomial map; this gives $R[x]$ an identity, and $R$ being commutative makes $R[x]$ commutative.
 
 
 
-\subsection{Ring homomorphisms and ideals}
+\subsection{Ring homomorphisms}
 
-Ideals naturally arise as kernels of ring homomorphisms, just like normal subgroups spring from group homomorphisms.
+We often construct maps between rings. Frequently, the ring structure of the domain is preserved in the codomain through the map given.
 
 \begin{defn}
 	A \emph{ring homomorphism} is a map $\phi:R\to S$ of rings satisfying
 	\begin{enumerate}[(i)]
-		\item $\phi(a+b)=\phi(a)+\phi(b)$ and
-		\item $\phi(ab)=\phi(a)\phi(b)$
+		\item $\phi(a+b)=\phi(a)+\phi(b)$,
+		\item $\phi(ab)=\phi(a)\phi(b)$ and
+		\item $\phi(1_R) = 1_S$
 	\end{enumerate}
-	for all $a,b\in R$.
+	for all $a,b\in R$, where $1_R$ is the identity in $R$ and respectively for $S$.
+\end{defn}
 
-	The \emph{kernel} of $\phi$ is defined by $\ker\phi=\phi\inv(0)$.
+The \emph{kernel} of $\phi$ is defined by $\ker\phi=\phi\inv(0)$. This set motivates the notion of an \emph{ideal}, which is in turn a good example of a module over $R$. We now make this precise.
+
+\begin{defn}
+	An \emph{ideal} $I$ in a ring $R$ is an $R$-submodule over $R$.
 \end{defn}
 
 \begin{prop}
-	For any ring homomorphsim $\phi:R\to S$, its image and kernel are subrings of $S$ and $R$ respectively.
+	For any ring homomorphism $\phi:R\to S$, its image is a subring of $S$ and its kernel is an ideal in $R$.
 \end{prop}
+\begin{proof}
+	We only show the second part, which concerns the language of modules.
 
-In fact, the kernel has a somewhat stronger property: for any $r\in R$ and $k\in\ker\phi$, we have that $\phi(rk)=\phi(r)\phi(k)=\phi(r)0=0$, so $rk,kr\in\ker\phi$. This is a normality property; in ring theoretic language, we say that $\ker\phi$ is an \emph{ideal} of $R$.
+	First, if $a,b\in\ker\phi$, then
+	\[
+		\phi(a+b) = \phi(a)+\phi(b) = 0 + 0 = 0,
+	\]
+	so that $a+b\in\ker\phi$. Hence the kernel is a subgroup of $R$ under addition. Furthermore, given any $a\in\ker\phi$, the operation of $R$ on $\ker\phi$ given by multiplication has the following property:
+	\[
+		\phi(ar) = \phi(a)\phi(r) = 0\phi(r) = 0,
+	\]
+	so that $ar\in\ker\phi$, thus defining a valid action of $R$ on $\ker\phi$. Therefore $\ker\phi$ is a submodule of $R$, or an $R$-submodule: in other words, an ideal.
+\end{proof}
 
 \begin{defn}
-	Let $I\subset R$ be a subring. Define $rI=\{ra \mid a\in I\}$ and $Ir=\{ar \mid a\in I\}$ for any $r\in R$.
-
-	We say that $I$ is an \emph{ideal} if we always have the inclusions $rI\subset I$ and $Ir\subset I$.
+	Let $I\subset R$ be an $R$-submodule. Define $rI=\{ra \mid a\in I\}$ and $Ir=\{ar \mid a\in I\}$ for any $r\in R$.
 \end{defn}
 
-(There is a general distinction between \emph{left-} and \emph{right-}ideals, but they agree for commutative rings. In particular, number fields and integral rings are commutative, so we are content with sticking to the commutative case.)
 
 Just like we do for groups, we can partition $R$ in cosets $r+I$, and endow the set of cosets with the ring structure inherited from $R$: namely, defining $(r+I)+(s+I)=(r+s)+I$ and $(r+I)\cdot (s+I) = (r\cdot s) + I$. And again, this is only well-defined if $I$ is an ideal, not just a subring of $R$. The set of cosets under this ring structure is denoted by $R/I$ and called the \emph{quotient ring} of $R$ modulo $I$.
 
