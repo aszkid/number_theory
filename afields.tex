@@ -296,14 +296,27 @@ The trace and norm behave well as we take field extensions:
 		\Tr_{M\mid K}(x) = \sum_{i=1}^m \sigma_i\left(\Tr_{M\mid L}(x)\right) = \Tr_{L\mid K}\left(\Tr_{M\mid L}(x)\right).
 	\]
 
+	The equivalent statement about the norm follows by a similar argument.
+
 \end{proof}
 
 
-Given a basis $\alpha_1,\dots,\alpha_n$ of a separable field extension $L\mid K$, we define its \emph{discriminant} by
+\begin{defn}
+	Given a basis $\alpha_1,\dots,\alpha_n$ of a separable field extension $L\mid K$, we define its \emph{discriminant} by
+	\[
+		d(\alpha_1,\dots,\alpha_n) = \det((\sigma_i\alpha_j))^2,
+	\]
+	where $\sigma_i$ varies over $K$-embeddings $L\to\overline{K}$.
+\end{defn}
+
+Note that
 \[
-	d(\alpha_1,\dots,\alpha_n) = \det((\sigma_i\alpha_j))^2,
+	\Tr_{L\mid K}(\alpha_i\alpha_j) = \sum_k(\sigma_k\alpha_i)(\sigma_k\alpha_j),
 \]
-where $\sigma_i$ varies over $K$-embeddings $L\to\overline{K}$.
+so we have $(\Tr_{L\mid K})(\alpha_i\alpha_j)=(\sigma_k\alpha_i)^t(\sigma_k\alpha_j)$. Hence we can write
+\[
+	d(\alpha_1,\dots,\alpha_n)=\det\left(\Tr_{L\mid K}(\alpha_i\alpha_j)\right).
+\]
 
 
 \begin{prop}
@@ -314,13 +327,26 @@ where $\sigma_i$ varies over $K$-embeddings $L\to\overline{K}$.
 
 	Recall that a bilinear form $(x,y)$ can be expressed by a matrix $M$, so that $(x,y) = x^T M y$. Non-degeneracy is equivalent to requiring $\det(M)\neq 0$.
 	
-	Since $L\mid K$ is separable, the primitive element theorem gives some $\theta\in L$ for which $L=K(\theta)$. Hence
+	Since $L\mid K$ is separable, the primitive element theorem gives some $\theta\in L$ for which $L=K(\theta)$. Let $\theta_i=\sigma_i\theta$, and consider the matrix
+	\begin{align*}
+	\begin{pmatrix}
+		1 & \theta_1 & \theta_1^2 & \cdots & \theta_1^{n-1}\\
+		1 & \theta_2 & \theta_2^2 & \cdots & \theta_2^{n-1}\\
+		\cdots & \cdots &\cdots &\cdots &\cdots\\
+		1 & \theta_n & \theta_n^2 & \cdots & \theta_n^{n-1}\\
+	\end{pmatrix}
+	\end{align*}
+	known as a \emph{Vandermonde} matrix. We can compute the discriminant $d(1,\theta,\dots,\theta^{n-1})$ by multiplying the first $(n-1)$ columns in the matrix above by $\theta_1$ and subtracting from the following, which gives
 	\[
-		\det(M) = \prod_{i<j}(\theta_i-\theta_j)^2 \neq 0,
+		d(1,\theta,\dots,\theta^{n-1}) = \prod_{i<j}(\theta_i-\theta_j)^2.
+	\]
+	In this particular case, $M=(\Tr_{L\mid K}(\theta^{i-1}\theta^{j-1}))_{i,j=1,\dots,n}$. We claim that the bilinear form is nondegenerate, i.e.
+	\[
+		\det(M) = d(1,\theta,\dots,\theta^{n-1}) = \prod_{i<j}(\theta_i-\theta_j)^2 \neq 0
 	\]
 	since otherwise $\theta_i = \theta_j$, implying that $\sigma_i=\sigma_j$, a contradiction.
 
-	Denote the bilinear form $(x,y)$ with respect to some other basis $\alpha_1,\dots,\alpha_n$ by $M'$. Using a change of basis, we have $M=SM'S\inv$. Take the determinant on both sides to get $0\neq\det(M)=\det(S)\det(M')\det(S\inv)=\det(M')$.
+	This argument does not depend on the specific matrix representation: denote the bilinear form $(x,y)$ with respect to some other basis $\alpha_1,\dots,\alpha_n$ by $M'$. Using a change of basis, we have $M=SM'S\inv$. Take the determinant on both sides to get $0\neq\det(M)=\det(S)\det(M')\det(S\inv)=\det(M')$.
 \end{proof}
 
 
