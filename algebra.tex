@@ -1,45 +1,4 @@
-\section{Algebra fundamentals}
-
-This first section develops the basic theory of rings of integers and the elementary algebraic tools needed to build them. We follow Dummit \& Foote for the most part. The next section will motivate the structures developed here.
-
-\begin{defn}[D\&F pp. 224]
-	A ring $R$ with identity $1\neq 0$ is called a \emph{division ring} if every nonzero $a\in R$ has a multiplicative inverse.
-
-	If $R$ is a commutative division ring, we call it a \emph{field}.
-\end{defn}
-
-\begin{defn}
-	\begin{enumerate}
-		\item A nonzero element $a\in R$ is called a \emph{zero divisor} if there is a nonzero $b\in R$ such that $ab=0$.
-		\item Assume $R$ has an identity $1\neq 0$. An element $u\in R$ is called a \emph{unit} if there is some $v\in R$ such that $uv=vu=1$. The set of units is denoted by $R^\times$, and forms a subgroup under multiplication (the \emph{group of units}).
-	\end{enumerate}
-\end{defn}
-
-Fields are rings for which every nonzero element is a unit. Units cannot be zero divisors, for if $a\in R$ is such an element, we have $c,d\in R$ with $c\neq 0$ such that $ac=0$ and $ad=da=1$, but $c=1c=(da)c=d(ac)=d0=0$, a contradiction.
-
-
-
-\subsection{Valuation rings}
-
-\begin{defn}
-	Given a field $K$, a \emph{discrete valuation} on $K$ is a function $v:K^\times\to\bbZ$ satisfying
-	\begin{enumerate}[(i)]
-		\item $v(ab) = v(a)+v(b)$, i.e. it is a group homomorphism;
-		\item $v$ is surjective; and
-		\item $v(a+b) = \min\{v(a), v(b)\}$ for all $a,b\in K^\times$ with $a+b\neq 0$.
-	\end{enumerate}
-
-	The set $R = \{x\in K^\times \mid v(x)\geq 0\}\cup\{0\}$ is called the \emph{valuation ring} of $v$.
-\end{defn}
-
-First, note that $v(1)=0$, since for all $x\in K^\times$, $v(x)=v(1x)=v(1)+v(x)$. We show that $x\in R$ is a unit in $R$ iff $v(x)=0$: if $x$ is a unit in $R$, we have some $y\in R$ such that $xy=yx=1$. Hence $0=v(1)=v(xy)=v(x)+v(y)$: both quantities are positive by $x,y\in R$, so necessarily $v(x)=v(y)=0$. Now fix $x\in R$: note that $v(x)$ is not well-defined if $x=0$, so we may assume $x\neq 0$, and thus necessarely $x\in K^\times$, with $v(x)=0$. In particular, we have some $y\in K^\times$ such that $xy=yx=1$. But notice that $0=v(1)=v(xy)=v(x)+v(y)=v(y)$, so $y\in R$ and therefore $x$ is a unit in $R$.
-
-To illustrate the notion of a valuation, we note the following example (D\&F, Exercise 7.1.27): let $p$ be a prime number, $K=\bbQ$, and define $v_p:\bbQ^\times\to\bbZ$ by $v_p(a/b)=\alpha$ where $a/b=p^\alpha c/d$ and $p\nmid c$, $p\nmid d$. We prove that the corresponding valuation ring of $v_p$ is the ring of all rational numbers whose denominators are relatively prime to $p$, and we describe the units.
-
-We have $R=\{a/b\in\bbQ^\times \mid v_p(a/b)\geq 0\}$, i.e. $R$ is the set of all rationals $a/b$ such that $a/b=p^\alpha c/d$ for $c,d\in\bbZ$ chosen adequately and $\alpha\geq 0$. In particular, this implies that there is no $p$ in the denominator of the expression, so $p\nmid b$, i.e. $(p,b)=1$. On the other hand, if $p\nmid b$, we let $\alpha$ be the largest non-negative integer such that $p^\alpha \mid a$. Then, letting $c=a/p^\alpha$, we have $a/b=p^\alpha c/b$. Hence $a/b\in R$.
-
-As for the units, by our previous observation we have that $a/b\in R$ is a unit iff $v_p(a/b)=0$, i.e. $a/b=p^0 c/d$, forcing $c=a$, $d=b$. Hence the units of $R$ are all rationals $a/b$ with numerator \emph{and} denominator $p$-free.
-
+\section{Some basic algebra}
 
 
 
