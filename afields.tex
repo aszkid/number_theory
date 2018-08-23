@@ -422,7 +422,11 @@ For most of our upcoming work, we require $A$ to be a principal ideal domain. Th
 	that is $\rank(M)=[L:K]$.
 \end{proof}
 
-Looking back to the usual integral closure $\calO_K\subset K$ of $\bbZ\subset\bbQ$ in some algebraic number field $K$, the immediate application of these results on integral bases gives every finitely generated $\calO_K$-submodule $\fraka$ of $K$ a $\bbZ$-basis $\alpha_1,\dots,\alpha_n$, i.e. $\fraka = \alpha_1\bbZ+\cdots+\alpha_n\bbZ$. Since the discriminant $d(\alpha_1,\dots,\alpha_n)$ is independent of our choice of $\bbZ$-basis, we can simply write $d(\fraka)=d(\alpha_1,\dots,\alpha_n)$.
+Looking back to the usual integral closure $\calO_K\subset K$ of $\bbZ\subset\bbQ$ in some algebraic number field $K$, the immediate application of these results on integral bases gives every finitely generated $\calO_K$-submodule $\fraka$ of $K$ a $\bbZ$-basis $\alpha_1,\dots,\alpha_n$, i.e. $\fraka = \alpha_1\bbZ+\cdots+\alpha_n\bbZ$. We claim that the discriminant does not depend on our choice of basis: given another $\bbZ$-basis $\alpha_1',\dots,\alpha_n'$, the change of basis matrix $T=(a_{ij})$ and its inverse have integral entries, so $\det(T) = \pm 1$. Then
+\[
+	d(\alpha_1',\dots,\alpha_n') = \det(T)^2 d(\alpha_1,\dots,\alpha_n) = d(\alpha_1,\dots,\alpha_n).
+\]
+Therefore, it makes sense to define $d(\fraka)=d(\alpha_1,\dots,\alpha_n)$ for any $\bbZ$-basis.
 
 In particular, given an integral basis $\omega_1,\dots,\omega_n$ of $\calO_K$, we define the \emph{discriminant of the algebraic number field $K$} as
 \[
