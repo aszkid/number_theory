@@ -4,7 +4,7 @@ It is not a stretch to say that number theory, at least in the classical sense, 
 
 The basic operations of arithmetic in $\bbZ$ (i.e. one can add, subtract, and multiply) are captured in the more general notion of a \emph{ring}. As early as in the 16th century, mathematicians found ``imaginary'' numbers as useful as metaphysically perplexing. One can consider numbers of the form $a+bi$ where $i=\sqrt{-1}$ is the ``imaginary unit'', and show that they not only form a ring; they form an Euclidean domain, admitting unique factorization in prime elements. Gauss used them extensively. In other words, we can ``extended'' the usual integers and still preserve essential properties.
 
-Algebra turns this into a rigurous process. We start with the rational numbers, and consider a finite field extension $F$ over $\bbQ$:
+Algebra turns this into a rigorous process. We start with the rational numbers, and consider a finite field extension $F$ over $\bbQ$:
 \begin{center}
 \begin{tikzcd}
 		& F \\
@@ -92,13 +92,13 @@ We call the set $\overline{A}=\{b\in B \mid b \text{ integral over } A\}$ the \e
 Consider a finite field extension $L\mid K$. The following concepts will prove useful in studying the integral elements of $L$.
 
 \begin{defn}
-	The \emph{trace} and \emph{norm} of some $x\in L$ are defined as the trace and norm of the matrix $[T_x]$ representing the endomorphism $T_x:L\to L$ given by $T_x(\alpha)=x\alpha$, i.e.
+	The \emph{trace} and \emph{norm} of some $x\in L$ are defined as the trace and norm of the linear endomorphism $T_x:L\to L$ given by $T_x(\alpha)=x\alpha$, i.e.
 	\begin{align*}
 		\Tr_{L\mid K}(x) = \Tr([T_x]) & & \N_{L\mid K}(x) = \det([T_x]).
 	\end{align*}
 \end{defn}
 
-We only need to compute the action of trace and norm on some basis to get the field trace and norm: for example, with $K=\bbR$ and $L=\bbC$, we have a the usual basis $\{1,i\}$ for $\bbC$, and so for any $z=a+bi\in\bbC$ we get $T_z(1)=a+bi$ and $T_z(i)=-b+ai$. This gives the matrix
+We only need to compute the action of trace and norm on some $K$-basis of $L$ to get the field trace and norm: for example, with $K=\bbR$ and $L=\bbC$, we have the usual basis $\{1,i\}$ for $\bbC$, and so for any $z=a+bi\in\bbC$ we get $T_z(1)=a+bi$ and $T_z(i)=-b+ai$. This gives the matrix
 \[
 	\begin{bmatrix}
 		a & -b\\
@@ -119,7 +119,7 @@ the trace and norm of which are $2a$ and $a^2+b^2$.
 			&=\Tr([T_x])+\Tr([T_y])\\
 			&= \Tr_{L\mid K}(x)+\Tr_{L\mid K}(y),
 	\end{align*}
-	so the field trace is at least additive, just like the usual trace.
+	so the field trace is additive.
 
 	Similarly, we have
 	\begin{align*}
@@ -127,7 +127,7 @@ the trace and norm of which are $2a$ and $a^2+b^2$.
 			&= \det([T_x])\det([T_y])\\
 			&= \N_{L\mid K}(x)\N_{L\mid K}(y),
 	\end{align*}
-	so the field norm is multiplicative, just like the usual norm.
+	so the field norm is multiplicative.
 
 	For $K$-linearity of the trace, fix $c\in K$ and $x\in L$: as an endomorphism, we have $T_{cx}(\alpha)=c T_x(\alpha)$, so
 	\begin{align*}
@@ -146,7 +146,7 @@ Given $n=[L : K]$, the characteristic polynomial of $T_x$ is
 \[
 	f_x(t) = \det(tI - [T_x]) = t^n - a_1t^{n-1} + \cdots + (-1)^na_n.
 \]
-Note that the degree of $f_x(t)$ is always fixed relative to $L\mid K$.
+Note that the degree of $f_x(t)$ is always equal to $[L:K]$.
 
 On the other hand, the minimal polynomial $p_x(t)$ of any $x\in L$ over $K$ has degree $[K(x) : K]$, which depends of course on the choice of $x$.
 
@@ -177,19 +177,19 @@ We now study the close interplay between the characteristic and the minimal poly
 	where $n=[L:K]$ and $d=[K(x):K]$.
 \end{prop}
 \begin{proof}
-	Fix $x\in L$. The set $\{x,x^2,\dots,x^{d-1}\}$ is a basis of $K(x)\mid K$. Pick a basis $\{\alpha_1,\dots,\alpha_m\}$ of $L\mid K(x)$. The set 
+	Fix $x\in L$. The set $\{1,x,x^2,\dots,x^{d-1}\}$ is a basis of $K(x)\mid K$. Pick a basis $\{\alpha_1,\dots,\alpha_m\}$ of $L\mid K(x)$. The set 
 	\[
 		\{\alpha_1, \alpha_1 x,\alpha_1 x^2, \dots, \alpha_1 x^{d-1}; \alpha_2, \alpha_2 x, \alpha_2 x^2, \dots, \alpha_2 x^{d-1}; \dots ; \alpha_m, \alpha_m x, \dots, \alpha_m x^{d-1}\}
 	\]
 	is a basis for $L\mid K$.
 
-	We write $T_x$ as a matrix with respect to this basis. Let $e_{ij}$ be the basis vectors of $L$, i.e. $e_{01} = \alpha_1 = (1,0,\dots,0)$, $e_{11} = x \alpha_1 = (0,1,\dots,0)$, etc. Note that for $i<d-1$ we have
+	We write $T_x$ as a matrix with respect to this basis. Let $e_{ij}$ be the basis vectors of $L$. Note that for $i<d-1$ we have
 	\begin{align*}
 		T_x(e_{ij}) = x e_{ij} &= x x^i \alpha_j\\
 			&= x^{i+1} \alpha_j\\
 			&= e_{(i+1)j},
 	\end{align*}
-	and for $i=d-1$
+	and for $i=d-1$,
 	\begin{align*}
 		T_x(e_{(d-1)j}) = x^d \alpha_j,
 	\end{align*}
@@ -199,29 +199,27 @@ We now study the close interplay between the characteristic and the minimal poly
 	\end{align*}
 	which is in fact the minimal polynomial of $x$ since $d=[K(x):K]$. Hence $T_x(e_{(d-1)j}) = \alpha_j (-c_d - x c_{d-1} - \cdots - x^{d-1} c_1)$.
 	
-	We have just shown that $T_x$ gives the same matrix for each subspace generated by $\{e_{ij}\}_{0\leq j\leq m}$:
+	We have just shown that, with respect to the basis $e_{ij}$, the linear endomorphism $T_x$ has $m$ invariant subspaces, each of dimension $d$, and spanned by $\{e_{ij}\}_{0\leq i\leq d-1}$ where $j$ indexes these subspaces from $1$ through $m$. The matrix of $T_x$ on each subspace is equal to the following:
 	\[
 	\begin{pmatrix}
 		0 & 1 & 0 & \cdots & 0\\
-		0 & 1 & 1 & \cdots & 0\\
+		0 & 0 & 1 & \cdots & 0\\
 		\cdots & \cdots & \cdots & \cdots & \cdots\\
 		0 & 0 & 0 & \cdots & 1\\
 		-c_d & -c_{d-1} & -c_{d-2} & \cdots & -c_1
 	\end{pmatrix},
 	\]
-	so to compute the characteristic polynomial of $[T_x]$ it suffices to compute it for the block above. This can be done by using the permutation formula of the determinant, which gives
+	so in order to compute the characteristic polynomial of $T_x$ it suffices to compute it for the block above, and raise the result to the $m$-th power. This can be done by using the permutation formula of the determinant, which gives
 	\[
 		t^d + c_1 t^{d-1} + \cdots + c_{d-1} t + c_d = p_x(t).
 	\]
-
-	By $[T_x]$ consisting of $m$ identical blocks with determinant $p_x(t)$, we get $f_x(t)=p_x(t)^m$.
 
 \end{proof}
 
 Note that if $L=K(x)$, we have that $f_x(t)=p_x(t)$.
 
 
-A special form for field trace and norm can be given if $L\mid K$ is a separable extension. Let $d=[L:K(x)]$ and $m=[K(x):K]$, so $[L:K]=dm$.
+A special form for field trace and norm can be given if $L\mid K$ is a separable extension.
 
 \begin{prop}
 	Given a separable field extension $L\mid K$ and $\sigma : L\to\overline{K}$ a $K$-embedding of $L$, we have
@@ -232,7 +230,9 @@ A special form for field trace and norm can be given if $L\mid K$ is a separable
 	\end{enumerate}
 \end{prop}
 \begin{proof}
-	Since $L\mid K$ is separable, $x\in L$ is separable, so there are exactly $m$ $K$-embedding $\tilde{\sigma}:K(x)\to \overline{K}$. Each of these extends to a $K$-embedding $\sigma: L\to \overline{K}$ in $d$ different ways. Since $[L:K]_s=md$, this accounts for all $K$-embeddings $L\to\overline{K}$. Hence we can split $\Hom_K(L,\overline{K})$ into $m$ equivalence classes by identifying $\sigma \sim \tau$ if $\sigma(x)=\tau(x)$ (corresponding to choice of $x^\sigma$); each of the equivalence classes has $d$ distinct embeddings.
+	Let $d=[L:K(x)]$ and $m=[K(x):K]$, so $[L:K]=dm$.
+
+	Since $L\mid K$ is separable, $x\in L$ is separable, so there are exactly $m$ $K$-embeddings $\tilde{\sigma}:K(x)\to \overline{K}$. Each of these extends to a $K$-embedding $\sigma: L\to \overline{K}$ in $d$ different ways. Since $[L:K]_s=md$, this accounts for all $K$-embeddings $L\to\overline{K}$. Hence we can split $\Hom_K(L,\overline{K})$ into $m$ equivalence classes by identifying $\sigma \sim \tau$ if $\sigma(x)=\tau(x)$ (corresponding to choice of $x^\sigma$); each of the equivalence classes has $d$ distinct embeddings.
 
 	%(Another argument: $L$ is a finite extension over $K(x)$, so any element in $L$ can be written as a linear combination of $d$ basis elements in $L$ with coefficients in $K(x)$. A $K$-embedding of $L$ into $\overline{K}$ must decide where $x$ goes (exactly $m$ choices, the degree of $p_x(t)$) and where the $d$ elements of the basis of $L$ go.)
 
@@ -248,7 +248,7 @@ A special form for field trace and norm can be given if $L\mid K$ is a separable
 	\end{align*}
 	the last equality being valid since any two embeddings in the same equivalence class agree on $x$.
 
-	Recall the block form of $[T_x]$. Summing along the diagonal gives $-c_1$, which by Vieta is equal to the sum of the roots of $p_x(t)$, i.e. $\sum_{i=1}^m \sigma_i x$. Again, the block is repeated $d$ times, so we have
+	Recall the block form of $[T_x]$. Summing along the diagonal gives $-c_1$, which by Viète is equal to the sum of the roots of $p_x(t)$, i.e. $\sum_{i=1}^m \sigma_i x$. Again, the block is repeated $d$ times, so we have
 	\begin{align*}
 		\Tr_{L\mid K}(x) &= d \sum_{i=1}^m \sigma_i x\\
 			&= \sum_\sigma \sigma x.
@@ -256,7 +256,7 @@ A special form for field trace and norm can be given if $L\mid K$ is a separable
 
 	Computing the determinant of $[T_x]$ by the permutation formula gives
 	\begin{align*}
-		\N_{L\mid K} &= \sum_\sigma \sigma x.
+		\N_{L\mid K} &= \prod_\sigma \sigma x.
 	\end{align*}
 
 \end{proof}
@@ -274,12 +274,27 @@ The trace and norm behave well as we take field extensions:
 
 	Fix $x\in M$. We have
 	\begin{align*}
-		\Tr_{M\mid K}(x) &= \sum_\sigma \sigma x\\
-			&= \sum_{i=1}^m \sum_{\sigma\sim\sigma_i} \sigma x\\
-			&= \sum_{i=1}^m \Tr_{\sigma_i M\mid \sigma_i L}(\sigma_i x)\\
-			&= \sum_{i=1}^m \sigma_i \Tr_{M\mid L}(x)\\
-			&= \Tr_{L\mid K}(\Tr_{M\mid L}(x)).
+		\Tr_{M\mid K}(x) = \sum_\sigma \sigma x = \sum_{i=1}^m \sum_{\sigma\sim\sigma_i} \sigma x.
 	\end{align*}
+
+	Now, let $\{\tau_j\} = \Hom_K(L,\overline{K})$ be the family of distinct $K$-linear embeddings of $L$ into $\overline{K}$. Extend each $\tau_j$ to an automorphism of $\overline{K}$ (recall that $K\subset L\subset M \subset \overline{K}$), and denote this by $\tau_j$ also. Let $\{\rho_k\}=\Hom_L(M,\overline{K})$ be the family of embeddings of $M$ in $\overline{K}$ over $L$. If $\rho$ is an embedding of $M$ over $K$ in $\overline{K}$, then for some $j$, $\tau_j\inv\circ\rho$ leaves $L$ fixed, and hence $\tau_j\inv\circ\rho=\rho_k$ for some $j$ and some $k$ depending on $\rho$, for each $\rho\in\Hom_K(M,\overline{K})$.
+
+	Since every $\sigma$ in the same equivalence class as $\sigma_i$ does the same thing to $L$ as $\sigma$, the unique index $j$ such that $\tau_j\inv\circ\sigma_i\in\Hom_L(M,\overline{K})$, then $\tau_j\inv\circ\sigma\in\Hom_L(M,\overline{K})$ for all $\sigma\sim\sigma_i$. Therefore, the map of sets sending $\sigma\sim\sigma_i$ to $\tau_j\inv\circ\sigma$ puts the set $\{\sigma\sim\sigma_i\}$ in bijection with the set $\Hom_L(M,\overline{K})$, and its inverse takes $\rho_k\in\Hom_L(M,\overline{K})$ to $\tau_j\circ\rho_k$.
+
+	Hence, a fortiori,
+	\[
+		\sum_{\sigma\sim\sigma_i} \sigma x = \sum_k \tau_j\circ\rho_k(x) = \tau_j\left(\sum_j\rho_k(x)\right) = \tau_j\circ\left(\Tr_{M\mid L}(x)\right).
+	\]
+
+	But $\Tr_{M\mid L}(x)\in L$ and $\tau_j|_L=\sigma_i|_L$, so we conclude that
+	\[
+		\sum_{\sigma\sim\sigma_i} \sigma x = \sigma_i\left(\Tr_{M\mid L}(x)\right).
+	\]
+
+	Therefore
+	\[
+		\Tr_{M\mid K}(x) = \sum_{i=1}^m \sigma_i\left(\Tr_{M\mid L}(x)\right) = \Tr_{L\mid K}\left(\Tr_{M\mid L}(x)\right).
+	\]
 
 \end{proof}
 
