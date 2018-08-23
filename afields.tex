@@ -1,6 +1,6 @@
 \section{Algebraic number fields}
 
-It is not a stretch to say that number theory, at least in the classical sense, is about numbers. The study of solutions to equations like $x^2+y^2=z^2$ with ``integer'' coefficients (denoted by $\bbZ$) have concerned number theorists since the Babylonians~\cite{rouseball}. Passing over to the ``rational'' numbers (denoted by $\bbQ$), as ratios of integer parts, is only natural in working with integer equations. Starting with Pythagoras, the Greeks decidedly only worked with rational numbers, and treated ``irrational'' magnitudes as non-existent, as non-numbers (\emph{``He is unworthy of the name of man who is ignorant of the fact that the diagonal of a square is incommesurable with its side''} -- Plato, as quoted by Sophie Germain). While number theory nowadays is still primarily concerned with ``integral'' quantities, mathematics has thankfully moved forward, and the tools of complex analysis and the entire repertoire of numbers (whether real or ``imaginary'') is available to those studying number theoretic questions.
+It is not a stretch to say that number theory, at least in the classical sense, is about numbers. The study of solutions to equations like $x^2+y^2=z^2$ with integer coefficients (denoted by $\bbZ$) have concerned mathematicians since the Babylonians~\cite{rouseball}. Working with rational numbers (denoted by $\bbQ$), as ratios of integer parts, is only natural when dealing with integer equations. Starting with Pythagoras, the Greeks decidedly only worked with rational numbers, and treated irrational magnitudes as non-existent, as non-numbers (\emph{``He is unworthy of the name of man who is ignorant of the fact that the diagonal of a square is incommesurable with its side''} -- Plato, as quoted by Sophie Germain). While number theory nowadays is still primarily concerned with ``integral'' quantities, mathematics has thankfully moved forward, and the tools of complex analysis and the entire repertoire of numbers (whether real or ``imaginary'') is available to those studying number theoretic questions.
 
 The basic operations of arithmetic in $\bbZ$ (i.e. one can add, subtract, and multiply) are captured in the more general notion of a \emph{ring}. As early as in the 16th century, mathematicians found ``imaginary'' numbers as useful as metaphysically perplexing. One can consider numbers of the form $a+bi$ where $i=\sqrt{-1}$ is the ``imaginary unit'', and show that they not only form a ring; they form an Euclidean domain, admitting unique factorization in prime elements. Gauss used them extensively. In other words, we can ``extended'' the usual integers and still preserve essential properties.
 
@@ -11,7 +11,7 @@ Algebra turns this into a rigurous process. We start with the rational numbers, 
 	\bbZ \arrow[r] & \bbQ \arrow[u]
 \end{tikzcd}
 \end{center}
-(arrows denote inclusion for now). Previously, we formed ``fractional'' elements $\bbQ$ from $\bbZ$: now we would like to restrict our attention to ``integral'' elements of $F$, i.e. forming ``$\bbZ$'' from ``$\bbQ$''. If we can define such a notion that works for $\bbQ$, that will suffice. For example, consider polynomials of degree one with coefficients in $\bbZ$, i.e. $x+a=0$ with $a\in\bbZ$. The solutions to these equations in $\bbQ$ are exactly the elements of $\bbZ$: in fact, considering polynomials with higher degree yields no other solutions in $\bbQ$. We say that the \emph{integral closure} of $\bbZ$ in $\bbQ$ is, again, $\bbZ$.
+(arrows denote inclusion for now). Previously, we formed ``fractional'' elements $\bbQ$ from $\bbZ$: now we would like to restrict our attention to ``integral'' elements of $F$, i.e. forming ``$\bbZ$'' from ``$\bbQ$''. If we can define such a notion that works for $\bbQ$, that will suffice. For example, consider monic polynomials of degree one with coefficients in $\bbZ$, i.e. $x+a=0$ with $a\in\bbZ$. The solutions to these equations in $\bbQ$ are exactly the elements of $\bbZ$: in fact, considering monic polynomials with higher degree yields no other solutions in $\bbQ$. We say that the \emph{integral closure} of $\bbZ$ in $\bbQ$ is, again, $\bbZ$.
 
 In the general case, we go back to our finite extension $F$ and consider monic polynomials
 \[
@@ -45,13 +45,13 @@ and, from a more algebraic point of view,
 
 The question of integrality is fundamental in the study of number fields, and it proves fruitful to develop the theory in its full generality.
 
-For a given ring extension $A\subseteq B$, we say that $B$ is \emph{integral over $A$} if each element in $B$ is integral over $A$. Integral elements of $B$ give the $A$-modules they generate a good structure property.
+For a given ring extension $A\subseteq B$, we say that $B$ is \emph{integral over $A$} if each element in $B$ is integral over $A$. Integral elements of $B$ give the $A$-modules they generate a good structural property.
 
 \begin{prop}[Neukirch 2.2]
 	Finitely many elements $b_1,\dots,b_n\in B$ are integral over $A$ iff the $A$-module $A[b_1,\dots,b_n]$ is finitely generated.
 \end{prop}
 \begin{proof}
-	($\Longrightarrow$) Start by assuming that $b\in B$ is integral over $A$. Then $f(b)=0$ for some polynomial $f(x)$ over $A$. Now let $g(x)\in A[x]$: by the division algorithm, we have $g(x)=q(x)f(x)+r(x)$ with polynomials over $A$ and $\deg r(x) < \deg q(x)$.
+	($\Longrightarrow$) Start by assuming that $b\in B$ is integral over $A$. Then $f(b)=0$ for some monic polynomial $f(x)$ over $A$. Now let $g(x)\in A[x]$: by the division algorithm, we have $g(x)=q(x)f(x)+r(x)$ with polynomials over $A$ and $\deg r(x) < \deg q(x)$.
 
 	In particular, passing to $A[b]$, we have $g(b)=r(b)=a_0+a_1b+\cdots+a_{n-1}b^{n-1}$. So any element in $A[b]$ is generated by $\{1,b,\dots,b^{n-1}\}$, i.e. $A[b]$ is finitely generated.
 
@@ -65,10 +65,17 @@ For a given ring extension $A\subseteq B$, we say that $B$ is \emph{integral ove
 		\vdots &= 0\\
 		(-a_{r1})\omega_1 + \cdots + (b-a_{rr})\omega_r &= 0
 	\end{align*}
-	In matrix form we can write the coefficients as $bI - (a_{ij})$, and we have that the vector of generators solves the system, i.e. $(bI-(a_{ij}))\omega_i = 0$, so $\det(bI-(a_{ij}))\omega_i = 0$, but $\omega_i\neq 0$ so necessarily $\det(bI-(a_{ij}))=0$. This gives a polynomial over $A$ for which $b$ is a root, so $b$ is integral over $A$.
+	In matrix form we can write the coefficients as $bI - (a_{ij})$, and we have that the vector of generators solves the system, i.e. $(bI-(a_{ij}))\omega_i = 0$. Let $\omega$ be the vector of generators $\omega_i$, so that $(bI-(a_{ij}))\omega = 0$. However, note that $\omega\neq 0$, so zero is an eigenvalue of the matrix $bI-(a_{ij})$, and thus $\det(bI-(a_{ij}))=0$. This gives a polynomial over $A$ for which $b$ is a root, so $b$ is integral over $A$.
 \end{proof}
 
 Compare this result to an arbitrary ring extension, which is not necessarily finitely generated as an $A$-module, just like the polynomial ring $A[x]$.
+
+\begin{cor}
+	Given an extension $A\subset B$ of rings, the elements of $B$ integral over $A$ form a subring of $B$.
+\end{cor}
+\begin{proof}
+	Take $b_1,b_2\in B$ integral over $A$. We have that $b_1+b_2\in A[b_1,b_2]$ and $b_1b_2\in A[b_1,b_2]$, so that $A[b_1,b_2]=A[b_1,b_2,b_1+b_2,b_1b_2]$, which gives that the latter is a finitely generated $A$-module. From this, we necessarily have that the generators $b_1+b_2$ and $b_1b_2$ are integral over $A$, and so integral elements form a subring of $B$.
+\end{proof}
 
 \begin{prop}
 	Let $A\subseteq B\subseteq C$ be ring extensions. If $B$ is integral over $A$ and $C$ is integral over $B$, then $C$ is integral over $A$.
