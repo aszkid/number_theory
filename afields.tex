@@ -356,9 +356,9 @@ so we have $(\Tr_{L\mid K})(\alpha_i\alpha_j)=(\sigma_k\alpha_i)^t(\sigma_k\alph
 
 The main use of integrality we care about in this presentation concerns the ring of integers $\calO_K$ of some algebraic number field $K$. 
 
-We remind ourselves of the usual setup: we have an integrally closed integral domain $A$, its field of fractions $K$, a finite separable extension $L\mid K$, and the integral closure $B$ of $A$ in $L$. The classical equivalent is given by $A=\bbZ$, $K=\bbQ$, $L$ a quadratic or cyclotomic extension, etc., and $B=\calO_K$ the ring of integers.
+We remind ourselves of the usual setup: we have an integrally closed integral domain $A$, its field of fractions $K$, a finite separable extension $L\mid K$, and the integral closure $B$ of $A$ in $L$. The classical example is given by $A=\bbZ$, $K=\bbQ$, $L$ a quadratic or cyclotomic extension, etc., and $B=\calO_K$ the ring of integers.
 
-Note that $x\in B$ implies that all its conjugates $\sigma x$ are integral in $L$ too. Hence $\Tr_{L\mid K}(x)$ and $\N_{L\mid K}(x)$ are in $A$.
+Note that $x\in B$ implies that all its conjugates $\sigma x$ are integral in $L$ too, satisfying the same monic polynomial. Hence $\Tr_{L\mid K}(x)$ and $\N_{L\mid K}(x)$ are in $A$.
 
 \begin{lem}
 	If $\alpha_1,\dots,\alpha_n$ is a basis of $L\mid K$ contained in $B$, of discriminant $d=d(\alpha_1,\dots,\alpha_n)$, we have
@@ -369,12 +369,12 @@ Note that $x\in B$ implies that all its conjugates $\sigma x$ are integral in $L
 \begin{proof}
 	Fix $\alpha\in B$. We have $\alpha=a_1\alpha_1+\cdots+a_n\alpha_n$ with $a_j\in K$. Taking the trace of both sides of the equality multiplied by $\alpha_i$, we get
 	\begin{align*}
-		\Tr_{L\mid K}(\alpha_i \alpha) &= \Tr_{L\mid K}(a_1\alpha_1+\cdots+a_n\alpha_n)\\
+		\Tr_{L\mid K}(\alpha_i \alpha) &= \Tr_{L\mid K}\left((a_1\alpha_1+\cdots+a_n\alpha_n)\alpha_i\right)\\
 			&= \sum_{j=1}^n \Tr_{L\mid K}(\alpha_i\alpha_j) a_j,
 	\end{align*}
-	this last equality by $\Tr$ being additive and $K$-linear. This gives a system of $n$ linear equations for which the $a_j$ are a solution. In fact, since the trace evaluated at elements in $B$ lands in $A$, this is a system with coefficients in $A$; say $Mx=b$.
+	this last equality by $\Tr$ being additive and $K$-linear. This gives a system of $n$ linear equations for which the $a_j$ are a solution. In fact, since the trace evaluated at elements in $B$ lands in $A$, this is a system with coefficients in $A$; say $Mx=b$ with $M=(\Tr_{L\mid K}(\alpha_i\alpha_j))$, $x=(a_i)$ and $b=\Tr_{L\mid K}(\alpha_i\alpha)$.
 
-	The determinant of $M=(\Tr_{L\mid K}(\alpha_i\alpha_j))$ is exactly $d$, so we have
+	The determinant of $M$ is exactly $d$, so we have
 	\begin{align*}
 		x &= M\inv b\\
 		  &= \det(M)\inv\adj(M)b.
@@ -383,33 +383,33 @@ Note that $x\in B$ implies that all its conjugates $\sigma x$ are integral in $L
 	Hence we can write $a_j$ as a quotient of some element in $A$ by $d$, i.e. $da_j\in A$. Therefore $d\alpha\in A\alpha_1+\cdots+A\alpha_n$.
 \end{proof}
 
-This setup, a system $\omega_1,\dots,\omega_n\in B$ that serves as a basis for $B$ over $A$ proves useful: we say that $\{\omega_j\}$ forms an \emph{integral basis} of $B$ over $A$. Note that such a basis immediately gives a basis of $L\mid K$ (for $L$ is the field of fractions of $B$), which forces our integral basis to be of length $[L:K]$. In particular, if $B$ admits an integral basis, we can consider $B$ as a free $A$-module or rank $[L:K]$.
+This setup, a system $\omega_1,\dots,\omega_n\in B$ that serves as a basis for $B$ over $A$ proves useful: we say that $\{\omega_j\}$ forms an \emph{integral basis} of $B$ over $A$. Note that such a basis immediately gives a basis of $L\mid K$ (for $L$ is the field of fractions of $B$), which forces our integral basis to be of cardinality $[L:K]$. In particular, if $B$ admits an integral basis, we can consider $B$ as a free $A$-module or rank $[L:K]$.
 
-For most of our upcoming work, we require $A$ to be a principal ideal domain. This nicely classifies $B$-submodules of $L$.
+For most of our upcoming work, we require $A$ to be a principal ideal domain. The following is a remarkable result for finitely generated $B$-submodules, considered as $A$-modules, which will prove very useful in the sequel.
 
 \begin{prop}
 	If $L\mid K$ is separable and $A$ is a PID, then every finitely generated $B$-submodule $M\neq 0$ is a free $A$-module of rank $[L:K]$.
 \end{prop}
 \begin{proof}
-	Let $M\neq 0$ be a finitely generated $B$-submodule of $L$ and $\alpha_1,\dots,\alpha_n$ a basis of $L\mid K$. We want to apply the previous theorem, but first need to somehow shift the basis to lie in $B$. Fix $\alpha_i$; we have some monic polynomial $p(x)$ with coefficients $a_j$ in $K$ for which $\alpha_i$ is a root. Let $l$ be the product of all the denominators of the $a_j$, so that
+	Let $M\neq 0$ be a finitely generated $B$-submodule of $L$ and $\alpha_1,\dots,\alpha_n$ a basis of $L\mid K$. We want to apply the previous theorem, but first need to somehow shift the basis to lie in $B$. For each $\alpha_i$, we have some monic polynomial $p(x)$ with coefficients $a_j$ in $K$ for which $\alpha_i$ is a root. Let $l$ be the product of all the denominators of the $a_j$, so that
 	\begin{align*}
-		l^n p(\alpha) = l^n \alpha_n + l^n a_1 \alpha^{n-1} + \cdots + l^n a_n = 0.
+		l^n p(\alpha_i) = l^n \alpha_i^n + l^n a_1 \alpha_i^{n-1} + \cdots + l^n a_n = 0.
 	\end{align*}
 
 	Now consider the monic polynomial
 	\begin{align*}
 		q(x) = x^n + l a_1 x^{n-1} + \cdots + l^n a_n,
 	\end{align*}
-	which has coefficients in $A$ (denominators cancel thanks to $l$). This polynomial has $l\alpha$ as a root, which implies that $l\alpha$ is integral over $A$, that is $l\alpha\in B$. We repeat this procedure for each element of the basis, and hereafter refer to this new basis simply as $\alpha_j\in B$.
+	which has coefficients in $A$ (denominators cancel thanks to $l$). This polynomial has $l\alpha_i$ as a root, which implies that $l\alpha_i$ is integral over $A$, that is $l\alpha_i\in B$. We repeat this procedure for each element of the basis, and hereafter refer to this new basis for $L\mid K$ simply as $\alpha_j\in B$.
 
 	Hence, with $d=d(\alpha_1,\dots,\alpha_n)$, we have $dB\subseteq A\alpha_1+\cdots+A\alpha_n$. In the language of modules, we have that $dB$ is a submodule of the free module $A_1\alpha_1\oplus\cdots\oplus A_n\alpha_n$. In particular, $A$ is a PID, so it is noetherian, and therefore $dB$ is a torsion-free finitely generated module. Since $dB$ has no torsion part, by the classification theorem of finitely generated modules over PIDs it is necessarily a free module of rank $m \leq n = [L:K]$.
 
-	Now notice that having a system of generators $\alpha_j$ for $B$ as an $A$-module implies that we also have a system of generators for $L$ as a $K$-module. In fact, we have $dB=A\beta_1\oplus\cdots\oplus A\beta_m$ with $\beta_j\in dB$, hence $\frac{\beta_j}{d}\in B$. Now let $b\in B$, so that
+	 Now, we have $dB=A\beta_1\oplus\cdots\oplus A\beta_m$ with $\beta_j\in dB$, hence $\frac{\beta_j}{d}\in B$. Let $b\in B$, so that
 	\begin{align*}
 		db &= b_1\beta_1 + \cdots + b_m\beta_m\\
 		b &= b_1\frac{\beta_1}{d} + \cdots + b_m\frac{\beta_m}{d}
 	\end{align*}
-	with $b_j\in A$. This shows that the rank of $B$ is also $m$, i.e. $\rank(B)\leq[L:K]$. The same argument as in the previous lemma shows that a system of the same length generates $L$ as a $K$-module, which forces $\rank(B)=[L:K]$. Now choose a system $\mu_1,\dots,\mu_r\in M$ of generators of the $B$-module $M$. Again, we can choose some $a_i\in A$ for which $a_i\mu_i\in B$; in fact, letting $a=a_1\cdots a_n$ we get a single element for which $a\mu_i\in B$ for all $i$. Hence $aM\subseteq B$, so that
+	with $b_j\in A$. This shows that the rank of $B$ is also $m$, i.e. $\rank(B)\leq[L:K]$. Thus having a system of generators $\alpha_j$ for $B$ as an $A$-module implies that we also have a system of generators for $L$ as a $K$-module, which forces $\rank(B)=[L:K]$. Now choose a system $\mu_1,\dots,\mu_r\in M$ of generators of the $B$-module $M$. Again, we can choose some $a_i\in A$ for which $a_i\mu_i\in B$; in fact, letting $a=a_1\cdots a_n$ we get a single element for which $a\mu_i\in B$ for all $i$. Hence $aM\subseteq B$, so that
 	\[
 		adM \subseteq dB \subseteq M_0
 	\]
