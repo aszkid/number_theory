@@ -13,7 +13,7 @@ If we had $3=\alpha\beta$ as non-units, taking the norm on both sides gives $9=\
 \]
 which does not exist, purely by inspection. A similar argument works to show that $7$, $1+2\sqrt{-5}$ and $1-2\sqrt{-5}$ are also irreducible in $\calO_K$. Furthermore, 3 and 7 are not associated to $1+2\sqrt{-5}$ nor $1-2\sqrt{-5}$. Hence we have two fundamentally distinct factorizations of 21 in terms of irreducible elements.
 
-The bottom line is that unique factorization does \emph{not} hold in the ring of integers of $\bbQ(\sqrt{-5})$, which is bad news. If we want to do arithemtic in $\calO_K$ the same way we do arithmetic in $\bbZ$, unique factorization into primes is a must. Eduard Kummer proposed the idea of ``ideal numbers'', in order to replace the not-so-useful notion of  irreducibles. The goal is to define ``ideal prime numbers'' $\frakp_1$, $\frakp_2$, $\frakp_3$ and $\frakp_4$ for which
+The bottom line is that unique factorization does \emph{not} hold in the ring of integers of $\bbQ(\sqrt{-5})$, which is bad news. If we want to do arithmetic in $\calO_K$ the same way we do arithmetic in $\bbZ$, unique factorization into primes is a must. Eduard Kummer proposed the idea of ``ideal numbers'', in order to replace the not-so-useful notion of  irreducibles. The goal is to define ``ideal prime numbers'' $\frakp_1$, $\frakp_2$, $\frakp_3$ and $\frakp_4$ for which
 \begin{align*}
 	3 = \frakp_1\frakp_2 && 7 = \frakp_3\frakp_4 && 1+2\sqrt{-5} = \frakp_1\frakp_3 && 1-2\sqrt{-5} = \frakp_2\frakp_4,
 \end{align*}
@@ -54,7 +54,7 @@ To prove unique factorization of ideals, we require two lemmas.
 	If $\fraka\neq 0$ is an ideal of $\calO$, then there exist non-zero prime ideals $\frakp_1,\dots,\frakp_r$ such that $\fraka\supseteq\frakp_1\cdots\frakp_r$.
 \end{lem}
 \begin{proof}
-	Let $\frakM$ be the set of ideals of $\calO$ which do not satisfy this condition, and assume it is non-empty. We order $\frakM$ by inclusion, and by $\calO$ being noetherian we get a maximal element $\fraka$, which is necessarily not a prime ideal. Hence we have $b_1,b_2\in\calO$ such that $b_1b_2\in\fraka$ but $b_1,b_2\notin\fraka$. Let $\fraka_1 = (b_1) + \fraka$ and $\fraka_2 = (b_2) + \fraka$, so that $\fraka\subset\fraka_1$, $\fraka\subset\fraka_2$ and $\fraka_1\fraka_2\subset\fraka$. By $\fraka$ being maximal, $\fraka_1$ and $\fraka_2$ are not in $\frakM$ so they must contain a product of prime ideals, which implies that $\fraka$ contains one too, a contradicition.
+	Let $\frakM$ be the set of ideals of $\calO$ which do not satisfy this condition, and assume it is non-empty. We order $\frakM$ by inclusion, and by $\calO$ being noetherian we get a maximal element $\fraka$, which is necessarily not a prime ideal. Hence we have $b_1,b_2\in\calO$ such that $b_1b_2\in\fraka$ but $b_1,b_2\notin\fraka$. Let $\fraka_1 = (b_1) + \fraka$ and $\fraka_2 = (b_2) + \fraka$, so that $\fraka\subset\fraka_1$, $\fraka\subset\fraka_2$ and $\fraka_1\fraka_2\subset\fraka$. By $\fraka$ being maximal, $\fraka_1$ and $\fraka_2$ are not in $\frakM$ so they must contain a product of prime ideals, which implies that $\fraka$ contains one too, a contradiction.
 \end{proof}
 
 Fix a prime ideal $\frakp$ of $\calO$ and define
@@ -75,7 +75,7 @@ Note that $\frakp\inv$ lies in $K$, not in $\calO$. It consists of elements in $
 	\[
 		x\alpha_i = \sum_j a_{ij}\alpha_j.
 	\]
-	Writing $A=(x\delta_{ij} - a_{ij})$ we get $A(\alpha_1,\dots,\alpha_n)^t=0$, so with $d=\det(A)$ we have $d\alpha_1=\cdots=d\alpha_n=0$, which implies that $d=0$. Hence $x$ solves the monic polyonomial $f(X)=\det(X\delta_{ij}-a_{ij})$ with coefficients in $\calO$, i.e. $x$ is integral so $x\in\calO$. The choice of $x$ was arbitrary, so $\frakp\inv=\calO$, a contradiction.
+	Writing $A=(x\delta_{ij} - a_{ij})$ we get $A(\alpha_1,\dots,\alpha_n)^t=0$, so with $d=\det(A)$ we have $d\alpha_1=\cdots=d\alpha_n=0$, which implies that $d=0$. Hence $x$ solves the monic polynomial $f(X)=\det(X\delta_{ij}-a_{ij})$ with coefficients in $\calO$, i.e. $x$ is integral so $x\in\calO$. The choice of $x$ was arbitrary, so $\frakp\inv=\calO$, a contradiction.
 	
 \end{proof}
 
@@ -140,7 +140,7 @@ It is clear that if $\fraka_i\mid\fraka$ for $i=1,\dots,n$ then $\fraka\subseteq
 		a \longmapsto \bigoplus_i a\Mod{\fraka_i}.
 	\end{align*}
 
-	Note that $a\in\calO$ is in the kernel if $a\equiv 0\Mod{\fraka_i}$ for all $i$, i.e. $a\in\bigcap_i\fraka_i$. Reverse inclusion is clear, so the kernel of this homomorphism is exactly $\fraka$. It sufficies to show that the map is surjective to apply the first isomorphism theorem, which follows by an induction argument.
+	Note that $a\in\calO$ is in the kernel if $a\equiv 0\Mod{\fraka_i}$ for all $i$, i.e. $a\in\bigcap_i\fraka_i$. Reverse inclusion is clear, so the kernel of this homomorphism is exactly $\fraka$. It suffices to show that the map is surjective to apply the first isomorphism theorem, which follows by an induction argument.
 \end{proof}
 
 
@@ -174,7 +174,7 @@ To illustrate why this definition captures the notion of a fractional ideal $\fr
 	\[
 		\fraka = \prod_{\frakp} \frakp^{v_\frakp}
 	\]
-	with $v_{\frakp}\in\bbZ$ and $v_{\frakp}=0$ for allmost all $\frakp$.
+	with $v_{\frakp}\in\bbZ$ and $v_{\frakp}=0$ for almost all $\frakp$.
 \end{cor}
 \begin{proof}
 	We first claim that any fractional ideal $\fraka$ can be written as a quotient of two integral ideals. Recall that we have some $c\in\calO$ for which $c\fraka$ is an integral ideal, say $\frakb$. Note that this still holds if we replace $c$ by the principal ideal it generates, i.e. $(c)\fraka=\frakb$. Letting $\frakc=(c)$, we conclude that $\fraka=\frakb\frakc\inv$, so every fractional ideal is indeed of this form.
