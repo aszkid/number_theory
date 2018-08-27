@@ -77,7 +77,7 @@ Compare this result to an arbitrary ring extension, which is not necessarily fin
 	Take $b_1,b_2\in B$ integral over $A$. We have that $b_1+b_2\in A[b_1,b_2]$ and $b_1b_2\in A[b_1,b_2]$, so that $A[b_1,b_2]=A[b_1,b_2,b_1+b_2,b_1b_2]$, which gives that the latter is a finitely generated $A$-module. From this, we necessarily have that the generators $b_1+b_2$ and $b_1b_2$ are integral over $A$, and so integral elements form a subring of $B$.
 \end{proof}
 
-\begin{prop}
+\begin{prop}[Neukirch 2.4]
 	Let $A\subseteq B\subseteq C$ be ring extensions. If $B$ is integral over $A$ and $C$ is integral over $B$, then $C$ is integral over $A$.
 \end{prop}
 \begin{proof}
@@ -221,7 +221,7 @@ Note that if $L=K(x)$, we have that $f_x(t)=p_x(t)$.
 
 A special form for field trace and norm can be given if $L\mid K$ is a separable extension.
 
-\begin{prop}
+\begin{prop}[Neukirch 2.6]
 	Given a separable field extension $L\mid K$ and $\sigma : L\to\overline{K}$ a $K$-embedding of $L$, we have
 	\begin{enumerate}[(i)]
 		\item $f_x(t)= \prod_\sigma(t-\sigma x)$,
@@ -263,7 +263,7 @@ A special form for field trace and norm can be given if $L\mid K$ is a separable
 
 The trace and norm behave well as we take field extensions:
 
-\begin{cor}
+\begin{cor}[Neukirch 2.7]
 	Given a tower of finite field extensions $K\subset L\subset M$, we have
 	\begin{align*}
 		\Tr_{L\mid K} \circ \Tr_{M\mid L} = \Tr_{M\mid K}, & & \N_{L\mid K} \circ \N_{M\mid L} = \N_{M\mid K}.
@@ -319,7 +319,7 @@ so we have $(\Tr_{L\mid K})(\alpha_i\alpha_j)=(\sigma_k\alpha_i)^t(\sigma_k\alph
 \]
 
 
-\begin{prop}
+\begin{prop}[Neukirch 2.8]
 	If $L\mid K$ is separable and $\alpha_1,\dots,\alpha_n$ is a basis for $L$, we have that $d(\alpha_1,\dots,\alpha_n)\neq 0$ and $(x,y) \to \Tr_{L\mid K}(xy)$ is a nondegenerate bilinear form on $L$ as a $K$-vector space.
 \end{prop}
 \begin{proof}
@@ -360,7 +360,7 @@ We remind ourselves of the usual setup: we have an integrally closed integral do
 
 Note that $x\in B$ implies that all its conjugates $\sigma x$ are integral in $L$ too, satisfying the same monic polynomial. Hence $\Tr_{L\mid K}(x)$ and $\N_{L\mid K}(x)$ are in $A$.
 
-\begin{lem}
+\begin{lem}[Neukirch 2.9]
 	If $\alpha_1,\dots,\alpha_n$ is a basis of $L\mid K$ contained in $B$, of discriminant $d=d(\alpha_1,\dots,\alpha_n)$, we have
 	\[
 		dB\subseteq A\alpha_1 + \cdots + A\alpha_n.
@@ -387,7 +387,7 @@ This setup, a system $\omega_1,\dots,\omega_n\in B$ that serves as a basis for $
 
 For most of our upcoming work, we require $A$ to be a principal ideal domain. The following is a remarkable result for finitely generated $B$-submodules, considered as $A$-modules, which will prove very useful in the sequel.
 
-\begin{prop}
+\begin{prop}[Neukirch 2.10]
 	If $L\mid K$ is separable and $A$ is a PID, then every finitely generated $B$-submodule $M\neq 0$ is a free $A$-module of rank $[L:K]$.
 \end{prop}
 \begin{proof}
@@ -436,7 +436,7 @@ In particular, given an integral basis $\omega_1,\dots,\omega_n$ of $\calO_K$, w
 
 The following proposition that relates two $\calO_K$-submodules will be useful later.
 
-\begin{prop}
+\begin{prop}[Neukirch 2.12]
 	If $\fraka\subseteq\fraka'$ are two non-zero finitely generated $\calO_K$-submodules of $K$, then the index $(\fraka:\fraka')$ is finite and satisfies
 	\[
 		d(\fraka) = (\fraka:\fraka')^2 d(\fraka').

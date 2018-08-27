@@ -20,7 +20,7 @@ Note that a complete lattice is `complete' in the sense that translates of $\Phi
 
 For our applications to number fields, we prefer to characterize lattices without referring to `linearly independent' vectors. To begin with, lattices are finitely generated subgroups of $V$, but not necessarily the other way around (e.g. $\bbZ+\bbZ\sqrt{2}$ is a subgroup of $V=\bbR$ but not a lattice, since 1 and $\sqrt{2}$ are not linearly independent). The full characterization considers lattices $\Gamma=\bbZ v_1 + \cdots + \bbZ v_m$ as \emph{discrete subgroups} of $V$: every point $\gamma\in\Gamma$ must have a neighborhood in which no other point of the lattice is contained, i.e. it must be isolated.
 
-\begin{prop}
+\begin{prop}[Neukirch 4.2]
 	A subgroup $\Gamma\subseteq V$ is a lattice if and only if it is discrete.
 \end{prop}
 \begin{proof}
@@ -44,7 +44,7 @@ For our applications to number fields, we prefer to characterize lattices withou
 
 The following lemma is a criterion for identifying complete lattices.
 
-\begin{lem}
+\begin{lem}[Neukirch 4.3]
 	A lattice $\Gamma$ in $V$ is complete if and only if there exists a bounded subset $M\subseteq V$ such that the collection of all translates $M+\gamma$, with $\gamma\in\Gamma$, covers all of $V$.
 \end{lem}
 \begin{proof}
@@ -68,7 +68,7 @@ If we restrict our attention to $V$ an euclidean vector space, we have a sensibl
 
 A subset $X$ of $V$ is \emph{centrally symmetric} if, given any $x\in X$, the point $-x$ is also in $X$. The subset is \emph{convex} if the line segment joining two points $x,y\in X$ is contained in $X$.
 
-\begin{thm}[Minkowski's Lattice Point Theorem]
+\begin{thm}[Minkowski's Lattice Point Theorem -- Neukirch 4.4]
 	Let $\Gamma$ be a complete lattice in the euclidean vector space $V$ and $X$ a centrally symmetric, convex subset of $V$. Suppose that $\vol(X) > 2^n\vol(\Gamma)$. Then $X$ contains at least one non-zero lattice point of $\Gamma$.
 \end{thm}
 \begin{proof}
@@ -139,7 +139,7 @@ Hence, we get
 \]
 
 
-\begin{prop}
+\begin{prop}[Neukirch 5.1]
 	There is an isomorphism
 	\[
 		f : K_\bbR \to \prod_\tau \bbR = \bbR^{r+2s}
@@ -161,7 +161,7 @@ The two different measures (on $K_\bbR$ and $\bbR^{r+2s}$) differ by
 
 The map $j:K\to K_\bbR$, which `embeds' the number field $K$ into the euclidean vector space $K_\bbR$, is the beginning of our study of `geometric' number theory.
 
-\begin{prop}
+\begin{prop}[Neukirch 5.2]
 	If $\fraka\neq 0$ is an ideal of $\calO_K$, then $\Gamma=j\fraka$ is a complete lattice in $K_\bbR$. Its fundamental mesh has volume
 	\[
 		\vol(\Gamma) = \sqrt{|d_K|}(\calO_K:\fraka).
@@ -194,7 +194,7 @@ The map $j:K\to K_\bbR$, which `embeds' the number field $K$ into the euclidean 
 
 The following result, chiefly using Minkowski's lattice theorem, is the fundamental tool in our next results on $Cl_K$.
 
-\begin{thm}
+\begin{thm}[Neukirch 5.3]
 	Let $\fraka\neq 0$ be an integral ideal of $K$, and let $c_\tau>0$, for $\tau\in\Hom(K,\bbC)$, be real numbers such that $c_\tau=c_{\overline{\tau}}$ and
 	\[
 		\prod_\tau c_\tau > A(\calO_k:\fraka),

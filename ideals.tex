@@ -29,7 +29,7 @@ But this set is, almost by definition, an ideal of $\calO_K$: closed under addit
 \subsection{Dedekind domains}
 
 
-\begin{thm}
+\begin{thm}[Neukirch 3.1]
 	The ring $\calO_K$ is noetherian, integrally closed, and every prime ideal $\frakp\neq 0$ is a maximal ideal.
 \end{thm}
 \begin{proof}
@@ -50,7 +50,7 @@ Consider an arbitrary Dedekind domain $\calO$, and denote by $K$ its field of fr
 
 To prove unique factorization of ideals, we require two lemmas.
 
-\begin{lem}
+\begin{lem}[Neukirch 3.4]
 	If $\fraka\neq 0$ is an ideal of $\calO$, then there exist non-zero prime ideals $\frakp_1,\dots,\frakp_r$ such that $\fraka\supseteq\frakp_1\cdots\frakp_r$.
 \end{lem}
 \begin{proof}
@@ -63,7 +63,7 @@ Fix a prime ideal $\frakp$ of $\calO$ and define
 \]
 Note that $\frakp\inv$ lies in $K$, not in $\calO$. It consists of elements in $K$ that are brought to lie in $\calO$ through multiplication by $\frakp$, i.e. ``fractions'' that have some element of $\frakp$ in the ``denominator''.
 
-\begin{lem}
+\begin{lem}[Neukirch 3.5]
 	For every ideal $\fraka\neq 0$ of $\calO$ we have $\fraka\frakp\inv\neq\fraka$.
 \end{lem}
 \begin{proof}
@@ -128,7 +128,7 @@ An analogue of the classical Chinese remainder theorem holds for any commutative
 
 It is clear that if $\fraka_i\mid\fraka$ for $i=1,\dots,n$ then $\fraka\subseteq\bigcap_{i=1}^n \fraka_i$ by definition of divisibility of ideals. The other direction is not hard: fix $a\in\bigcap_i\fraka_i$, which implies that $a\in\fraka_i$ for all $i$, i.e. $\fraka_i\mid a$. By the $\fraka_i$ being pair-wise coprime, we get that $\fraka_1\cdots\fraka_n\mid a$, i.e. $a\in\fraka$. We are now ready to state the theorem.
 
-\begin{thm}[Chinese remainder theorem]
+\begin{thm}[Chinese remainder theorem -- Neukirch 3.6]
 	Let $\fraka_1,\dots,\fraka_n$ be pair-wise coprime ideals of $\calO$, i.e. $\fraka_i+\fraka_j=\calO$ for $i\neq j$. Then, with $\fraka=\bigcap_{i=1}^n\fraka_i$, we have
 	\[
 		\calO/\fraka \cong \bigoplus_{i=1}^n\calO/\fraka_i.
@@ -156,7 +156,7 @@ We return to a Dedekind domain $\calO$. Just like non-zero elements in $\calO$ h
 To illustrate why this definition captures the notion of a fractional ideal $\fraka\neq 0$ of $K$ being a `fraction', consider the following argument. By the classification theorem of finitely generated $\calO$-submodules in $K$ of our last section, we have that $\fraka$ is a free $\bbZ$-module, i.e. $\fraka=a_1\bbZ\oplus\cdots\oplus a_n\bbZ$, where $a_i\in K$. Let $c$ be the product of each denominator of $a_i$, so $c\in\calO$ and $c\neq 0$. Then $c\fraka = ca_1\bbZ\oplus\cdots\oplus ca_n\bbZ$ is a free $\bbZ$-module with basis in $\calO$, hence an ideal in $\calO$. On the other hand, if $\fraka\neq 0$ is an $\calO$-submodule of $K$ for which there is some $c\in\calO$ with $c\fraka$ an ideal of $\calO$, we again write $c\fraka$ as a free $\bbZ$-module and divide over $c$ to conclude that $\fraka$ is itself a finitely generated $\calO$-submodule in $K$, i.e. a fractional ideal. This is the technical explanation to the notion that $c$ `clears the denominator of $\fraka$'. We call ideals in $\calO$ \emph{integral ideals}, to distinguish them from fractional ideals. Multiplication of fractional ideals is the same as multiplication of their integral counterparts.
 
 
-\begin{prop}
+\begin{prop}[Neukirch 3.8]
 	The fractional ideals of a Dedekind domain $\calO$ in its field of fractions $K$ form an abelian group, called the \emph{ideal group} $J_K$ of $K$. The identity is $(1)=\calO$ and the inverse of an integral ideal $\fraka$ is $\fraka\inv$.
 \end{prop}
 \begin{proof}
@@ -169,7 +169,7 @@ To illustrate why this definition captures the notion of a fractional ideal $\fr
 	Finally let $\fraka$ be a fractional ideal. We have some non-zero $c\in\calO$ for which $c\fraka\subseteq\calO$ is an integral ideal, which has $(c\fraka)\inv = \{x\in K\mid x(c\fraka)\subseteq\calO\} = \{x\in K\mid (xc\inv)\fraka\subseteq\calO\} = c\inv\fraka\inv$ as its inverse. Then $(c\fraka) (c\inv\fraka\inv)=\calO$ so $\fraka\fraka\inv=\calO$, i.e. $\fraka\inv$ is the inverse of $\fraka$.
 \end{proof}
 
-\begin{cor}
+\begin{cor}[Neukirch 3.9]
 	Every fractional ideal $\fraka$ admits a unique representation as a product
 	\[
 		\fraka = \prod_{\frakp} \frakp^{v_\frakp}
