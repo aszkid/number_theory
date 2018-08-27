@@ -240,7 +240,7 @@ sine a $\bbZ$-basis $\omega_1,\dots,\omega_n$ of $\calO_K$ gives a $\bbZ$-basis 
 
 We now show that the absolute norm is multiplicative over prime ideals.
 
-\begin{prop}
+\begin{prop}[Neukirch 6.1]
 	If $\fraka=\frakp_1^{v_1}\cdots\frakp_r^{v_r}$ is the prime factorization of an ideal $\fraka\neq 0$, then we have
 	\[
 		\frakN(\fraka) = \frakN(\frakp_1)^{v_1}\cdots\frakN(\frakp_r)^{v_r}.
@@ -265,16 +265,7 @@ We now show that the absolute norm is multiplicative over prime ideals.
 			&= \frakN(\frakp)^v.
 	\end{align*}
 
-	The first equality concering indices is given by the following inductive argument. Let $M=M_0\supseteq M_1\supseteq \cdots\supseteq M_v$ be a sequence of modules for which each quotient $M_i/M_{i+1}$ is simple (it contains no non-zero proper submodules), and assume that $M$ is Noetherian and Artinian. Such a sequence takes the name of a \emph{composition sequence}, and by $M$ being Artinian we must have a finite $v$ for which $M_v=0$. In fact, we have (Eisenbud, 2.13) that any composition sequence of $M$ must have the same $v$, which we call its \emph{length}. We claim that, in general,
-	\[
-		|M| = \prod_{i=1}^{v-1} |M_i/M_{i+1}|.
-	\]
-
-	In fact, by the usual quotient homomorphism $M_0\to M_0/M_1$ we have $|M_0|=|M_0/M_1|\cdot|M_1|$. Again $M_1\to M_1/M_2$ gives $|M_1|=|M_1/M_2|\cdot|M_2|$, so $|M_0|=|M_0/M_1|\cdot|M_1/M_2|\cdot|M_2|$. It is clear that our equality follows.
-
-	Our inductive proof is as follows. For the base case, let $v=1$, and consider the quotient homomorphism $M_0\twoheadrightarrow M_0/M_1=M_0$: this trivially gives $|M|=|M_0|$. Now assume that the product equality holds for modules of length up to $v-1$, and let $M$ be a module of length $v$. Any chain $M=M_0\supseteq M_1\supseteq\cdots\supseteq M_v$ quotiented out by $M_v$ gives a module of length $v-1$, for which the theorem holds. Lifting to our original composition sequence, (...)
-	
-	For this particular setup, we have $M_i/M_{i+1}\cong\frakp^i/\frakp^{i+1}\cong\calO_K/\frakp$.
+	The first equality concering indices is a standard argument in group theory, which is generalized by the notion of a composition series (see Lang).
 \end{proof}
 
 This automatically gives that the absolute norm is multiplicative over all ideals, and thus can be extended to a homomorphism
@@ -282,7 +273,7 @@ This automatically gives that the absolute norm is multiplicative over all ideal
 	\frakN : J_K \to \bbR^*_+.
 \]
 
-\begin{lem}
+\begin{lem}[Neukirch 6.2]
 	In every ideal $\fraka\neq 0$ of $\calO_K$ there exists a non-zero $a\in\fraka$ such that
 	\[
 		|N_{K\mid\bbQ}(a)| \leq \left(\frac{2}{\pi}\right)^s\sqrt{|d_K|}\frakN(\fraka).
@@ -294,7 +285,7 @@ This automatically gives that the absolute norm is multiplicative over all ideal
 		\prod_\tau c_\tau = \left(\frac{2}{\pi}\right)^s\sqrt{|d_K|}\frakN(\fraka)+ \epsilon.
 	\]
 
-	Applying (??), we get some $a\in\fraka$, non-zero, for which $|\tau a|<c_\tau$. Hence
+	Applying the lattice point theorem, we get some $a\in\fraka$, non-zero, for which $|\tau a|<c_\tau$. Hence
 	\begin{align*}
 		|N_{K\mid\bbQ}(a)| = \prod_\tau |\tau a| &< \prod_\tau c_\tau\\
 			&= \left(\frac{2}{\pi}\right)^s\sqrt{|d_K|}\frakN(\fraka)+ \epsilon
@@ -302,7 +293,7 @@ This automatically gives that the absolute norm is multiplicative over all ideal
 	Our choice of $\epsilon$ was arbitrary, so letting $\epsilon\to 0$ we get the desired inequality.
 \end{proof}
 
-\begin{thm}
+\begin{thm}[Neukirch 6.3]
 	The ideal class group $Cl_K$ is finite. Its order $h_K=(J_K:P_K)$ is called the \emph{class number} of $K$.
 \end{thm}
 \begin{proof}

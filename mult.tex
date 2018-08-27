@@ -60,7 +60,7 @@ the composite of which, $\lambda := l\circ j$, gives an image that we denote by
 	\Gamma = \lambda(\calO_K) \subseteq H.
 \]
 
-\begin{prop}
+\begin{prop}[Neukirch 7.1]
 The sequence
 \begin{center}
 	\begin{tikzcd}
@@ -84,9 +84,16 @@ is exact.
 
 The following finiteness result will allow us to show that $\Gamma$ is a (complete) lattice in $H$.
 
-\begin{lem}
+\begin{lem}[Neukirch 7.2]
 	Up to multiplication by units, there are only finitely many elements $\alpha\in\calO_K$ of given norm $\N_{K\mid\bbQ}(\alpha)=a$.
 \end{lem}
+\begin{proof}
+	Fix $a\in\bbZ$, $a>1$. We claim that in every coset of of $\calO_K/a\calO_K$ there is at most (up to units) one element $\alpha$ with $|\N(\alpha)|=|\N_{K\mid\bbQ}(\alpha)|=a$. Else, if $\beta=\alpha+a\gamma$ is another ($\gamma\in\calO_K$), then
+	\[
+		\alpha/\beta = 1 \pm \N(\beta)/\beta \gamma \in \calO_K
+	\]
+	since $\N(\beta)/\beta \in \calO_K$, and similarly $\beta/\alpha\in\calO_K$, so $\beta$ is associated to $\alpha$.
+\end{proof}
 
 \begin{thm}
 	The group $\Gamma$ is a complete lattice in the $(r+s-1)$-dimensional vector space $H$, and is therefore isomorphic to $\bbZ^{r+s-1}$.
@@ -94,7 +101,7 @@ The following finiteness result will allow us to show that $\Gamma$ is a (comple
 
 Having established that $\Gamma$ has a nice $\bbZ$-module structure, understanding $\calO^*_K$ requires very little effort.
 
-\begin{thm}[Dirichlet's unit theorem]
+\begin{thm}[Dirichlet's unit theorem -- Neukirch 7.4]
 	The group of units $\calO^*_K$ of $\calO_K$ is the direct product of the finite cyclic group $\mu(K)$ and a free abelian group of rank $r+s-1$.
 \end{thm}
 \begin{proof}
