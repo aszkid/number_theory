@@ -95,9 +95,12 @@ The following finiteness result will allow us to show that $\Gamma$ is a (comple
 	since $\N(\beta)/\beta \in \calO_K$, and similarly $\beta/\alpha\in\calO_K$, so $\beta$ is associated to $\alpha$.
 \end{proof}
 
-\begin{thm}
+\begin{thm}[Neukirch 7.3]
 	The group $\Gamma$ is a complete lattice in the $(r+s-1)$-dimensional vector space $H$, and is therefore isomorphic to $\bbZ^{r+s-1}$.
 \end{thm}
+\begin{proof}
+	Neukirch's proof proceeds as follows: first, it is shown that $\Gamma$ is indeed a lattice by considering the mapping from which $\lambda:\calO_K^*\to H$ arises by restriction. To show that $\Gamma$ is complete, the proof invokes Minkowski's lattice theorem to construct a bounded set that spans the lattice (in this case, through multiplicative translates).
+\end{proof}
 
 Having established that $\Gamma$ has a nice $\bbZ$-module structure, understanding $\calO^*_K$ requires very little effort.
 
@@ -126,7 +129,7 @@ where $\xi$ is a root of unity and $\epsilon_i$ the ``fundamental'' units of $A$
 
 \subsection{Example -- Pell's equation}
 
-\begin{prop}
+\begin{prop}[Neukirch, Exercise 5.1]
 	Let $D>1$ be a square-free integer and $d$ the discriminant of the real quadratic number field $K=\bbQ(\sqrt{D}))$. Let $x_1,y_1$ be the uniquely determined rational integer solution of one of the equations
 	\[
 		x^2-dy^2=\pm 4,
