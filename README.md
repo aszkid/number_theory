@@ -1,4 +1,4 @@
-My notes on algebraic number theory for the UChicago REU, 2018.
+My notes on algebraic number theory for [Peter May's REU @ UChicago (2018)](http://math.uchicago.edu/~may/REU2018/).
 We closely followed Jürgen Neukirch's _Algebraic Number Theory_ (Springer-Verlag, 1999).
 
 ## What is algebraic number theory
