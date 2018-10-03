@@ -1,7 +1,7 @@
 My notes on algebraic number theory for [Peter May's REU @ UChicago (2018)](http://math.uchicago.edu/~may/REU2018/).
 We closely followed Jürgen Neukirch's _Algebraic Number Theory_ (Springer-Verlag, 1999).
 
-## What is algebraic number theory
+## What is algebraic number theory?
 
 To begin with, _number theory_ itself is a branch of mathematics concerned with the properties of _natural numbers_
 (more commonly called _counting numbers_, i.e. 1, 2 and 1999, but not 15.23).
